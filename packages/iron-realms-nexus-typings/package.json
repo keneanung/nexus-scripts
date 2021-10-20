@@ -5,5 +5,7 @@
   "repository": "https://github.com/keneanung/iron-realms-nexus-typings",
   "author": "keneanung <keneanung@googlemail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "main": "",
+  "types": "global.d.ts"
 }
