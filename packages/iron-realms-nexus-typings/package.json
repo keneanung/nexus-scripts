@@ -8,7 +8,4 @@
   "private": false,
   "main": "",
   "types": "global.d.ts",
-  "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
-  }
 }
