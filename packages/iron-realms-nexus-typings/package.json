@@ -1,11 +1,11 @@
 {
   "name": "@keneanung/iron-realms-nexus-typings",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Typings for the IRE MUD client Nexus.",
   "repository": "git://github.com/keneanung/iron-realms-nexus-typings.git",
   "author": "keneanung <keneanung@googlemail.com>",
   "license": "MIT",
   "private": false,
   "main": "",
-  "types": "global.d.ts",
+  "types": "global.d.ts"
 }
