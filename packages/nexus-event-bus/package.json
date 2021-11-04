@@ -1,10 +1,10 @@
 {
-  "name": "nexus_script_template",
+  "name": "nexus-event-bus",
   "version": "0.0.0",
-  "description": "Template for nexus scripts using typescript",
+  "description": "Event bus/broker for the IRE Nexus client",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
-  "repository": "git://github.com/keneanung/iron-realms-nexus-script-template.git",
+  "repository": "git://github.com/keneanung/nexus-event-bus.git",
   "main": "lib/index.js",
   "devDependencies": {
     "@keneanung/iron-realms-nexus-typings": "^0.0.3",
