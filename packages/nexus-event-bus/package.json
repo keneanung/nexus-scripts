@@ -35,6 +35,7 @@
     "webpackProd": "npm test && webpack build --mode production",
     "lint": "eslint . --ext .ts",
     "test": "jest --collect-coverage --config jestconfig.json",
+    "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
     "preversion": "npm test && npm run lint",
