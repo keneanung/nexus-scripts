@@ -1,0 +1,51 @@
+{
+  "name": "nexus_script_template",
+  "version": "0.0.0",
+  "description": "Template for nexus scripts using typescript",
+  "author": "keneanung <keneanung@gmail.com>",
+  "license": "MIT",
+  "repository": "git://github.com/keneanung/iron-realms-nexus-script-template.git",
+  "main": "lib/index.js",
+  "devDependencies": {
+    "@keneanung/iron-realms-nexus-typings": "^0.0.3",
+    "@types/jest": "^27.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "acorn": "^8.5.0",
+    "eslint": "^8.1.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^25.2.2",
+    "eslint-plugin-jsdoc": "^37.0.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-webpack-plugin": "^3.0.1",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.4",
+    "webpack": "^5.59.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1",
+    "write-pkg": "^5.0.0"
+  },
+  "scripts": {
+    "serve": "webpack serve --mode development",
+    "build": "tsc",
+    "webpack": "npm test && webpack build --mode development",
+    "webpackProd": "npm test && webpack build --mode production",
+    "lint": "eslint . --ext .ts",
+    "test": "jest --collect-coverage --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",
+    "prepublishOnly": "npm test && npm run lint && npm run build",
+    "preversion": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "website": "cd website && npm run start",
+    "setup": "node ./setup.mjs"
+  },
+  "files": [
+    "lib/**/*",
+    "!lib/**/__tests__/*",
+    "!lib/webpack/**/*"
+  ]
+}
