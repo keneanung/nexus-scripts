@@ -17,3 +17,14 @@ test('Allow to raise events without subscribers', async () => {
 
   expect(async () => await bus.raise('TestEvent', 'foo')).not.toThrow();
 })
+
+test('Allow to subscirbe to all events', async ()=> {
+  const bus = new EventBus();
+  const callback = jest.fn();
+  bus.subscribe('*', callback);
+
+  bus.raise('TestEvent1', 'foo');
+  bus.raise('TetsEvent2', 'bar');
+
+  expect(callback).toBeCalledTimes(2);
+});

@@ -8,6 +8,7 @@ declare type EventCallback<T extends any = any> = (argument: T) => Promise<void>
  */
 export class EventBus {
     private subscriptions: { [eventName: string]: EventCallback[] } = {};
+    private subscriptionsToAll: EventCallback[] = [];
 
     /**
      * Subscribes a new callback to a given event.
@@ -16,10 +17,20 @@ export class EventBus {
      * @param {EventCallback} callback The callback to run on the given event
      */
     public subscribe<T>(eventName: string, callback: EventCallback<T>): void {
-        if (this.subscriptions[eventName] === undefined) {
-            this.subscriptions[eventName] = [];
+        let eventCallbackList: EventCallback<T>[];
+        if (eventName === '*') {
+            eventCallbackList = this.subscriptionsToAll;
+        } else {
+            if (this.subscriptions[eventName] === undefined) {
+                this.subscriptions[eventName] = [];
+            }
+            eventCallbackList = this.subscriptions[eventName];
         }
-        this.subscriptions[eventName].push(callback);
+        this.subscribeToEvent<T>(eventCallbackList, callback);
+    }
+
+    private subscribeToEvent<T>(eventCallbackList: EventCallback<T>[], callback: EventCallback<T>) {
+        eventCallbackList.push(callback);
     }
 
     /**
@@ -31,9 +42,14 @@ export class EventBus {
      */
     public async raise<T>(eventName: string, eventArgument: T) {
         const subscriptions = this.subscriptions[eventName];
+        this.runCallbacks<T>(subscriptions, eventArgument);
 
+        this.runCallbacks<T>(this.subscriptionsToAll, eventArgument);
+    }
+
+    private runCallbacks<T>(subscriptions: EventCallback<T>[], eventArgument: T) {
         if (subscriptions !== undefined) {
-            subscriptions.forEach(async callback => {
+            subscriptions.forEach(async (callback) => {
                 await callback(eventArgument);
             });
         }
