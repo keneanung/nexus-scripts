@@ -15,7 +15,7 @@ test('Allow to raise an event with the given argument', async () => {
 test('Allow to raise events without subscribers', async () => {
   const bus = new EventBus();
 
-  expect(async () => await bus.raise('TestEvent', 'foo')).not.toThrow();
+  await bus.raise('TestEvent', 'foo');
 })
 
 test('Allow to subscribe to all events', async () => {
@@ -59,14 +59,14 @@ test('Allow to unsubscribe from events', async () => {
 test('Allow to unsubscribe from events we never subscribed to', async () => {
   const bus = new EventBus();
 
-  expect(() => bus.unsubscribe('TestEvent', async () => { })).not.toThrow();
+  bus.unsubscribe('TestEvent', async () => { })
 })
 
 test('Allow to unsubscribe from events we never subscribed to, but which has other subscritions', async () => {
   const bus = new EventBus();
 
   bus.subscribe('TestEvent', async () => { console.log('hey') });
-  expect(() => bus.unsubscribe('TestEvent', async () => { })).not.toThrow();
+  bus.unsubscribe('TestEvent', async () => { })
 })
 
 test('Allow to unsubscribe from all events', async () => {
