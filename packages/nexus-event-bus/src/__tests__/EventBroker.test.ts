@@ -18,7 +18,7 @@ test('Allow to raise events without subscribers', async () => {
   expect(async () => await bus.raise('TestEvent', 'foo')).not.toThrow();
 })
 
-test('Allow to subscirbe to all events', async ()=> {
+test('Allow to subscribe to all events', async () => {
   const bus = new EventBus();
   const callback = jest.fn();
   bus.subscribe('*', callback);
@@ -27,4 +27,19 @@ test('Allow to subscirbe to all events', async ()=> {
   bus.raise('TetsEvent2', 'bar');
 
   expect(callback).toBeCalledTimes(2);
+});
+
+test('Allow all callbacks to run on error', async () => {
+  const bus = new EventBus();
+  bus.subscribe('TestEvent', () => { throw new Error('foo') });
+  const callback = jest.fn();
+  bus.subscribe('TestEvent', callback);
+  const originalError = console.error;
+  // replace the error function to avoid having something on STDERR
+  console.error = () => {};
+
+  await bus.raise('TestEvent', undefined);
+
+  console.error = originalError;
+  expect(callback).toBeCalledTimes(1);
 });

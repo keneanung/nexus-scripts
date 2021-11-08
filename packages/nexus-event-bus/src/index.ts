@@ -50,7 +50,11 @@ export class EventBus {
     private runCallbacks<T>(subscriptions: EventCallback<T>[], eventArgument: T) {
         if (subscriptions !== undefined) {
             subscriptions.forEach(async (callback) => {
-                await callback(eventArgument);
+                try {
+                    await callback(eventArgument);
+                } catch (e: unknown) {
+                    console.error(e)
+                }
             });
         }
     }
