@@ -58,4 +58,30 @@ export class EventBus {
             });
         }
     }
+
+    /**
+     * Removes the subscription of a callback from an event.
+     *
+     * @param {string} eventName The name of the event to remove the callback from.
+     * @param {EventCallback} callback The callback to remove.
+     */
+    public unsubscribe<T>(eventName: string, callback: EventCallback<T>) {
+        let subscriptions: EventCallback<T>[];
+        if (eventName === '*') {
+            subscriptions = this.subscriptionsToAll;
+        } else {
+            if (this.subscriptions[eventName] === undefined) {
+                return;
+            }
+            subscriptions = this.subscriptions[eventName];
+        }
+        this.unsubscribeFromEvent(subscriptions, callback);
+    }
+
+    private unsubscribeFromEvent<T>(eventCallbackList: EventCallback<T>[], callback: EventCallback<T>) {
+        const index = eventCallbackList.indexOf(callback, 0);
+        if (index > -1) {
+            eventCallbackList.splice(index, 1);
+        }
+    }
 }

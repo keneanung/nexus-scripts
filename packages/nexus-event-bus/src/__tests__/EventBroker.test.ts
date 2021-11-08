@@ -23,8 +23,8 @@ test('Allow to subscribe to all events', async () => {
   const callback = jest.fn();
   bus.subscribe('*', callback);
 
-  bus.raise('TestEvent1', 'foo');
-  bus.raise('TetsEvent2', 'bar');
+  await bus.raise('TestEvent1', 'foo');
+  await bus.raise('TetsEvent2', 'bar');
 
   expect(callback).toBeCalledTimes(2);
 });
@@ -36,10 +36,47 @@ test('Allow all callbacks to run on error', async () => {
   bus.subscribe('TestEvent', callback);
   const originalError = console.error;
   // replace the error function to avoid having something on STDERR
-  console.error = () => {};
+  console.error = () => { };
 
   await bus.raise('TestEvent', undefined);
 
   console.error = originalError;
   expect(callback).toBeCalledTimes(1);
 });
+
+test('Allow to unsubscribe from events', async () => {
+  const bus = new EventBus();
+  const callback = jest.fn();
+
+  bus.subscribe('TestEvent', callback)
+  await bus.raise('TestEvent', undefined);
+  bus.unsubscribe('TestEvent', callback);
+  await bus.raise('TestEvent', undefined);
+
+  expect(callback).toBeCalledTimes(1);
+});
+
+test('Allow to unsubscribe from events we never subscribed to', async () => {
+  const bus = new EventBus();
+
+  expect(() => bus.unsubscribe('TestEvent', async () => { })).not.toThrow();
+})
+
+test('Allow to unsubscribe from events we never subscribed to, but which has other subscritions', async () => {
+  const bus = new EventBus();
+
+  bus.subscribe('TestEvent', async () => { console.log('hey') });
+  expect(() => bus.unsubscribe('TestEvent', async () => { })).not.toThrow();
+})
+
+test('Allow to unsubscribe from all events', async () => {
+  const bus = new EventBus();
+  const callback = jest.fn();
+
+  bus.subscribe('*', callback)
+  await bus.raise('TestEvent', undefined);
+  bus.unsubscribe('*', callback);
+  await bus.raise('TestEvent', undefined);
+
+  expect(callback).toBeCalledTimes(1);
+})
