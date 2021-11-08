@@ -30,8 +30,12 @@ export class EventBus {
      * @template T The type of eventArgument.
      */
     public async raise<T>(eventName: string, eventArgument: T) {
-        this.subscriptions[eventName].forEach(async callback => {
-            await callback(eventArgument);
-        });
+        const subscriptions = this.subscriptions[eventName];
+
+        if (subscriptions !== undefined) {
+            subscriptions.forEach(async callback => {
+                await callback(eventArgument);
+            });
+        }
     }
 }

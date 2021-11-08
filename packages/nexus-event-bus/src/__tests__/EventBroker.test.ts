@@ -11,3 +11,9 @@ test('Allow to raise an event with the given argument', async () => {
 
   expect(givenArgument).toBe('foo');
 });
+
+test('Allow to raise events without subscribers', async () => {
+  const bus = new EventBus();
+
+  expect(async () => await bus.raise('TestEvent', 'foo')).not.toThrow();
+})
