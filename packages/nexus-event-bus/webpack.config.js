@@ -21,7 +21,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     library : {
       type: "var",
-      name: configData.libraryName
+      name: configData.libraryName,
+      export: "default"
     }
   },
   plugins: [new ESLintPlugin({

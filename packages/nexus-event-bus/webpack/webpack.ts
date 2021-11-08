@@ -1,10 +1,6 @@
 // Webpack entrypoint.
 // Use this to do any browser specific initialization and export the module as global object.
 
-import { Greeter } from "../src/index"
+import { EventBus } from "../src/index"
 
-console.log(Greeter("world"));
-
-export {
-    Greeter
-};
+export default new EventBus();
