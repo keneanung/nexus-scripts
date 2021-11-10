@@ -12,6 +12,7 @@ test('Allow to raise an event with the given argument', async () => {
   expect(givenArgument).toBe('foo');
 });
 
+// eslint-disable-next-line jest/expect-expect
 test('Allow to raise events without subscribers', async () => {
   const bus = new EventBus();
 
@@ -38,6 +39,7 @@ test('Allow all callbacks to run on error', async () => {
   bus.subscribe('TestEvent', callback);
   const originalError = console.error;
   // replace the error function to avoid having something on STDERR
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   console.error = () => {};
 
   await bus.raise('TestEvent', undefined);
@@ -58,18 +60,22 @@ test('Allow to unsubscribe from events', async () => {
   expect(callback).toBeCalledTimes(1);
 });
 
+// eslint-disable-next-line jest/expect-expect
 test('Allow to unsubscribe from events we never subscribed to', async () => {
   const bus = new EventBus();
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   bus.unsubscribe('TestEvent', async () => {});
 });
 
+// eslint-disable-next-line jest/expect-expect
 test('Allow to unsubscribe from events we never subscribed to, but which has other subscritions', async () => {
   const bus = new EventBus();
 
   bus.subscribe('TestEvent', async () => {
     console.log('hey');
   });
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   bus.unsubscribe('TestEvent', async () => {});
 });
 
