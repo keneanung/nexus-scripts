@@ -7,93 +7,92 @@ declare type EventCallback<T extends any = any> = (argument: T) => Promise<void>
  * have given functions called upon the event being raised.
  */
 export interface IEventBus {
+  /**
+   * Subscribes a new callback to a given event.
+   *
+   * @param {string} eventName The name of the event to describe to. Use '*' to subscribe to all events.
+   * @param {EventCallback} callback The callback to run on the given event
+   */
+  subscribe<T>(eventName: string, callback: EventCallback<T>): void;
 
-    /**
-     * Subscribes a new callback to a given event.
-     *
-     * @param {string} eventName The name of the event to describe to. Use '*' to subscribe to all events.
-     * @param {EventCallback} callback The callback to run on the given event
-     */
-    subscribe<T>(eventName: string, callback: EventCallback<T>): void;
+  /**
+   * Raises an event in the event broker and calls all subscribed callback.
+   *
+   * @param {string} eventName The name of the event to raise.
+   * @param {T} eventArgument Argument to this event.
+   * @template T The type of eventArgument.
+   */
+  raise<T>(eventName: string, eventArgument: T): void;
 
-    /**
-     * Raises an event in the event broker and calls all subscribed callback.
-     *
-     * @param {string} eventName The name of the event to raise.
-     * @param {T} eventArgument Argument to this event.
-     * @template T The type of eventArgument.
-     */
-    raise<T>(eventName: string, eventArgument: T): void;
-
-    /**
-     * Removes the subscription of a callback from an event.
-     *
-     * @param {string} eventName The name of the event to remove the callback from.
-     * @param {EventCallback} callback The callback to remove.
-     */
-    unsubscribe<T>(eventName: string, callback: EventCallback<T>): void;
+  /**
+   * Removes the subscription of a callback from an event.
+   *
+   * @param {string} eventName The name of the event to remove the callback from.
+   * @param {EventCallback} callback The callback to remove.
+   */
+  unsubscribe<T>(eventName: string, callback: EventCallback<T>): void;
 }
 
 /**
  * @inheritdoc
  */
 export class EventBus implements IEventBus {
-    private subscriptions: { [eventName: string]: EventCallback[]; } = {};
-    private subscriptionsToAll: EventCallback[] = [];
+  private subscriptions: { [eventName: string]: EventCallback[] } = {};
+  private subscriptionsToAll: EventCallback[] = [];
 
-    public subscribe<T>(eventName: string, callback: EventCallback<T>): void {
-        let eventCallbackList: EventCallback<T>[];
-        if (eventName === '*') {
-            eventCallbackList = this.subscriptionsToAll;
-        } else {
-            if (this.subscriptions[eventName] === undefined) {
-                this.subscriptions[eventName] = [];
-            }
-            eventCallbackList = this.subscriptions[eventName];
+  public subscribe<T>(eventName: string, callback: EventCallback<T>): void {
+    let eventCallbackList: EventCallback<T>[];
+    if (eventName === '*') {
+      eventCallbackList = this.subscriptionsToAll;
+    } else {
+      if (this.subscriptions[eventName] === undefined) {
+        this.subscriptions[eventName] = [];
+      }
+      eventCallbackList = this.subscriptions[eventName];
+    }
+    this.subscribeToEvent<T>(eventCallbackList, callback);
+  }
+
+  private subscribeToEvent<T>(eventCallbackList: EventCallback<T>[], callback: EventCallback<T>) {
+    eventCallbackList.push(callback);
+  }
+
+  public async raise<T>(eventName: string, eventArgument: T) {
+    const subscriptions = this.subscriptions[eventName];
+    this.runCallbacks<T>(subscriptions, eventArgument);
+
+    this.runCallbacks<T>(this.subscriptionsToAll, eventArgument);
+  }
+
+  private runCallbacks<T>(subscriptions: EventCallback<T>[], eventArgument: T) {
+    if (subscriptions !== undefined) {
+      subscriptions.forEach(async (callback) => {
+        try {
+          await callback(eventArgument);
+        } catch (e: unknown) {
+          console.error(e);
         }
-        this.subscribeToEvent<T>(eventCallbackList, callback);
+      });
     }
+  }
 
-    private subscribeToEvent<T>(eventCallbackList: EventCallback<T>[], callback: EventCallback<T>) {
-        eventCallbackList.push(callback);
+  public unsubscribe<T>(eventName: string, callback: EventCallback<T>) {
+    let subscriptions: EventCallback<T>[];
+    if (eventName === '*') {
+      subscriptions = this.subscriptionsToAll;
+    } else {
+      if (this.subscriptions[eventName] === undefined) {
+        return;
+      }
+      subscriptions = this.subscriptions[eventName];
     }
+    this.unsubscribeFromEvent(subscriptions, callback);
+  }
 
-    public async raise<T>(eventName: string, eventArgument: T) {
-        const subscriptions = this.subscriptions[eventName];
-        this.runCallbacks<T>(subscriptions, eventArgument);
-
-        this.runCallbacks<T>(this.subscriptionsToAll, eventArgument);
+  private unsubscribeFromEvent<T>(eventCallbackList: EventCallback<T>[], callback: EventCallback<T>) {
+    const index = eventCallbackList.indexOf(callback, 0);
+    if (index > -1) {
+      eventCallbackList.splice(index, 1);
     }
-
-    private runCallbacks<T>(subscriptions: EventCallback<T>[], eventArgument: T) {
-        if (subscriptions !== undefined) {
-            subscriptions.forEach(async (callback) => {
-                try {
-                    await callback(eventArgument);
-                } catch (e: unknown) {
-                    console.error(e);
-                }
-            });
-        }
-    }
-
-    public unsubscribe<T>(eventName: string, callback: EventCallback<T>) {
-        let subscriptions: EventCallback<T>[];
-        if (eventName === '*') {
-            subscriptions = this.subscriptionsToAll;
-        } else {
-            if (this.subscriptions[eventName] === undefined) {
-                return;
-            }
-            subscriptions = this.subscriptions[eventName];
-        }
-        this.unsubscribeFromEvent(subscriptions, callback);
-    }
-
-    private unsubscribeFromEvent<T>(eventCallbackList: EventCallback<T>[], callback: EventCallback<T>) {
-        const index = eventCallbackList.indexOf(callback, 0);
-        if (index > -1) {
-            eventCallbackList.splice(index, 1);
-        }
-    }
+  }
 }
