@@ -1,4 +1,4 @@
-import { EventBus } from '../index';
+import { EventBus } from "../EventBus";
 
 test('Allow to raise an event with the given argument', async () => {
   const bus = new EventBus();
