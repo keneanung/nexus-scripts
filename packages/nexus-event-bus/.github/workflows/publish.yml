@@ -48,7 +48,7 @@ jobs:
             npm run webpackProd
         - name: copy assets to website
           run: |
-            cp dist/bundle.js website/static
+            cp -R dist/ website/static
             cp README.md website/src/pages/index.md
         - name: build website
           run: |
