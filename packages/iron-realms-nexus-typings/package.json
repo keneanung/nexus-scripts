@@ -6,6 +6,5 @@
   "author": "keneanung <keneanung@googlemail.com>",
   "license": "MIT",
   "private": false,
-  "main": "",
-  "types": "global.d.ts"
+  "types": "index.d.ts"
 }
