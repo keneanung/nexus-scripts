@@ -2,4 +2,4 @@
 // Project: @keneanung/iron-realms-nexus-typings
 // Definitions by: keneanung <keneanung@gmail.com>
 
-/// <reference path="./definitions/client-api.d.ts" />
+/// <reference path="./definitions/index.d.ts" />
