@@ -1,4 +1,13 @@
 declare namespace client {
+    export interface Package {
+        name: string,
+        enabled: boolean,
+        description: string,
+        type: 'group',
+        id: number,
+        items: Reflex[]
+    }
+
     export interface Group {
         name: string,
         id: number,
