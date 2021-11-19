@@ -1,6 +1,17 @@
 declare namespace client{
+
+    /**
+     * Action that runs a given JavaScript.
+     */
     export interface ScriptAction {
+        /**
+         * Internal: used to find the type of this action.
+         */
         action: 'script',
+
+        /**
+         * Script that should be ran as the action.
+         */
         script: string,
     }
 
@@ -117,10 +128,23 @@ declare namespace client{
         name: string
     }
 
+    /**
+     * Action which runs a given function.
+     */
     export interface FunctionAction {
+        /**
+         * Internal: used to find the type of this action.
+         */
         action: 'function',
+
+        /**
+         * Function to run.
+         */
         fn: string
     }
 
+    /**
+     * Type that encompasses all action types.
+     */
     export type Action = client.ScriptAction | client.CommandAction | client.NotifyAction | client.NotificationAction | client.SoundAction | client.WaitAction | client.WaitForAction | client.VariableAction | client.IfAction | client.RepeatAction | client.LabelAction | client.GotoAction | client.StopAction | client.ButtonAction | client.DisablemeAction | client.DisableAction | client.EnableAction | client.FunctionAction;
 }
