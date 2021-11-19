@@ -7,7 +7,7 @@
   "repository": "git://github.com/keneanung/nexus-event-bus.git",
   "main": "lib/index.js",
   "devDependencies": {
-    "@keneanung/iron-realms-nexus-typings": "^0.0.3",
+    "@keneanung/iron-realms-nexus-typings": "^0.1.0",
     "@types/jest": "^27.0.2",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
