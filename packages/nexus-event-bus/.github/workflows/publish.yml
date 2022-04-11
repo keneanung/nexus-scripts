@@ -42,13 +42,14 @@ jobs:
       steps:
         - uses: actions/checkout@v3
         - uses: actions/setup-node@v3
-        - name: create javascript assets
+        - name: create Nexus assets
           run: |
             npm ci
             npm run webpackProd
+            npx @keneanung/nexus-package-builder nxs/EventBus.yaml nxs/
         - name: copy assets to website
           run: |
-            cp -R dist/ website/static
+            cp nxs/EventBus.nxs website/static/
             cp README.md website/src/pages/index.md
         - name: build website
           run: |
