@@ -16,5 +16,6 @@ module.exports = {
     rules: {
       'jsdoc/require-jsdoc': [1, { publicOnly: true, contexts: ['ClassExpression', 'ClassDeclaration', 'ClassProperty', 'FunctionDeclaration', 'ArrowFunctionExpression', 'FunctionExpression', 'FunctionExpression'] }],
       'jsdoc/require-description': [1, { contexts: ['ClassExpression', 'ClassDeclaration', 'ClassProperty', 'FunctionDeclaration', 'ArrowFunctionExpression', 'FunctionExpression', 'FunctionExpression'] }],
-    }
+    },
+    ignorePatterns: ['node_modules', 'lib'],
   };

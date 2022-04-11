@@ -61,8 +61,8 @@ jobs:
     - name: Build
       run: |
         npm ci
-        npx webpack --mode development
-
+        npm run webpack
+        
   build-package:
     runs-on: ubuntu-latest
 
