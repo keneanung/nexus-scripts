@@ -48,7 +48,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x, 16.x]
 
     steps:
     - uses: actions/checkout@v3
@@ -62,13 +62,13 @@ jobs:
       run: |
         npm ci
         npm run webpack
-        
+
   build-package:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x, 16.x]
 
     steps:
     - uses: actions/checkout@v3
