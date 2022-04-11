@@ -1,6 +1,6 @@
 {
   "name": "nexus-event-bus",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Event bus/broker for the IRE Nexus client",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
