@@ -12,7 +12,7 @@ const docuTagline = 'Event bus/broker for the IRE Nexus client'; // Used for doc
 // don't modify the exports below (except to add new fields)
 module.exports = {
     author,
-    projectName,
+    projectName: `@${author}/${projectName}`,
     githubRepoWebUrl: `https://github.com/${author}/${projectName}`,
     githubRepoGitUrl: `git://github.com/${author}/${projectName}.git`,
     libraryName,

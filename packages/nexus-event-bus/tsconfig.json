@@ -2,7 +2,7 @@
     "compilerOptions": {
       "outDir": "./lib/",
       "noImplicitAny": true,
-      "module": "es6",
+      "module": "commonjs",
       "target": "es5",
       "jsx": "react",
       "allowJs": true,
@@ -14,7 +14,8 @@
       "typeRoots": [
         "node_modules/@types",
         "node_modules/@keneanung"
-      ]
+      ],
+      "esModuleInterop": true,
     },
     "include": [
       "src/**/*"

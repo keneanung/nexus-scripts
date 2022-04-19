@@ -1,5 +1,5 @@
 {
-  "name": "nexus-event-bus",
+  "name": "@keneanung/nexus-event-bus",
   "version": "0.0.3",
   "description": "Event bus/broker for the IRE Nexus client",
   "author": "keneanung <keneanung@gmail.com>",
