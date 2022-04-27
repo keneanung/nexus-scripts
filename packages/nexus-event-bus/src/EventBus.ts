@@ -31,6 +31,14 @@ export interface IEventBus {
    * @param {EventCallback} callback The callback to remove.
    */
   unsubscribe<T>(eventName: string, callback: EventCallback<T>): void;
+
+  /**
+   * Returns all the callbacks subscribed to a given event.
+   *
+   * @param {EventCallback} eventName The name of the event to get all subscribed events for.
+   * @returns {EventCallback[]} The list of subscribed callbacks.
+   */
+  getSubscribers(eventName: string): EventCallback[];
 }
 
 /**
@@ -94,5 +102,10 @@ export class EventBus implements IEventBus {
     if (index > -1) {
       eventCallbackList.splice(index, 1);
     }
+  }
+
+  public getSubscribers(eventName: string): EventCallback[] {
+    const result = this.subscriptions[eventName] || [];
+    return result.concat(this.subscriptionsToAll);
   }
 }

@@ -90,3 +90,49 @@ test('Allow to unsubscribe from all events', async () => {
 
   expect(callback).toBeCalledTimes(1);
 });
+
+test('Return all registered subscribers to an event', () => {
+  const bus = new EventBus();
+  const callback = jest.fn();
+
+  bus.subscribe('TestEvent', callback);
+
+  expect(bus.getSubscribers('TestEvent')).toContain(callback);
+});
+
+test('Return all registered subscribers to all events', () => {
+  const bus = new EventBus();
+  const callback = jest.fn();
+
+  bus.subscribe('*', callback);
+
+  expect(bus.getSubscribers('TestEvent')).toContain(callback);
+});
+
+test('Return empty array when no subscribers are registered', () => {
+  const bus = new EventBus();
+
+  expect(bus.getSubscribers('TestEvent')).toEqual([]);
+});
+
+test('Return subscribers to a given event and subscriber to all events', () => {
+  const bus = new EventBus();
+  const callback1 = jest.fn();
+  const callback2 = jest.fn();
+
+  bus.subscribe('*', callback1);
+  bus.subscribe('TestEvent', callback2);
+
+  const subscribers = bus.getSubscribers('TestEvent');
+  expect(subscribers).toContain(callback1);
+  expect(subscribers).toContain(callback2);
+});
+
+test('Return subscribers to all events', () => {
+  const bus = new EventBus();
+  const callback = jest.fn();
+
+  bus.subscribe('*', callback);
+
+  expect(bus.getSubscribers('*')).toContain(callback);
+});
