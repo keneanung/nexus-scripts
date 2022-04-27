@@ -2,7 +2,7 @@
 authors: keneanung
 ---
 
-# Khasseems Wishlist: v0.1.1
+# Khaseems Wishlist: v0.1.1
 
 This release is something, the Achaean Player Khaseem wished for. He's been using the original EventStream module of NexSys very extenively. However, he'd like to move to an external package to help the adoption of a standard set of Nexus packages.
 
