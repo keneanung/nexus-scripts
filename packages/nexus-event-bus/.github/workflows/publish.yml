@@ -50,6 +50,7 @@ jobs:
         - name: copy assets to website
           run: |
             cp nxs/EventBus.nxs website/static/
+            jq '.version' package.json | tr -d '"' > website/static/version
             cp README.md website/src/pages/index.md
         - name: build website
           run: |
