@@ -43,7 +43,7 @@
     "postversion": "git push && git push --tags",
     "website": "cd website && npm run start",
     "setup": "node ./setup.mjs",
-    "nxs": "npm run webpackProd && @keneanung/nexus-package-builder nxs/EventBus.nxs nxs/"
+    "nxs": "npm run webpackProd && nexus-package-builder nxs/EventBus.yaml nxs/"
   },
   "files": [
     "lib/**/*",
