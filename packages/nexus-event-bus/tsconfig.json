@@ -18,7 +18,8 @@
       "esModuleInterop": true,
     },
     "include": [
-      "src/**/*"
+      "src/**/*",
+      "webpack/**/*",
     ],
     "exclude": [
       "node_modules",
