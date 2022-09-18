@@ -1,0 +1,9 @@
+node_modules
+/nxs/bundle.js
+/lib
+*.tgz
+/coverage
+/nxs/*.nxs
+# stryker temp files
+.stryker-tmp
+/reports/

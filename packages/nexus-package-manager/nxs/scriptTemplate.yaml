@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=../node_modules/@keneanung/nexus-package-builder/resources/nexus-schema.json
+name: Greeter
+enabled: true
+description: Demo Greeter module that desn't really do anything...
+type: group
+items:
+  - type: function
+    enabled: true
+    name: onLoad
+    codeFile: ./bundle.js
+

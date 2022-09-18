@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "outDir": "./lib/",
+      "noImplicitAny": true,
+      "module": "commonjs",
+      "target": "esNext",
+      "jsx": "react",
+      "allowJs": true,
+      "declaration": true,
+      "strict": true,
+      "alwaysStrict": true,
+      "moduleResolution": "node",
+      "skipLibCheck": true,
+      "typeRoots": [
+        "node_modules/@types",
+        "node_modules/@keneanung"
+      ],
+      "esModuleInterop": true,
+    },
+    "include": [
+      "src/**/*",
+      "webpack/**/*",
+    ],
+    "exclude": [
+      "node_modules",
+       "**/*.spec.ts"
+    ]
+  }
