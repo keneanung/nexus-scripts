@@ -1,8 +1,8 @@
 // Webpack entrypoint.
 // Use this to do any browser specific initialization and export the module as global object.
 
-import { Greeter } from "../src/index"
+import { PackageManager } from "../src/index"
 
-console.log(Greeter("world"));
+console.log("Package Manager loaded");
 
-export default Greeter;
+export default PackageManager;

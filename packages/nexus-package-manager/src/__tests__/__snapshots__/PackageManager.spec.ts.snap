@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should have installed package after call to install 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "description": "bar",
+        "name": "foo",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should parse response correctly 1`] = `
+Array [
+  Object {
+    "dependencies": Array [],
+    "description": "Event Bus similar to the Nexus function system, but available outside of the GUI",
+    "name": "Event Bus",
+    "packageName": "eventbus",
+    "url": "https://keneanung.github.io/nexus-event-bus/EventBus.nxs",
+  },
+]
+`;
+
+exports[`Should update correctly if called consecutely 1`] = `
+Array [
+  Object {
+    "dependencies": Array [
+      "secondFoo",
+    ],
+    "description": "This is the second response",
+    "name": "second response",
+    "packageName": "second",
+    "url": "https://keneanung.github.io/nexus-event-bus/second.nxs",
+  },
+]
+`;
