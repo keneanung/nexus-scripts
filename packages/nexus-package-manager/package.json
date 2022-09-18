@@ -1,10 +1,10 @@
 {
-  "name": "nexus_script_template",
+  "name": "@keneanung/nexus-package-manager",
   "version": "0.0.0",
-  "description": "Template for nexus scripts using typescript",
+  "description": "Package Manager for the Iron Realms Nexus 3 client",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
-  "repository": "git://github.com/keneanung/iron-realms-nexus-script-template.git",
+  "repository": "git://github.com/keneanung/nexus-package-manager.git",
   "main": "lib/index.js",
   "devDependencies": {
     "@babel/core": "^7.19.1",
