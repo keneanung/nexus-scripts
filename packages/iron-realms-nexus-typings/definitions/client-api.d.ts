@@ -1,6 +1,6 @@
 /**
- * Alias for the global window object. While optional, prepending functions with
- * client makes it explicit that you interact with Nexus.
+ * Alias for the global window object in Nexus 2. While optional, prepending functions with
+ * client makes it explicit that you interact with Nexus 2.
  */
 declare namespace client {
 
@@ -44,4 +44,9 @@ declare namespace client {
    * @param packageName The package to call the function in. Use the special value 'ALL' to call in all packages.
    */
   export function run_function(functionName: string, args: unknown | undefined, packageName: string): void;
+}
+
+declare namespace nexusclient {
+  export function packages(): ReflexPackages
+  export function reflexes(): Reflexes
 }
