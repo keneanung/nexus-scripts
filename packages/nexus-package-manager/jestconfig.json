@@ -7,7 +7,7 @@
         "/lib/"
     ],
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-    "reporters": ["default", "jest-github-reporter"],
+    "reporters": ["default", "github-actions"],
     "setupFiles": [
       "./src/setupJest.ts"
     ],
