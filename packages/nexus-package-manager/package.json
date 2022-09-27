@@ -7,9 +7,9 @@
   "repository": "git://github.com/keneanung/nexus-package-manager.git",
   "main": "lib/index.js",
   "devDependencies": {
-    "@babel/core": "^7.19.1",
+    "@babel/core": "^7.19.3",
     "@babel/plugin-transform-modules-commonjs": "^7.18.6",
-    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-env": "^7.19.3",
     "@keneanung/iron-realms-nexus-typings": "^0.3.0",
     "@keneanung/nexus-package-builder": "^1.2.0",
     "@stryker-mutator/core": "^6.2.2",
