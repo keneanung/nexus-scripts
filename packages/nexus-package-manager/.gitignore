@@ -1,5 +1,6 @@
 node_modules
 /nxs/bundle.js
+/nxs/bundle.js.LICENSE.txt
 /lib
 *.tgz
 /coverage

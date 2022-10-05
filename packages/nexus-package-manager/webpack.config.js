@@ -4,7 +4,7 @@ const WebpackAutoInject = require('webpack-auto-inject-version-next');
 const configData = require('./config.js');
 
 module.exports = {
-  entry: './webpack/webpack.ts',
+  entry: './webpack/webpack.tsx',
   module: {
     rules: [
       {
@@ -60,4 +60,8 @@ module.exports = {
       },
     }),
   ],
+  externals: {
+    'react': 'React', // Case matters here
+    'react-dom' : 'ReactDOM', // Case matters here
+   }
 };

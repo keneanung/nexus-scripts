@@ -1,11 +1,15 @@
 # yaml-language-server: $schema=../node_modules/@keneanung/nexus-package-builder/resources/nexus-schema.json
-name: Greeter
+name: NexusPackageManager
 enabled: true
-description: Demo Greeter module that desn't really do anything...
+description: The original package manager for Iron Realms Nexus
 type: group
 items:
   - type: function
     enabled: true
     name: onLoad
     codeFile: ./bundle.js
+  - type: function
+    code: run_function('onLoad', undefined, 'NexusPackageManager')
+    name: onInstall
+    enabled: true
 

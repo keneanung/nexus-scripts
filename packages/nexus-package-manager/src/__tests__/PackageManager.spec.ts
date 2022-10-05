@@ -56,3 +56,16 @@ test('Should have installed package after call to install', async () => {
 
   expect(installNexusPackageMock).toMatchSnapshot();
 });
+
+test('Should call callback functions after update', async () => {
+  fetchMock.mockResponseOnce(
+    '[{"name":"second response","packageName":"second","description":"This is the second response","url":"https://keneanung.github.io/nexus-event-bus/foo.nxs","dependencies":["secondFoo"]}]',
+  );
+  const callback = jest.fn();
+  const sut = new PackageManager();
+  sut.onUpdateFinished(callback);
+
+  await sut.updateAsync();
+
+  expect(callback).toHaveBeenCalledTimes(1);
+})
