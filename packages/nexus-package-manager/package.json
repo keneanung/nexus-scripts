@@ -21,7 +21,7 @@
     "babel-loader": "^8.2.5",
     "babel-plugin-react-native-web": "^0.18.9",
     "core-js": "^3.25.5",
-    "eslint": "^8.24.0",
+    "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-jest": "^27.1.1",
     "eslint-plugin-jsdoc": "^39.3.6",
