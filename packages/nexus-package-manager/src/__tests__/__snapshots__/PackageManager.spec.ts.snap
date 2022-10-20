@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Should ask the Nexus client to uninstall and then install a new version of a package with a given name on update of package 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "description": "bar",
+        "name": "foo",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
 exports[`Should have installed package after call to install 1`] = `
 [MockFunction] {
   "calls": Array [

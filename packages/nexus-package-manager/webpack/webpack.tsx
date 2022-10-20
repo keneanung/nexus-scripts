@@ -2,7 +2,7 @@
 // Use this to do any browser specific initialization and export the module as global object.
 
 import { PackageManager, PackageManagerUi } from "../src/index"
-console.log("loading package manager")
+console.log('loading Package Manager version [AIV]{version}[/AIV]...')
 const packageManager = new PackageManager()
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

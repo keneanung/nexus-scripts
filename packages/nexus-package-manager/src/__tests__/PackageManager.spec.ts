@@ -1,29 +1,52 @@
 import { PackageManager } from '../index';
-import { enableFetchMocks } from 'jest-fetch-mock';
-import { installNexusPackage } from '../lib/installNexusPackage';
-enableFetchMocks();
-jest.mock('../lib/installNexusPackage');
+import { installNexusPackage, isNexusPackageInstalled, uninstallNexusPackage } from '../lib/nexusPackageInterface';
+import { DefaultBodyType, Path, rest } from 'msw';
+import { setupServer } from 'msw/node';
+jest.mock('../lib/nexusPackageInterface');
 const installNexusPackageMock = jest.mocked(installNexusPackage);
+const isNexusPackageInstalledMock = jest.mocked(isNexusPackageInstalled);
+const uninstallNexusPackageMock = jest.mocked(uninstallNexusPackage);
 
-beforeEach(() => {
-  // cleaning up the mess left behind the previous test
-  fetchMock.resetMocks();
+const server = setupServer();
+
+// Enable request interception.
+beforeAll(() =>
+  server.listen({
+    onUnhandledRequest: 'error',
+  }),
+);
+
+// Reset handlers so that each test could alter them
+// without affecting other, unrelated tests.
+afterEach(() => {
+  server.resetHandlers();
   installNexusPackageMock.mockReset();
+  isNexusPackageInstalledMock.mockReset();
+  uninstallNexusPackageMock.mockReset();
 });
 
+// Don't forget to clean up afterwards.
+afterAll(() => server.close());
+
 test('Should request the correct URL', async () => {
-  fetchMock.mockResponse('[]');
+  setupRepositoryResponses([]);
   const sut = new PackageManager();
 
   await sut.updateAsync();
 
-  expect(fetchMock).toHaveBeenCalledWith('https://keneanung.github.io/nexus-package-repository/repository.json');
+  expect(sut.getRepositoryData()).toHaveLength(0);
 });
 
 test('Should parse response correctly', async () => {
-  fetchMock.mockResponse(
-    '[{"name":"Event Bus","packageName":"eventbus","description":"Event Bus similar to the Nexus function system, but available outside of the GUI","url":"https://keneanung.github.io/nexus-event-bus/EventBus.nxs","dependencies":[]}]',
-  );
+  setupRepositoryResponses([
+    {
+      name: 'Event Bus',
+      packageName: 'eventbus',
+      description: 'Event Bus similar to the Nexus function system, but available outside of the GUI',
+      url: 'https://keneanung.github.io/nexus-event-bus/EventBus.nxs',
+      dependencies: [],
+    },
+  ]);
   const sut = new PackageManager();
 
   await sut.updateAsync();
@@ -32,9 +55,25 @@ test('Should parse response correctly', async () => {
 });
 
 test('Should update correctly if called consecutely', async () => {
-  fetchMock.mockResponses(
-    '[{"name":"first response","packageName":"first","description":"This is the first response","url":"https://keneanung.github.io/nexus-event-bus/first.nxs","dependencies":["firstFoo"]}]',
-    '[{"name":"second response","packageName":"second","description":"This is the second response","url":"https://keneanung.github.io/nexus-event-bus/second.nxs","dependencies":["secondFoo"]}]',
+  setupRepositoryResponses(
+    [
+      {
+        name: 'first response',
+        packageName: 'first',
+        description: 'This is the first response',
+        url: 'https://keneanung.github.io/nexus-event-bus/first.nxs',
+        dependencies: ['firstFoo'],
+      },
+    ],
+    [
+      {
+        name: 'second response',
+        packageName: 'second',
+        description: 'This is the second response',
+        url: 'https://keneanung.github.io/nexus-event-bus/second.nxs',
+        dependencies: ['secondFoo'],
+      },
+    ],
   );
   const sut = new PackageManager();
 
@@ -45,10 +84,17 @@ test('Should update correctly if called consecutely', async () => {
 });
 
 test('Should have installed package after call to install', async () => {
-  fetchMock.mockResponseOnce(
-    '[{"name":"second response","packageName":"second","description":"This is the second response","url":"https://keneanung.github.io/nexus-event-bus/foo.nxs","dependencies":["secondFoo"]}]',
-  );
-  fetchMock.mockResponseOnce('{"name": "foo", "description": "bar"}');
+  const packageUrl = 'https://keneanung.github.io/nexus-event-bus/foo.nxs';
+  setupRepositoryResponses([
+    {
+      name: 'second response',
+      packageName: 'second',
+      description: 'This is the second response',
+      url: packageUrl,
+      dependencies: ['secondFoo'],
+    },
+  ]);
+  setupPackageResponse(packageUrl, { name: 'foo', description: 'bar' });
   const sut = new PackageManager();
   await sut.updateAsync();
 
@@ -58,9 +104,15 @@ test('Should have installed package after call to install', async () => {
 });
 
 test('Should call callback functions after update', async () => {
-  fetchMock.mockResponseOnce(
-    '[{"name":"second response","packageName":"second","description":"This is the second response","url":"https://keneanung.github.io/nexus-event-bus/foo.nxs","dependencies":["secondFoo"]}]',
-  );
+  setupRepositoryResponses([
+    {
+      name: 'second response',
+      packageName: 'second',
+      description: 'This is the second response',
+      url: 'https://keneanung.github.io/nexus-event-bus/foo.nxs',
+      dependencies: ['secondFoo'],
+    },
+  ]);
   const callback = jest.fn();
   const sut = new PackageManager();
   sut.onUpdateFinished(callback);
@@ -68,4 +120,124 @@ test('Should call callback functions after update', async () => {
   await sut.updateAsync();
 
   expect(callback).toHaveBeenCalledTimes(1);
-})
+});
+
+test('Should return true for isInstalled if package is already installed', () => {
+  isNexusPackageInstalledMock.mockReturnValue(true);
+  const sut = new PackageManager();
+
+  const isInstalled = sut.isInstalled('foo');
+
+  expect(isInstalled).toBe(true);
+});
+
+test('Should return false for isInstalled if package is not installed', () => {
+  isNexusPackageInstalledMock.mockReturnValue(false);
+  const sut = new PackageManager();
+
+  const isInstalled = sut.isInstalled('foo');
+
+  expect(isInstalled).toBe(false);
+});
+
+test('Should ask the Nexus client to uninstall a package with a given name on uninstall', () => {
+  const sut = new PackageManager();
+
+  sut.uninstall('foo');
+
+  expect(uninstallNexusPackageMock).toHaveBeenCalledWith('foo');
+});
+
+test('Should ask the Nexus client to uninstall and then install a new version of a package with a given name on update of package', async () => {
+  const packageUrl = 'https://keneanung.github.io/nexus-event-bus/foo.nxs';
+  setupRepositoryResponses([
+    {
+      name: 'second response',
+      packageName: 'second',
+      description: 'This is the second response',
+      url: packageUrl,
+      dependencies: ['secondFoo'],
+    },
+  ]);
+  setupPackageResponse(packageUrl, { name: 'foo', description: 'bar' });
+  const sut = new PackageManager();
+  await sut.updateAsync();
+
+  await sut.updatePackageAsync('second');
+
+  expect(uninstallNexusPackageMock).toHaveBeenCalledWith('second');
+  expect(installNexusPackageMock).toMatchSnapshot();
+});
+
+test('Should call package operation done callback for install with correct arguments', async () => {
+  const callback = jest.fn();
+  const packageUrl = 'https://keneanung.github.io/nexus-event-bus/foo.nxs';
+  setupRepositoryResponses([
+    {
+      name: 'second response',
+      packageName: 'second',
+      description: 'This is the second response',
+      url: packageUrl,
+      dependencies: ['secondFoo'],
+    },
+  ]);
+  setupPackageResponse(packageUrl, { name: 'foo', description: 'bar' });
+  const sut = new PackageManager();
+  sut.onPackageOperationDone(callback);
+  await sut.updateAsync();
+
+  await sut.installAsync('second');
+
+  expect(callback).toHaveBeenCalledWith('install', 'second');
+});
+
+test('Should call package operation done callback for uninstall with correct arguments', () => {
+  const callback = jest.fn();
+  const sut = new PackageManager();
+  sut.onPackageOperationDone(callback);
+
+  sut.uninstall('second');
+
+  expect(callback).toHaveBeenCalledWith('uninstall', 'second');
+});
+
+test('Should call package operation done callback for updatePackage with correct arguments', async () => {
+  const callback = jest.fn();
+  const packageUrl = 'https://keneanung.github.io/nexus-event-bus/foo.nxs';
+  setupRepositoryResponses([
+    {
+      name: 'second response',
+      packageName: 'second',
+      description: 'This is the second response',
+      url: packageUrl,
+      dependencies: ['secondFoo'],
+    },
+  ]);
+  setupPackageResponse(packageUrl, { name: 'foo', description: 'bar' });
+  const sut = new PackageManager();
+  sut.onPackageOperationDone(callback);
+  await sut.updateAsync();
+
+  await sut.updatePackageAsync('second');
+
+  expect(callback).toHaveBeenCalledTimes(1);
+  expect(callback).toHaveBeenCalledWith('update', 'second');
+});
+
+function setupRepositoryResponses(...responses: DefaultBodyType[]) {
+  for (const response of responses.reverse()) {
+    server.use(
+      rest.get('https://keneanung.github.io/nexus-package-repository/repository.json', (_, result, context) => {
+        return result.once(context.json(response));
+      }),
+    );
+  }
+}
+
+function setupPackageResponse(url: Path, response: DefaultBodyType) {
+  server.use(
+    rest.get(url, (_, result, context) => {
+      return result.once(context.json(response));
+    }),
+  );
+}

@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should have a table with single package data to install if one package was provided and not installed 1`] = `
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
+    id="package-listing-update"
+  >
+    Update package listing
+  </button>
+  <table
+    id="package-listing"
+  >
+    <thead>
+      <tr
+        id="package-listing-header"
+      >
+        <td>
+          Name
+        </td>
+        <td>
+          Package Name
+        </td>
+        <td>
+          Description
+        </td>
+        <td>
+          Actions
+        </td>
+      </tr>
+    </thead>
+    <tbody
+      id="package-listing-body"
+    >
+      <tr>
+        <td>
+          bar
+        </td>
+        <td>
+          barPackage
+        </td>
+        <td>
+          foo
+        </td>
+        <td>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
+          >
+            Install
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Should have a table with single package data to install if one package was provided and uninstalled after clicking the button 1`] = `
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
+    id="package-listing-update"
+  >
+    Update package listing
+  </button>
+  <table
+    id="package-listing"
+  >
+    <thead>
+      <tr
+        id="package-listing-header"
+      >
+        <td>
+          Name
+        </td>
+        <td>
+          Package Name
+        </td>
+        <td>
+          Description
+        </td>
+        <td>
+          Actions
+        </td>
+      </tr>
+    </thead>
+    <tbody
+      id="package-listing-body"
+    >
+      <tr>
+        <td>
+          bar
+        </td>
+        <td>
+          barPackage
+        </td>
+        <td>
+          foo
+        </td>
+        <td>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
+          >
+            Install
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Should have a table with single package data to update if one package was provided and installed 1`] = `
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
+    id="package-listing-update"
+  >
+    Update package listing
+  </button>
+  <table
+    id="package-listing"
+  >
+    <thead>
+      <tr
+        id="package-listing-header"
+      >
+        <td>
+          Name
+        </td>
+        <td>
+          Package Name
+        </td>
+        <td>
+          Description
+        </td>
+        <td>
+          Actions
+        </td>
+      </tr>
+    </thead>
+    <tbody
+      id="package-listing-body"
+    >
+      <tr>
+        <td>
+          bar
+        </td>
+        <td>
+          barPackage
+        </td>
+        <td>
+          foo
+        </td>
+        <td>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
+          >
+            Update
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
+          >
+            Uninstall
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Should have a table with single package data to update if one package was provided and installed after clicking the button 1`] = `
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
+    id="package-listing-update"
+  >
+    Update package listing
+  </button>
+  <table
+    id="package-listing"
+  >
+    <thead>
+      <tr
+        id="package-listing-header"
+      >
+        <td>
+          Name
+        </td>
+        <td>
+          Package Name
+        </td>
+        <td>
+          Description
+        </td>
+        <td>
+          Actions
+        </td>
+      </tr>
+    </thead>
+    <tbody
+      id="package-listing-body"
+    >
+      <tr>
+        <td>
+          bar
+        </td>
+        <td>
+          barPackage
+        </td>
+        <td>
+          foo
+        </td>
+        <td>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
+          >
+            Update
+          </button>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
+          >
+            Uninstall
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`Should have an empty table without package data 1`] = `
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
+    id="package-listing-update"
+  >
+    Update package listing
+  </button>
+  <table
+    id="package-listing"
+  >
+    <thead>
+      <tr
+        id="package-listing-header"
+      >
+        <td>
+          Name
+        </td>
+        <td>
+          Package Name
+        </td>
+        <td>
+          Description
+        </td>
+        <td>
+          Actions
+        </td>
+      </tr>
+    </thead>
+    <tbody
+      id="package-listing-body"
+    />
+  </table>
+</div>
+`;

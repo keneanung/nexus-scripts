@@ -1,16 +1,24 @@
 {
-    "transform": {
-      "^.+\\.(t|j)sx?$": "ts-jest"
-    },
-    "testPathIgnorePatterns":[
-        "/node_modules/",
-        "/lib/"
-    ],
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-    "reporters": ["default", "github-actions"],
-    "setupFiles": [
-      "./src/setupJest.ts"
-    ],
-    "automock": false,
-    "resetMocks": false
-  }
+  "transform": {
+    "^.+\\.(t|j)sx?$": "ts-jest"
+  },
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/lib/"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json",
+    "node"
+  ],
+  "reporters": [
+    "default",
+    "github-actions"
+  ],
+  "automock": false,
+  "resetMocks": false,
+  "testEnvironment": "jsdom"
+}
