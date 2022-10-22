@@ -4,17 +4,12 @@ exports[`Should have a table with single package data to install if one package 
 <div>
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
-    id="package-listing-update"
   >
     Update package listing
   </button>
-  <table
-    id="package-listing"
-  >
+  <table>
     <thead>
-      <tr
-        id="package-listing-header"
-      >
+      <tr>
         <td>
           Name
         </td>
@@ -29,9 +24,7 @@ exports[`Should have a table with single package data to install if one package 
         </td>
       </tr>
     </thead>
-    <tbody
-      id="package-listing-body"
-    >
+    <tbody>
       <tr>
         <td>
           bar
@@ -59,17 +52,12 @@ exports[`Should have a table with single package data to install if one package 
 <div>
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
-    id="package-listing-update"
   >
     Update package listing
   </button>
-  <table
-    id="package-listing"
-  >
+  <table>
     <thead>
-      <tr
-        id="package-listing-header"
-      >
+      <tr>
         <td>
           Name
         </td>
@@ -84,9 +72,7 @@ exports[`Should have a table with single package data to install if one package 
         </td>
       </tr>
     </thead>
-    <tbody
-      id="package-listing-body"
-    >
+    <tbody>
       <tr>
         <td>
           bar
@@ -114,17 +100,12 @@ exports[`Should have a table with single package data to update if one package w
 <div>
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
-    id="package-listing-update"
   >
     Update package listing
   </button>
-  <table
-    id="package-listing"
-  >
+  <table>
     <thead>
-      <tr
-        id="package-listing-header"
-      >
+      <tr>
         <td>
           Name
         </td>
@@ -139,9 +120,7 @@ exports[`Should have a table with single package data to update if one package w
         </td>
       </tr>
     </thead>
-    <tbody
-      id="package-listing-body"
-    >
+    <tbody>
       <tr>
         <td>
           bar
@@ -174,17 +153,12 @@ exports[`Should have a table with single package data to update if one package w
 <div>
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
-    id="package-listing-update"
   >
     Update package listing
   </button>
-  <table
-    id="package-listing"
-  >
+  <table>
     <thead>
-      <tr
-        id="package-listing-header"
-      >
+      <tr>
         <td>
           Name
         </td>
@@ -199,9 +173,7 @@ exports[`Should have a table with single package data to update if one package w
         </td>
       </tr>
     </thead>
-    <tbody
-      id="package-listing-body"
-    >
+    <tbody>
       <tr>
         <td>
           bar
@@ -234,17 +206,12 @@ exports[`Should have an empty table without package data 1`] = `
 <div>
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
-    id="package-listing-update"
   >
     Update package listing
   </button>
-  <table
-    id="package-listing"
-  >
+  <table>
     <thead>
-      <tr
-        id="package-listing-header"
-      >
+      <tr>
         <td>
           Name
         </td>
@@ -259,9 +226,7 @@ exports[`Should have an empty table without package data 1`] = `
         </td>
       </tr>
     </thead>
-    <tbody
-      id="package-listing-body"
-    />
+    <tbody />
   </table>
 </div>
 `;

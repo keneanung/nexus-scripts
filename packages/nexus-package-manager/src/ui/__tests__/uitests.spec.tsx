@@ -1,5 +1,5 @@
 import { PackageManager } from '../../lib/PackageManager';
-import { PackageManagerUi } from '../index';
+import { PackageManagerUi } from '../PackageManagerUi';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
