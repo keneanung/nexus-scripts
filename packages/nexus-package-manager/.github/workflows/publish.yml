@@ -49,7 +49,7 @@ jobs:
             npx @keneanung/nexus-package-builder -v $(jq '.version' package.json) nxs/nexusPackageManager.yaml nxs/
         - name: copy assets to website
           run: |
-            cp nxs/scriptTemplate.nxs website/static/
+            cp nxs/nexusPackageManager.nxs website/static/
             cp README.md website/src/pages/index.md
         - name: build website
           run: |
