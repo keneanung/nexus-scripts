@@ -46,7 +46,7 @@ jobs:
           run: |
             npm ci
             npm run webpackProd
-            npx @keneanung/nexus-package-builder -v $(jq '.version' package.json) nxs/scriptTemplate.yaml nxs/
+            npx @keneanung/nexus-package-builder -v $(jq '.version' package.json) nxs/nexusPackageManager.yaml nxs/
         - name: copy assets to website
           run: |
             cp nxs/scriptTemplate.nxs website/static/
