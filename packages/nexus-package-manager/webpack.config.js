@@ -63,5 +63,6 @@ module.exports = {
   externals: {
     'react': 'React', // Case matters here
     'react-dom' : 'ReactDOM', // Case matters here
-   }
+   },
+   devtool: 'source-map'
 };
