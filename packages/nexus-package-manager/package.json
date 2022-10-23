@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-package-manager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Package Manager for the Iron Realms Nexus 3 client",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
