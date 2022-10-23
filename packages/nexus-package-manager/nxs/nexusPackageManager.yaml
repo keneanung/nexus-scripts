@@ -12,4 +12,7 @@ items:
     code: run_function('onLoad', undefined, 'NexusPackageManager')
     name: onInstall
     enabled: true
+  - type: function
+    codeFile: ./bundle.js.LICENSE.txt
+    name: licenses
 
