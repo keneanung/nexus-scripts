@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { IPackageManager } from '../lib/PackageManager';
 import { PackageEntry, RepositoryData } from '../lib/RepositoryData';
 import { SmallButton, LargeButton } from './Buttons';
@@ -100,19 +100,21 @@ function PackageListing({
 export function PackageManagerUi({ packageManager }: { packageManager: IPackageManager }) {
   const [repositoryData, setRepositoryData] = useState(packageManager.getRepositoryData());
   const [installedPackages, setInstalledPackages] = useState(getInstalledPackages(packageManager));
-  packageManager.onUpdateFinished((data) => {
-    setRepositoryData(data);
-    setInstalledPackages(getInstalledPackages(packageManager));
-  });
-  packageManager.onPackageOperationDone((operation, packageName) => {
-    let installedState = installedPackages[packageName];
-    if (operation === 'install') {
-      installedState = true;
-    } else if (operation === 'uninstall') {
-      installedState = false;
-    }
-    setInstalledPackages({ ...installedPackages, [packageName]: installedState });
-  });
+  useEffect(() => {
+    packageManager.onUpdateFinished((data) => {
+      setRepositoryData(data);
+      setInstalledPackages(getInstalledPackages(packageManager));
+    });
+    packageManager.onPackageOperationDone((operation, packageName) => {
+      let installedState = installedPackages[packageName];
+      if (operation === 'install') {
+        installedState = true;
+      } else if (operation === 'uninstall') {
+        installedState = false;
+      }
+      setInstalledPackages({ ...installedPackages, [packageName]: installedState });
+    });
+  }, [packageManager]);
   return (
     <>
       <LargeButton
