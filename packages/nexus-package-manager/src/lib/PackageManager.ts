@@ -62,7 +62,7 @@ export class PackageManager implements IPackageManager {
   private internalInstallAsync = async (packageName: string) => {
     const pkgEntry = this.repositoryData.find((entry) => entry.packageName === packageName);
     if (!pkgEntry) {
-      throw new Error('');
+      throw new Error(`Package ${packageName} not found`);
     }
     const response = await fetch(pkgEntry.url);
     const pkgJson = await response.json();
