@@ -5,7 +5,14 @@ exports[`Should have a table with single package data to install if one package 
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
   >
-    Update package listing
+    <span
+      class="MuiButton-label"
+    >
+      Update package listing
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </button>
   <table>
     <thead>
@@ -39,7 +46,14 @@ exports[`Should have a table with single package data to install if one package 
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
           >
-            Install
+            <span
+              class="MuiButton-label"
+            >
+              Install
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
         </td>
       </tr>
@@ -53,7 +67,14 @@ exports[`Should have a table with single package data to install if one package 
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
   >
-    Update package listing
+    <span
+      class="MuiButton-label"
+    >
+      Update package listing
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </button>
   <table>
     <thead>
@@ -87,7 +108,14 @@ exports[`Should have a table with single package data to install if one package 
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
           >
-            Install
+            <span
+              class="MuiButton-label"
+            >
+              Install
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
         </td>
       </tr>
@@ -101,7 +129,14 @@ exports[`Should have a table with single package data to update if one package w
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
   >
-    Update package listing
+    <span
+      class="MuiButton-label"
+    >
+      Update package listing
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </button>
   <table>
     <thead>
@@ -135,12 +170,26 @@ exports[`Should have a table with single package data to update if one package w
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
           >
-            Update
+            <span
+              class="MuiButton-label"
+            >
+              Update
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
           >
-            Uninstall
+            <span
+              class="MuiButton-label"
+            >
+              Uninstall
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
         </td>
       </tr>
@@ -154,7 +203,14 @@ exports[`Should have a table with single package data to update if one package w
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
   >
-    Update package listing
+    <span
+      class="MuiButton-label"
+    >
+      Update package listing
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </button>
   <table>
     <thead>
@@ -188,12 +244,26 @@ exports[`Should have a table with single package data to update if one package w
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
           >
-            Update
+            <span
+              class="MuiButton-label"
+            >
+              Update
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
           <button
             class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
           >
-            Uninstall
+            <span
+              class="MuiButton-label"
+            >
+              Uninstall
+            </span>
+            <span
+              class="MuiTouchRipple-root"
+            />
           </button>
         </td>
       </tr>
@@ -207,7 +277,14 @@ exports[`Should have an empty table without package data 1`] = `
   <button
     class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
   >
-    Update package listing
+    <span
+      class="MuiButton-label"
+    >
+      Update package listing
+    </span>
+    <span
+      class="MuiTouchRipple-root"
+    />
   </button>
   <table>
     <thead>

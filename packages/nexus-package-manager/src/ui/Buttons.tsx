@@ -18,7 +18,8 @@ export function SmallButton({ onClick, text }: ButtonProps) {
       onClick={onClick}
       className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeSmall MuiButton-sizeSmall"
     >
-      {text}
+      <span className="MuiButton-label">{text}</span>
+      <span className="MuiTouchRipple-root" />
     </button>
   );
 }
@@ -36,7 +37,8 @@ export function LargeButton({ onClick, text }: ButtonProps) {
       onClick={onClick}
       className="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
     >
-      {text}
+      <span className="MuiButton-label">{text}</span>
+      <span className="MuiTouchRipple-root" />
     </button>
   );
 }
