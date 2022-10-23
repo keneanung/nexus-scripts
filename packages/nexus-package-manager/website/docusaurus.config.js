@@ -56,7 +56,7 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: 'intro',
+            docId: 'api',
             position: 'left',
             label: 'Documentation',
           },
@@ -76,7 +76,7 @@ const config = {
             items: [
               {
                 label: 'Documentation',
-                to: '/docs/intro',
+                to: '/docs/api',
               },
             ],
           },
