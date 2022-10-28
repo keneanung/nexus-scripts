@@ -23,7 +23,7 @@
     "@typescript-eslint/parser": "^5.40.1",
     "acorn": "^8.8.0",
     "babel-jest": "^28.0.0",
-    "babel-loader": "^8.2.5",
+    "babel-loader": "^9.0.0",
     "babel-plugin-react-native-web": "^0.18.9",
     "core-js": "^3.25.5",
     "eslint": "^8.25.0",
