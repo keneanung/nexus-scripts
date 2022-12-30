@@ -34,6 +34,7 @@ test('Should request the correct URL', async () => {
 
   await sut.updateAsync();
 
+  // if we get here, we got no error
   expect(sut.getRepositoryData()).toHaveLength(0);
 });
 
