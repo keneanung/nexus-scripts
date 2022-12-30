@@ -30,30 +30,54 @@ function PackageListRow({
       <td>{entry.description}</td>
       <td>
         {installedPackages[entry.packageName] ? (
-          <>
-            <SmallButton
-              onClick={() => {
-                packageManager.updatePackageAsync(entry.packageName);
-              }}
-              text="Update"
-            />
-            <SmallButton
-              onClick={() => {
-                packageManager.uninstall(entry.packageName);
-              }}
-              text="Uninstall"
-            />
-          </>
+          <InstalledPackageButtons packageManager={packageManager} packageName={entry.packageName} />
         ) : (
-          <SmallButton
-            onClick={() => {
-              packageManager.installAsync(entry.packageName);
-            }}
-            text="Install"
-          />
+          <NotInstalledPackageButtons packageManager={packageManager} packageName={entry.packageName} />
         )}
       </td>
     </tr>
+  );
+}
+
+function NotInstalledPackageButtons({
+  packageManager,
+  packageName,
+}: {
+  packageManager: IPackageManager;
+  packageName: string;
+}) {
+  return (
+    <SmallButton
+      onClick={() => {
+        packageManager.installAsync(packageName);
+      }}
+      text="Install"
+    />
+  );
+}
+
+function InstalledPackageButtons({
+  packageManager,
+  packageName,
+}: {
+  packageManager: IPackageManager;
+  packageName: string;
+}) {
+  return (
+    <>
+      <SmallButton
+        onClick={() => {
+          packageManager.updatePackageAsync(packageName);
+        }}
+        text="Update"
+      />
+      <SmallButton
+        onClick={() => {
+          packageManager.uninstall(packageName);
+        }}
+        text="Uninstall"
+      />
+    </>
   );
 }
 
