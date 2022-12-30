@@ -225,6 +225,59 @@ test('Should call package operation done callback for updatePackage with correct
   expect(callback).toHaveBeenCalledWith('update', 'second');
 });
 
+test('Should not throw an error if package was not foudn', async () => {
+  setupRepositoryResponses([]);
+  const sut = new PackageManager();
+  await sut.updateAsync();
+
+  const installationAction = async () => await sut.installAsync('foo');
+
+  await expect(installationAction).rejects.toThrow('Package foo not found');
+});
+
+test('Should not throw on error in callback function for update.', async () => {
+  // overwrite error function to avoid test erroring
+  console.error = jest.fn();
+  setupRepositoryResponses([]);
+  const callback = jest.fn(() => {
+    throw Error();
+  });
+  const sut = new PackageManager();
+  sut.onUpdateFinished(callback);
+
+  await sut.updateAsync();
+
+  expect(callback).toBeCalledTimes(1);
+  expect(console.error).toBeCalledTimes(1);
+});
+
+test('Should not throw on error in callback function for install.', async () => {
+  // overwrite error function to avoid test erroring
+  console.error = jest.fn();
+  const packageUrl = 'https://keneanung.github.io/nexus-event-bus/foo.nxs';
+  setupRepositoryResponses([
+    {
+      name: 'second response',
+      packageName: 'second',
+      description: 'This is the second response',
+      url: packageUrl,
+      dependencies: ['secondFoo'],
+    },
+  ]);
+  setupPackageResponse(packageUrl, { name: 'foo', description: 'bar' });
+  const callback = jest.fn(() => {
+    throw Error();
+  });
+  const sut = new PackageManager();
+  sut.onPackageOperationDone(callback);
+  await sut.updateAsync();
+
+  await sut.installAsync('second');
+
+  expect(callback).toBeCalledTimes(1);
+  expect(console.error).toBeCalledTimes(1);
+});
+
 function setupRepositoryResponses(...responses: DefaultBodyType[]) {
   for (const response of responses.reverse()) {
     server.use(
