@@ -123,6 +123,10 @@ function PackageListing({
  */
 export function PackageManagerUi({ packageManager }: { packageManager: IPackageManager }) {
 
+  return <PackageManagerMainView packageManager={packageManager} />;
+}
+
+function PackageManagerMainView({packageManager}: {packageManager: IPackageManager}) {
   const [repositoryData, setRepositoryData] = useState(packageManager.getRepositoryData());
   const [installedPackages, setInstalledPackages] = useState(getInstalledPackages(packageManager));
 
@@ -132,7 +136,7 @@ export function PackageManagerUi({ packageManager }: { packageManager: IPackageM
       setRepositoryData(data);
       setInstalledPackages(getInstalledPackages(packageManager));
     });
-    
+
     packageManager.onPackageOperationDone((operation, packageName) => {
       let installedState = installedPackages[packageName];
       if (operation === 'install') {
@@ -149,14 +153,13 @@ export function PackageManagerUi({ packageManager }: { packageManager: IPackageM
       <LargeButton
         onClick={() => {
           packageManager.updateAsync();
-        }}
-        text="Update package listing"
-      />
+        } }
+        text="Update package listing" />
       <PackageListing
         installedPackages={installedPackages}
         packageManager={packageManager}
-        repositoryData={repositoryData}
-      />
+        repositoryData={repositoryData} />
     </>
   );
 }
+
