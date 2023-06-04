@@ -6,5 +6,6 @@
         "/node_modules/",
         "/lib/"
     ],
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+    "reporters": ["default", "jest-github-reporter"]
   }

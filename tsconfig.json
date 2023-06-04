@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "esNext",
+    "jsx": "react",
+    "declaration": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noEmitOnError": true
+  }
+}

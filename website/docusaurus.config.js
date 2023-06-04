@@ -3,19 +3,18 @@
 
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const configData = require('../config');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: configData.docuTitle,
-  tagline: configData.docuTagline,
-  url: `https://${configData.author}.github.io`,
-  baseUrl: `/${configData.projectName}/`,
+  title: 'Collection of IRE Nexus scripts',
+  tagline: 'Documentation for my Nexus packages and more',
+  url: `https://keneanung.github.io`,
+  baseUrl: `/nexus-scripts/`,
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: configData.author, // Usually your GitHub org/user name.
-  projectName: configData.projectName, // Usually your repo name.
+  organizationName: 'keneanung', // Usually your GitHub org/user name.
+  projectName: 'IRE Nexus scripts', // Usually your repo name.
 
   presets: [
     [
@@ -25,13 +24,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: `${configData.githubRepoWebUrl}/edit/development/website/`,
+          editUrl: 'https://github.com/keneanung/nexus-scripts/edit/development/website/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
-            `${configData.githubRepoWebUrl}/edit/development/website/blog/`,
+          'https://github.com/keneanung/nexus-scripts/edit/development/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -44,7 +43,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: configData.docuTitle,
+        title: 'Collection of IRE Nexus scripts',
         logo: {
           alt: 'Logo',
           src: 'img/logo.svg',
@@ -58,7 +57,7 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: configData.githubRepoWebUrl,
+            href: 'https://github.com/keneanung/nexus-scripts',
             label: 'GitHub',
             position: 'right',
           },
@@ -85,12 +84,12 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: configData.githubRepoWebUrl,
+                href: 'https://github.com/keneanung/nexus-scripts',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} ${configData.author}, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} keneanung, Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

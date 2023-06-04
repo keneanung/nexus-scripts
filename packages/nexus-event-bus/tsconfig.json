@@ -1,28 +1,15 @@
 {
-    "compilerOptions": {
-      "outDir": "./lib/",
-      "noImplicitAny": true,
-      "module": "commonjs",
-      "target": "es5",
-      "jsx": "react",
-      "allowJs": true,
-      "declaration": true,
-      "strict": true,
-      "alwaysStrict": true,
-      "moduleResolution": "node",
-      "skipLibCheck": true,
-      "typeRoots": [
-        "node_modules/@types",
-        "node_modules/@keneanung"
-      ],
-      "esModuleInterop": true,
-    },
-    "include": [
-      "src/**/*",
-      "webpack/**/*",
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "outDir": "lib/",
+    "rootDirs": [
+      "src/",
+      "webpack/"
     ],
-    "exclude": [
-      "node_modules",
-       "**/*.spec.ts"
-    ]
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@keneanung",
+      "../../node_modules/@types"
+    ],
   }
+}

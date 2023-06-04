@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../node_modules/@keneanung/nexus-package-builder/resources/nexus-schema.json
+name: eventbus
+enabled: true
+description: Event Bus similar to the Nexus function system, but available outside of the GUI
+type: group
+website: https://keneanung.github.io/nexus-event-bus/
+items:
+  - type: function
+    enabled: true
+    name: onLoad
+    codeFile: ./bundle.js
+  - type: function
+    enabled: true
+    name: onGMCP
+    code: |
+      eventBus.raise('onGMCP', args);
+      eventBus.raise(args.gmcp_method, args.gmcp_args);
+

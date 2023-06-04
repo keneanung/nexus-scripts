@@ -5,6 +5,36 @@
     "packages/*"
   ],
   "devDependencies": {
-    "lerna": "^6.6.2"
+    "@babel/core": "^7.17.10",
+    "@babel/plugin-transform-modules-commonjs": "^7.17.9",
+    "@babel/preset-env": "^7.17.10",
+    "@stryker-mutator/core": "^6.0.2",
+    "@stryker-mutator/jest-runner": "^6.0.2",
+    "@types/jest": "^27.5.2",
+    "@typescript-eslint/eslint-plugin": "^5.23.0",
+    "@typescript-eslint/experimental-utils": "^5.23.0",
+    "@typescript-eslint/parser": "^5.23.0",
+    "lerna": "^6.6.2",
+    "babel-loader": "^9.0.1",
+    "babel-plugin-react-native-web": "^0.19.1",
+    "core-js": "^3.22.5",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^27.0.4",
+    "eslint-plugin-jsdoc": "^46.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-webpack-plugin": "^4.0.0",
+    "jest": "^27.5.1",
+    "jest-github-reporter": "^1.0.2",
+    "metro-react-native-babel-preset": "^0.76.0",
+    "prettier": "^2.6.2",
+    "regenerator-runtime": "^0.13.9",
+    "ts-jest": "^27.1.4",
+    "ts-loader": "^9.3.0",
+    "typescript": "^4.6.4",
+    "webpack": "^5.72.1",
+    "webpack-auto-inject-version-next": "^1.2.4",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.9.0"
   }
 }

@@ -2,7 +2,7 @@
   "name": "@keneanung/iron-realms-nexus-typings",
   "version": "0.3.0",
   "description": "Typings for the IRE MUD client Nexus.",
-  "repository": "git://github.com/keneanung/iron-realms-nexus-typings.git",
+  "repository": "git://github.com/keneanung/nexus-scripts.git",
   "author": "keneanung <keneanung@googlemail.com>",
   "license": "MIT",
   "private": false,
