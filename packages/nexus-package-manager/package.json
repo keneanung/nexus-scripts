@@ -10,8 +10,6 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.10.5",
     "@emotion/eslint-plugin": "^11.10.0",
-    "@emotion/jest": "^11.10.5",
-    "@emotion/react": "^11.10.5",
     "@keneanung/iron-realms-nexus-typings": "*",
     "@keneanung/nexus-package-builder": "^1.2.0",
     "@types/react": "^18.0.21",
@@ -40,6 +38,8 @@
     "!lib/webpack/**/*"
   ],
   "dependencies": {
+    "@emotion/jest": "^11.10.5",
+    "@emotion/react": "^11.10.5",
     "cross-fetch": "^3.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
