@@ -3,7 +3,7 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "esNext",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "declaration": true,
     "strict": true,
     "alwaysStrict": true,

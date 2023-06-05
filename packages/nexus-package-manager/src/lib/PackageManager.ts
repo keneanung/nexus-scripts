@@ -1,4 +1,10 @@
-import { installNexusPackage, isNexusPackageInstalled, uninstallNexusPackage } from './nexusPackageInterface';
+import {
+  getPackageList,
+  installNexusPackage,
+  isNexusPackageInstalled,
+  setPackageOrder,
+  uninstallNexusPackage,
+} from './nexusPackageInterface';
 import { RepositoryData } from './RepositoryData';
 import fetch from 'cross-fetch';
 
@@ -6,6 +12,10 @@ export class PackageManager implements IPackageManager {
   private repositoryData: RepositoryData = [];
   private updateCallbacks: ((data: RepositoryData) => void)[] = [];
   private packageOperationCallbacks: ((operation: string, packageName: string) => void)[] = [];
+
+  constructor() {
+    this.onPackageOperationDone(this.orderPackages);
+  }
 
   public updateAsync = async () => {
     const response = await fetch('https://keneanung.github.io/nexus-package-repository/repository.json');
@@ -64,6 +74,10 @@ export class PackageManager implements IPackageManager {
     if (!pkgEntry) {
       throw new Error(`Package ${packageName} not found`);
     }
+    const notInstalledDependencies = pkgEntry.dependencies.filter((entry) => !this.isInstalled(entry));
+    for (const dependencyPackage of notInstalledDependencies) {
+      await this.installAsync(dependencyPackage);
+    }
     const response = await fetch(pkgEntry.url);
     const pkgJson = await response.json();
 
@@ -72,6 +86,44 @@ export class PackageManager implements IPackageManager {
 
   private internalUninstall = (packageName: string) => {
     uninstallNexusPackage(packageName);
+  };
+
+  private orderPackages = () => {
+    const newOrder: nexusclient.ReflexPackage[] = [];
+    const unresolved = new Set<string>();
+    const packages = getPackageList();
+
+    const createOrder = (currentPackage: nexusclient.ReflexPackage) => {
+      const packageName = currentPackage.name;
+
+      if (newOrder.find((entry) => entry.name == packageName)) {
+        return;
+      }
+
+      const packageMetaData = this.repositoryData.find((entry) => entry.packageName == packageName);
+      const dependencies = packageMetaData?.dependencies || [];
+      unresolved.add(packageName);
+
+      for (const dependencyName of dependencies) {
+        const dependency = packages.find((entry) => entry.name == dependencyName);
+        if (dependency == undefined) {
+          throw new Error(`Unable to satisfy dependency ${dependencyName} of package ${packageName}`);
+        }
+        if (newOrder.find((entry) => entry.name == dependencyName) == undefined) {
+          if (unresolved.has(dependencyName)) {
+            throw new Error(`Circular dependency found: ${packageName} -> ${dependencyName}`);
+          }
+          createOrder(dependency);
+        }
+      }
+      newOrder.push(currentPackage);
+      unresolved.delete(packageName);
+    };
+
+    for (const pkg of packages) {
+      createOrder(pkg);
+    }
+    setPackageOrder(newOrder);
   };
 }
 

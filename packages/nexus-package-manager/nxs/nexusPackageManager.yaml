@@ -3,6 +3,7 @@ name: NexusPackageManager
 enabled: true
 description: The original package manager for Iron Realms Nexus
 type: group
+website: https://keneanung.github.io/nexus-package-manager
 items:
   - type: function
     enabled: true

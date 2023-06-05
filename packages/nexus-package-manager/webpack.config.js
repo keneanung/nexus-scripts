@@ -1,7 +1,6 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const WebpackAutoInject = require('webpack-auto-inject-version-next');
-const configData = require('./config.js');
 
 module.exports = {
   entry: './webpack/webpack.tsx',
@@ -25,6 +24,7 @@ module.exports = {
               ],
               plugins: [
                 '@babel/plugin-transform-modules-commonjs',
+                '@emotion',
                 'react-native-web',
                 ['@babel/plugin-proposal-private-property-in-object', { loose: true }],
                 ['@babel/plugin-proposal-private-methods', { loose: true }],
@@ -45,7 +45,7 @@ module.exports = {
     path: path.resolve(__dirname, 'nxs'),
     library: {
       type: 'global',
-      name: configData.libraryName,
+      name: 'PackageManager',
       export: 'default',
     },
   },

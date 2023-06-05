@@ -5,4 +5,6 @@ export interface PackageEntry {
   description: string;
   url: string;
   dependencies: string[];
+  website?: string;
+  version: string;
 }

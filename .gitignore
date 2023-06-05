@@ -1,5 +1,11 @@
-node_modules/
-dist/bundle.js
+node_modules
+**/nxs/bundle.js
+**/nxs/bundle.js.LICENSE.txt
+**/nxs/bundle.js.map
+**/nxs/*.nxs
 lib
 *.tgz
 coverage
+# stryker temp files
+.stryker-tmp
+reports/

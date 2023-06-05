@@ -2,16 +2,16 @@
 
 exports[`Should ask the Nexus client to uninstall and then install a new version of a package with a given name on update of package 1`] = `
 [MockFunction] {
-  "calls": Array [
-    Array [
-      Object {
+  "calls": [
+    [
+      {
         "description": "bar",
         "name": "foo",
       },
     ],
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
       "type": "return",
       "value": undefined,
     },
@@ -21,16 +21,244 @@ exports[`Should ask the Nexus client to uninstall and then install a new version
 
 exports[`Should have installed package after call to install 1`] = `
 [MockFunction] {
-  "calls": Array [
-    Array [
-      Object {
+  "calls": [
+    [
+      {
         "description": "bar",
         "name": "foo",
       },
     ],
   ],
-  "results": Array [
-    Object {
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should install depency packages with original package 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      {
+        "description": "bar",
+        "name": "first",
+      },
+    ],
+    [
+      {
+        "dependencies": [
+          "first",
+        ],
+        "description": "baz",
+        "name": "second",
+      },
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should log an exception about circular dependencies on updating order 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "Error running package operation callback function",
+      [Error: Circular dependency found: first -> second],
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should log an exception about unknown dependencies on updating order 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "Error running package operation callback function",
+      [Error: Unable to satisfy dependency third of package first],
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should not throw on error in callback function for install. 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "Error running package operation callback function",
+      [Error],
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should not throw on error in callback function for update. 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "Error running update callback function",
+      [Error],
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should order installed depency packages after update and accept unkown package 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      [
+        ReflexHelper {
+          "apply": [Function],
+          "description": "baz",
+          "duplicate": [Function],
+          "enabled": true,
+          "encode": [Function],
+          "id": 1,
+          "items": [],
+          "name": "second",
+          "type": "group",
+        },
+        ReflexHelper {
+          "apply": [Function],
+          "description": "bar",
+          "duplicate": [Function],
+          "enabled": true,
+          "encode": [Function],
+          "id": 1,
+          "items": [],
+          "name": "first",
+          "type": "group",
+        },
+      ],
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should order installed depency packages after update to have dependency before both dependent packages 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      [
+        ReflexHelper {
+          "apply": [Function],
+          "description": "bar",
+          "duplicate": [Function],
+          "enabled": true,
+          "encode": [Function],
+          "id": 1,
+          "items": [],
+          "name": "first",
+          "type": "group",
+        },
+        ReflexHelper {
+          "apply": [Function],
+          "description": "baz",
+          "duplicate": [Function],
+          "enabled": true,
+          "encode": [Function],
+          "id": 1,
+          "items": [],
+          "name": "second",
+          "type": "group",
+        },
+        ReflexHelper {
+          "apply": [Function],
+          "description": "bamboozle",
+          "duplicate": [Function],
+          "enabled": true,
+          "encode": [Function],
+          "id": 1,
+          "items": [],
+          "name": "third",
+          "type": "group",
+        },
+      ],
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should order installed depency packages after update to have dependency before dependent package 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      [
+        ReflexHelper {
+          "apply": [Function],
+          "description": "bar",
+          "duplicate": [Function],
+          "enabled": true,
+          "encode": [Function],
+          "id": 1,
+          "items": [],
+          "name": "first",
+          "type": "group",
+        },
+        ReflexHelper {
+          "apply": [Function],
+          "description": "baz",
+          "duplicate": [Function],
+          "enabled": true,
+          "encode": [Function],
+          "id": 1,
+          "items": [],
+          "name": "second",
+          "type": "group",
+        },
+      ],
+    ],
+  ],
+  "results": [
+    {
       "type": "return",
       "value": undefined,
     },
@@ -39,9 +267,9 @@ exports[`Should have installed package after call to install 1`] = `
 `;
 
 exports[`Should parse response correctly 1`] = `
-Array [
-  Object {
-    "dependencies": Array [],
+[
+  {
+    "dependencies": [],
     "description": "Event Bus similar to the Nexus function system, but available outside of the GUI",
     "name": "Event Bus",
     "packageName": "eventbus",
@@ -51,9 +279,9 @@ Array [
 `;
 
 exports[`Should update correctly if called consecutely 1`] = `
-Array [
-  Object {
-    "dependencies": Array [
+[
+  {
+    "dependencies": [
       "secondFoo",
     ],
     "description": "This is the second response",
@@ -62,4 +290,26 @@ Array [
     "url": "https://keneanung.github.io/nexus-event-bus/second.nxs",
   },
 ]
+`;
+
+exports[`Should use installed depency packages with original package 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      {
+        "dependencies": [
+          "first",
+        ],
+        "description": "baz",
+        "name": "second",
+      },
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
 `;
