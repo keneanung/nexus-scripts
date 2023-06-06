@@ -20,6 +20,42 @@
         "--runTestsByPath",
         "${jest.testFile}"
       ]
+    },
+    {
+      "name": "Jest debug",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/lerna",
+      "runtimeArgs": [
+        "exec",
+        "--scope",
+        "@keneanung/${input:debug-project}",
+        "--",
+        "node"
+      ],
+      "args": [
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "--runInBand",
+        "--no-cache",
+        "--config",
+        "jestconfig.js",
+        "packages/${input:debug-project}"
+      ],
+
+    }
+  ],
+  "inputs": [
+    {
+      "type": "pickString",
+      "description": "Project to debug",
+      "options": [
+        {"label": "bashing-priorities", "value": "nexus-bashing-priorities"},
+        {"label": "event-bus", "value": "nexus-event-bus"},
+        {"label": "package-builder", "value": "nexus-package-builder"},
+        {"label": "package-manager", "value": "nexus-package-manager"},
+        {"label": "queue-manager", "value": "nexus-queue-manager"},
+      ],
+      "id": "debug-project"
     }
   ]
 }
