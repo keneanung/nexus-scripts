@@ -1,0 +1,871 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Nexus Reflex Package",
+  "description": "All reflexes of a package exported as a distributable file",
+  "type": "object",
+  "$ref": "#/$defs/package",
+  "$defs": {
+    "package": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "group"
+          ]
+        },
+        "id": {
+          "type": "integer"
+        },
+        "version": {
+          "type": "string"
+        },
+        "website": {
+          "type": "string"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "items": {
+          "$ref": "#/$defs/items"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/$defs/group"
+          },
+          {
+            "$ref": "#/$defs/alias"
+          },
+          {
+            "$ref": "#/$defs/function"
+          },
+          {
+            "$ref": "#/$defs/keybind"
+          },
+          {
+            "$ref": "#/$defs/trigger"
+          },
+          {
+            "$ref": "#/$defs/event"
+          }
+        ]
+      }
+    },
+    "group": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "group"
+          ]
+        },
+        "id": {
+          "type": "integer"
+        },
+        "items": {
+          "$ref": "#/$defs/items"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "alias": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "matching": {
+          "type": "string",
+          "enum": [
+            "exact",
+            "begins",
+            "regexp"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "alias"
+          ]
+        },
+        "id": {
+          "type": "integer"
+        },
+        "whole_words": {
+          "type": "boolean"
+        },
+        "case_sensitive": {
+          "type": "boolean"
+        },
+        "prefix_suffix": {
+          "type": "boolean"
+        },
+        "text": {
+          "type": "string"
+        },
+        "actions": {
+          "$ref": "#/$defs/actions"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "function": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "function"
+          ]
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "code": {
+          "type": "string"
+        },
+        "codeFile": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "keybind": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "keybind"
+          ]
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "key": {
+          "type": "integer"
+        },
+        "actions": {
+          "$ref": "#/$defs/actions"
+        },
+        "key_alt": {
+          "type": "boolean"
+        },
+        "key_ctrl": {
+          "type": "boolean"
+        },
+        "key_shift": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "trigger": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "trigger"
+          ]
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "text": {
+          "type": "string"
+        },
+        "matching": {
+          "type": "string",
+          "enum": [
+            "substring",
+            "begins",
+            "regexp",
+            "exact"
+          ]
+        },
+        "whole_words": {
+          "type": "boolean"
+        },
+        "case_sensitive": {
+          "type": "boolean"
+        },
+        "actions": {
+          "$ref": "#/$defs/actions"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "event"
+          ]
+        },
+        "enabled": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer"
+        },
+        "evtype": {
+          "type": "string",
+          "enum": [
+            "GMCP"
+          ]
+        },
+        "evsubtype": {
+          "type": "string",
+          "enum": [
+            "Char.Vitals",
+            "Char.Afflictions.Add",
+            "Char.Afflictions.Remove",
+            "Char.Defences.Add",
+            "Char.Defences.Remove",
+            "Room.AddPlayer",
+            "Room.RemovePlayer",
+            "Room.Info",
+            "IRE.Target.Set"
+          ]
+        },
+        "actions": {
+          "$ref": "#/$defs/actions"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/$defs/scriptAction"
+          },
+          {
+            "$ref": "#/$defs/commandAction"
+          },
+          {
+            "$ref": "#/$defs/notifyAction"
+          },
+          {
+            "$ref": "#/$defs/notificationAction"
+          },
+          {
+            "$ref": "#/$defs/soundAction"
+          },
+          {
+            "$ref": "#/$defs/waitAction"
+          },
+          {
+            "$ref": "#/$defs/waitForAction"
+          },
+          {
+            "$ref": "#/$defs/variableAction"
+          },
+          {
+            "$ref": "#/$defs/ifAction"
+          },
+          {
+            "$ref": "#/$defs/repeatAction"
+          },
+          {
+            "$ref": "#/$defs/labelAction"
+          },
+          {
+            "$ref": "#/$defs/gotoAction"
+          },
+          {
+            "$ref": "#/$defs/stopAction"
+          },
+          {
+            "$ref": "#/$defs/buttonAction"
+          },
+          {
+            "$ref": "#/$defs/disablemeAction"
+          },
+          {
+            "$ref": "#/$defs/disableAction"
+          },
+          {
+            "$ref": "#/$defs/enableAction"
+          },
+          {
+            "$ref": "#/$defs/functionAction"
+          }
+        ]
+      }
+    },
+    "scriptAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "script"
+          ]
+        },
+        "script": {
+          "type": "string"
+        },
+        "scriptFile": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "commandAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "command"
+          ]
+        },
+        "command": {
+          "type": "string"
+        },
+        "prefix_suffix": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "notifyAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "notify"
+          ]
+        },
+        "notice": {
+          "type": "string"
+        },
+        "notice_fg": {
+          "type": "string"
+        },
+        "notice_bg": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "notificationAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "notification"
+          ]
+        },
+        "heading": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "soundAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "sound"
+          ]
+        },
+        "sound": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "waitAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "wait"
+          ]
+        },
+        "seconds": {
+          "type": "string"
+        },
+        "milliseconds": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "waitForAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "waitfor"
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "matching": {
+          "type": "string",
+          "enum": [
+            "substring",
+            "begins",
+            "regexp",
+            "exact"
+          ]
+        },
+        "whole_words": {
+          "type": "boolean"
+        },
+        "case_sensitive": {
+          "type": "boolean"
+        },
+        "expire": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "variableAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "variable"
+          ]
+        },
+        "varname": {
+          "type": "string"
+        },
+        "valtype": {
+          "type": "string",
+          "enum": [
+            "variable",
+            "target",
+            "value"
+          ]
+        },
+        "value": {
+          "type": "string"
+        },
+        "op": {
+          "type": "string",
+          "enum": [
+            "set",
+            "del",
+            "add",
+            "sub",
+            "mul",
+            "div"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "ifAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "if"
+          ]
+        },
+        "cond-type1": {
+          "type": "string",
+          "enum": [
+            "variable",
+            "target",
+            "value"
+          ]
+        },
+        "cond-val1": {
+          "type": "string"
+        },
+        "cond-type2": {
+          "type": "string",
+          "enum": [
+            "variable",
+            "target",
+            "value"
+          ]
+        },
+        "cond-val2": {
+          "type": "string"
+        },
+        "cond-op": {
+          "type": "string",
+          "enum": [
+            "eq",
+            "greater",
+            "smaller",
+            "starts",
+            "ends"
+          ]
+        },
+        "cond-mod": {
+          "type": "string",
+          "enum": [
+            "",
+            "not"
+          ]
+        },
+        "cond-cs": {
+          "type": "boolean"
+        },
+        "dothen": {
+          "type": "string",
+          "enum": [
+            "continue",
+            "stop",
+            "jump"
+          ]
+        },
+        "doelse": {
+          "type": "string",
+          "enum": [
+            "continue",
+            "stop",
+            "jump"
+          ]
+        },
+        "dothenlabel": {
+          "type": "string"
+        },
+        "doelselabel": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "repeatAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "repeat"
+          ]
+        },
+        "cond-type1": {
+          "type": "string",
+          "enum": [
+            "variable",
+            "target",
+            "value"
+          ]
+        },
+        "cond-val1": {
+          "type": "string"
+        },
+        "cond-type2": {
+          "type": "string",
+          "enum": [
+            "variable",
+            "target",
+            "value"
+          ]
+        },
+        "cond-val2": {
+          "type": "string"
+        },
+        "cond-op": {
+          "type": "string",
+          "enum": [
+            "eq",
+            "greater",
+            "smaller",
+            "starts",
+            "ends"
+          ]
+        },
+        "cond-mod": {
+          "type": "string",
+          "enum": [
+            "",
+            "not"
+          ]
+        },
+        "cond-cs": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string",
+          "enum": [
+            "count",
+            "while"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "labelAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "label"
+          ]
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "gotoAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "goto"
+          ]
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "stopAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "stop"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "buttonAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "button"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "buttonid": {
+          "type": "string"
+        },
+        "buttonaction": {
+          "type": "string",
+          "enum": [
+            "label",
+            "command",
+            "highlight",
+            "unhighlight",
+            "default"
+          ]
+        },
+        "command": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "disablemeAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "disableme"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "disableAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "disable"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "group",
+            "alias",
+            "trigger",
+            "keybind",
+            "event"
+          ]
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "enableAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "enable"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "group",
+            "alias",
+            "trigger",
+            "keybind",
+            "event"
+          ]
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "functionAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "function"
+          ]
+        },
+        "fn": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    }
+  }
+}

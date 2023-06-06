@@ -9,7 +9,7 @@
   "typings": "lib/src/index.d.ts",
   "devDependencies": {
     "@keneanung/iron-realms-nexus-typings": "*",
-    "@keneanung/nexus-package-builder": "^1.2.0"
+    "@keneanung/nexus-package-builder": "*"
   },
   "scripts": {
     "serve": "webpack serve --mode development",

@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "outDir": "lib/",
+    "rootDirs": [
+      "src/"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@keneanung",
+      "../../node_modules/@types",
+      "../../node_modules/@keneanung"
+    ],
+    "types": [
+      "jest",
+      "js-yaml",
+      "iron-realms-nexus-typings"
+    ]
+  }
+}
