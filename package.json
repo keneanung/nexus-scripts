@@ -44,5 +44,8 @@
     "webpack-auto-inject-version-next": "^1.2.4",
     "webpack-cli": "^5.0.0",
     "webpack-dev-server": "^4.9.0"
+  },
+  "scripts": {
+    "test": "echo 'Workaround for npm rfc #575'; lerna exec 'npx jest --testLocationInResults --collect-coverage --config jestconfig.js' --ignore @keneanung/iron-realms-nexus-typings --no-bail"
   }
 }
