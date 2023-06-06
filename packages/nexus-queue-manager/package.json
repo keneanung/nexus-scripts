@@ -1,0 +1,37 @@
+{
+  "name": "@keneanung/nexus-queue-manager",
+  "version": "0.0.0",
+  "description": "A queue manager for Iron Realms Nexus 3",
+  "author": "keneanung <keneanung@gmail.com>",
+  "license": "MIT",
+  "repository": "git://github.com/keneanung/nexus-scripts.git",
+  "main": "lib/src/index.js",
+  "typings": "lib/src/index.d.ts",
+  "devDependencies": {
+    "@keneanung/iron-realms-nexus-typings": "*",
+    "@keneanung/nexus-package-builder": "^1.2.0"
+  },
+  "scripts": {
+    "serve": "webpack serve --mode development",
+    "build": "tsc",
+    "webpack": "npm test && webpack build --mode development",
+    "webpackProd": "npm test && webpack build --mode production",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "jest --testLocationInResults --collect-coverage --config jestconfig.json",
+    "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\" \"src/**/*.{ts,tsx}\"",
+    "prepublishOnly": "npm test && npm run lint && npm run build",
+    "preversion": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "website": "cd website && npm run start",
+    "nxs": "npm run webpackProd && nexus-package-builder nxs/queueManager.yaml nxs/"
+  },
+  "files": [
+    "lib/**/*",
+    "!lib/**/__tests__/*",
+    "!lib/webpack/**/*"
+  ],
+  "dependencies": {
+  }
+}

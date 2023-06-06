@@ -1,0 +1,113 @@
+# yaml-language-server: $schema=../node_modules/@keneanung/nexus-package-builder/resources/nexus-schema.json
+name: QueueManager
+enabled: true
+description: A queue manager for Iron Realms Nexus 3
+type: group
+website: https://keneanung.github.io/nexus-misc-packages
+items:
+  - type: function
+    enabled: true
+    name: onLoad
+    codeFile: ./queueManager.js
+  - type: function
+    code: run_function('onLoad', undefined, 'QueueManager')
+    name: onInstall
+    enabled: true
+  - type: trigger
+    enabled: true
+    name: Queue Trigger
+    matching: regexp
+    text: "^\\[System\\]: Added (.+) to your (.+) queue\\.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.track(args[1], args[2])
+  - type: trigger
+    enabled: true
+    name: Queue Clear Trigger for Queue
+    matching: regexp
+    text: "^\\[System\\]: Queued (.+) commands cleared.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.clear(args[1])
+  - type: trigger
+    enabled: true
+    name: Queue Clear Trigger for All
+    matching: regexp
+    text: "^\\[System\\]: All queued commands cleared.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.clear('all')
+  - type: trigger
+    enabled: true
+    name: Queue Empy Trigger
+    matching: regexp
+    text: "^You have no queued commands\\.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.clear('all')
+  - type: trigger
+    enabled: true
+    name: Queue Prepend Trigger
+    matching: regexp
+    text: "^\\[System\\]: Prepended (.+) to your (.+) queue\\.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.trackFirst(args[1], args[2])
+  - type: trigger
+    enabled: true
+    name: Queue Replace Trigger
+    matching: regexp
+    text: "^\\[System\\]: Replaced command #(\\d+) in the queue with (.+) command: (.+)\\.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.trackReplace(args[1], args[3], args[2])
+  - type: trigger
+    enabled: true
+    name: Queue Insert Trigger
+    matching: regexp
+    text: "^\\[System\\]: Inserted command #(\\d+) in the queue with (.+) command: (.+)\\.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.trackAt(args[1], args[3], args[2])
+  - type: trigger
+    enabled: true
+    name: Queue Remove Trigger
+    matching: regexp
+    text: "^\\[System\\]: Removed the command at position (\\d+) in your .+ queue\\.$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.trackRemove(args[1])
+  - type: trigger
+    enabled: true
+    name: Queue Start List Trigger
+    matching: exact
+    text: "#   Queue                Command                                                 "
+    actions:
+      - action: script
+        script: globalThis.queueManager.clear('all')
+  - type: trigger
+    enabled: true
+    name: Queue List Trigger
+    matching: regexp
+    text: "^\\d+\\)\\s+(\\S+)\\s+(.+)$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.track(args[2], args[1])
+  - type: trigger
+    enabled: true
+    name: Queue Run Trigger
+    matching: regexp
+    text: "^\\[System\\]: Running queued (.+) command: (.+)$"
+    actions:
+      - action: script
+        script: globalThis.queueManager.run(args[2], args[1])
+  - type: trigger
+    enabled: true
+    name: Queue Full
+    matching: exact
+    text: "[System]: Your queue is full."
+    actions:
+      - action: script
+        script: globalThis.queueManager.blocked()
+    
+
