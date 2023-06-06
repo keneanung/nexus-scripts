@@ -29,7 +29,6 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags",
     "website": "cd website && npm run start",
-    "setup": "node ./setup.mjs",
     "nxs": "npm run webpackProd && nexus-package-builder nxs/nexusPackageManager.yaml nxs/"
   },
   "files": [
