@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
+    "target": "es5",
     "outDir": "lib/",
     "rootDirs": [
       "src/"
@@ -14,7 +15,8 @@
     "types": [
       "jest",
       "js-yaml",
-      "iron-realms-nexus-typings"
+      "iron-realms-nexus-typings",
+      "node"
     ]
   }
 }
