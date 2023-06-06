@@ -1,7 +1,7 @@
 {
-  "name": "@keneanung/bashing-js-2",
+  "name": "@keneanung/nexus-bashing-priorities",
   "version": "0.0.0",
-  "description": "Second generation Bashing script for IRE Nexus",
+  "description": "Bashing priority module for Iron Realms Nexus 3",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
   "repository": "git://github.com/keneanung/nexus-scripts.git",
