@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as yaml from 'js-yaml';
 
 jest.mock('fs');
-jest.mock('js-yaml')
+jest.mock('js-yaml');
 const mockedFs = mocked(fs);
 const mockedYaml = mocked(yaml);
 
