@@ -10,8 +10,7 @@ const config = {
       "/node_modules/",
       "/lib/"
   ],
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
-  reporters: ["default", "jest-github-reporter"]
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"]
 };
 
 module.exports = config;
