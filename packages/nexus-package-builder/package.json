@@ -13,7 +13,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
     "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",

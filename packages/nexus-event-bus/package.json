@@ -21,7 +21,7 @@
     "build": "tsc",
     "webpack": "npm test && webpack build --mode development",
     "webpackProd": "npm test && webpack build --mode production",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
     "watchTest": "jest --testLocationInResults --collect-coverage --config jestconfig.js --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",

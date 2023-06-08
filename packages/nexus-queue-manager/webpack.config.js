@@ -1,7 +1,6 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const WebpackAutoInject = require('webpack-auto-inject-version-next');
-const configData = require('./config.js');
 
 module.exports = {
   entry: {

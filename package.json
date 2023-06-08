@@ -48,6 +48,8 @@
     "webpack-dev-server": "^4.9.0"
   },
   "scripts": {
-    "test": "echo 'Workaround for npm rfc #575'; lerna exec --ignore @keneanung/iron-realms-nexus-typings --no-bail --no-progress --stream -- npx jest --testLocationInResults --collect-coverage --config jestconfig.js"
+    "test": "echo 'Workaround for npm rfc #575'; lerna exec --ignore @keneanung/iron-realms-nexus-typings --no-bail --no-progress --stream -- npx jest --testLocationInResults --collect-coverage --config jestconfig.js",
+    "lint": "lerna exec --no-bail --no-progress --stream -- eslint . --ext .ts,.tsx",
+    "webpack": "lerna exec --no-bail --no-progress --stream --ignore @keneanung/iron-realms-nexus-typings --ignore @keneanung/nexus-package-builder -- webpack build --mode development"
   }
 }

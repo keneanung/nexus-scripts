@@ -1,7 +1,7 @@
 node_modules
-**/nxs/bundle.js
-**/nxs/bundle.js.LICENSE.txt
-**/nxs/bundle.js.map
+**/nxs/*.js
+**/nxs/*.js.LICENSE.txt
+**/nxs/*.js.map
 **/nxs/*.nxs
 lib
 *.tgz
