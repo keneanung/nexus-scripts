@@ -2,7 +2,7 @@
 import { Command } from 'commander';
 import { createPackage } from './createPackage';
 import { exit } from 'process';
-import * as getPackageVersion from '@jsbits/get-package-version';
+import getPackageVersion from '@jsbits/get-package-version';
 
 const program = new Command();
 program

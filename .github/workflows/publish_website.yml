@@ -1,0 +1,39 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Publish to NPM registries
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the development branch
+  push:
+    tags: "*"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  publish-website:
+      runs-on: ubuntu-latest
+
+      steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-node@v3
+        - name: create Nexus assets
+          # second npm ci is to install the package builder properly
+          run: |
+            npm ci
+            npm run build
+            npm ci
+            npm run nxs
+        - name: copy assets to website
+          run: |
+            find  -type f -name "*.nxs" -exec cp "{}" website/static/ \;
+            cp README.md website/src/pages/index.md
+        - name: build website
+          run: |
+            cd website
+            npm ci
+            npm run build
+        - name: Deploy to GitHub Pages
+          uses: JamesIves/github-pages-deploy-action@v4.4.2
+          with:
+            branch: gh-pages
+            folder: website/build
