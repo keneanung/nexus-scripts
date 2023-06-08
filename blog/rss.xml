@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>Collection of IRE Nexus scripts Blog</title>
+        <link>https://keneanung.github.io/nexus-scripts/blog</link>
+        <description>Collection of IRE Nexus scripts Blog</description>
+        <lastBuildDate>Thu, 08 Jun 2023 22:58:07 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[v0.1.0: MVP]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2022_10_23_mvp</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2022_10_23_mvp</guid>
+            <pubDate>Thu, 08 Jun 2023 22:58:07 GMT</pubDate>
+            <description><![CDATA[This is the very first release of the Nexus Package Manager. This MVP (Minimal Viable Product), which contains only a bare minimum of features. These include a basic UI, the retrieval of package data from a remote location as well as installation, update and removal of packages. All of this functionality is also provided by the Nexus UI, with the exception of a package listing. So right now it can be used as a way to discover new packages.]]></description>
+            <content:encoded><![CDATA[<p>This is the very first release of the Nexus Package Manager. This MVP (Minimal Viable Product), which contains only a bare minimum of features. These include a basic UI, the retrieval of package data from a remote location as well as installation, update and removal of packages. All of this functionality is also provided by the Nexus UI, with the exception of a package listing. So right now it can be used as a way to discover new packages.</p><p>Future plans include the tracking and installation of dependencies, version handling and notification of new updates for installed packages.</p><p>The success of this project is strongly linked with how extensive the <a href="https://keneanung.github.io/nexus-package-repository/" target="_blank" rel="noopener noreferrer">list of available packages</a> is. So, if you know of a package or have authored one yourself, please head over to <a href="https://github.com/keneanung/nexus-package-repository" target="_blank" rel="noopener noreferrer">https://github.com/keneanung/nexus-package-repository</a> and either add the package via pull request or open an issue so I can add it.</p><p>If you like the project, please consider leaving a star on the <a href="https://github.com/keneanung/nexus-package-manager" target="_blank" rel="noopener noreferrer">GitHub project</a> and <a href="https://github.com/sponsors/keneanung" target="_blank" rel="noopener noreferrer">sponsoring me</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="v011-infrastructure-fix">v0.1.1 Infrastructure fix<a href="#v011-infrastructure-fix" class="hash-link" aria-label="Direct link to v0.1.1 Infrastructure fix" title="Direct link to v0.1.1 Infrastructure fix">​</a></h2><p>This version bump was only for infrastructure fixes. The package was not modified.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[v0.2.0 Dependencies]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2023_04_24_dependencies</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2023_04_24_dependencies</guid>
+            <pubDate>Thu, 08 Jun 2023 22:58:07 GMT</pubDate>
+            <description><![CDATA[I'm happy to announce that the project reached a huge milestone. It now handles dependencies of packages that are listed in package repository.]]></description>
+            <content:encoded><![CDATA[<p>I'm happy to announce that the project reached a huge milestone. It now handles dependencies of packages that are <a href="https://keneanung.github.io/nexus-package-repository/" target="_blank" rel="noopener noreferrer">listed in package repository</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="handling-dependencies">Handling dependencies<a href="#handling-dependencies" class="hash-link" aria-label="Direct link to Handling dependencies" title="Direct link to Handling dependencies">​</a></h2><p>Whenever the package manager installs a package, it checks, whether it has other packages that are required for it to function correctly. These packages are first searched in the local package list. If they are installed, the package manager proceeds to install the original package as normal. If a dependency is not installed, the package manager will first install the dependency, before proceeding with the actual requested package installation.</p><p>The package manager will also make sure, that dependencies are listed in the correct order. This makes sure that the initialization of a package is only attempted when all dependencies are already initialized. No more documenting "and make sure package A is above package B". This happens both after the installation and update of a package.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="ui-improvements">UI improvements<a href="#ui-improvements" class="hash-link" aria-label="Direct link to UI improvements" title="Direct link to UI improvements">​</a></h2><p>The UI also got some improvements. You can now show package details within the window, including version, description, dependencies and a link to the website.</p><p><img loading="lazy" alt="package detail view" src="/nexus-scripts/assets/images/detail_page-78b4a6740a57a19127a3465599fa1e12.png" width="386" height="484" class="img_ev3q"></p><p>The UI main page got some layout imprvements by using icons instead of text for buttons, which makes the page much cleaner.</p><p><img loading="lazy" alt="package list view" src="/nexus-scripts/assets/images/package_listing-27e49b83cfa747c79cde724cbe7f48a4.png" width="379" height="481" class="img_ev3q"></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="closing-words">Closing words<a href="#closing-words" class="hash-link" aria-label="Direct link to Closing words" title="Direct link to Closing words">​</a></h2><p>If these features got you interested, please feel free to either <a href="https://github.com/keneanung/nexus-package-repository/issues/new?assignees=&amp;labels=new+package&amp;template=new_package.yml&amp;title=%5BPackage%5D%3A+" target="_blank" rel="noopener noreferrer">open an issue about including your package</a> in the package listing or contact me on the Achaea or Nexus discrod if you need more information. You can also send me a direct message.</p><p>If you like the project, please consider leaving a star on the <a href="https://github.com/keneanung/nexus-package-manager" target="_blank" rel="noopener noreferrer">GitHub project</a> and <a href="https://github.com/sponsors/keneanung" target="_blank" rel="noopener noreferrer">sponsoring me</a>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[v0.2.1 & v0.2.2 Bugfix for Disappearing Actions]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2023_06_05_disappearing_actions</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2023_06_05_disappearing_actions</guid>
+            <pubDate>Thu, 08 Jun 2023 22:58:07 GMT</pubDate>
+            <description><![CDATA[This bugfix release fixes the issue that makes all actions for reflexes (eg calling scripts, coloring lines etc) disappear when installing a package through the package manager.]]></description>
+            <content:encoded><![CDATA[<p>This bugfix release fixes the issue that makes all actions for reflexes (eg calling scripts, coloring lines etc) disappear when installing a package through the package manager.</p><p>Additionally, version 0.2.2 fixes an issue in the website infrastructure.</p><p>I hope nobody lost important changes through this!</p><p>If you like the project, please consider leaving a star on the <a href="https://github.com/keneanung/nexus-package-manager" target="_blank" rel="noopener noreferrer">GitHub project</a> and <a href="https://github.com/sponsors/keneanung" target="_blank" rel="noopener noreferrer">sponsoring me</a>.</p>]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Packaging improvements: v0.5.0 + v0.5.1]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2023/01/02/_Packaging</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2023/01/02/_Packaging</guid>
+            <pubDate>Mon, 02 Jan 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release does not contain any changes to the code of the event bus itself. Rather, it facilitates improvements to the packaging, adding version and website information directly into the package.]]></description>
+            <content:encoded><![CDATA[<p>This release does not contain any changes to the code of the event bus itself. Rather, it facilitates improvements to the packaging, adding version and website information directly into the package.</p><p>Additionally, dependencies were updated.</p><p>Version 0.5.1 contained infrastructure fixes only.</p><p>If you find bugs, would like to see more features and discuss particular design choices, feel free to <a href="https://github.com/keneanung/nexus-event-bus/issues/new" target="_blank" rel="noopener noreferrer">create a new issue</a> to get in touch.</p><p>If you like my work and want to support me, please consider <a href="https://github.com/sponsors/keneanung" target="_blank" rel="noopener noreferrer">sponsoring me</a>.</p>]]></content:encoded>
+            <author>keneanung@gmail.com (keneanung)</author>
+        </item>
+        <item>
+            <title><![CDATA[Finetuning: v0.3.0]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2022/05/11/_Finetuning</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2022/05/11/_Finetuning</guid>
+            <pubDate>Wed, 11 May 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release contains a number of small bits and bops here and there to finetune the package and give it some extra shine:]]></description>
+            <content:encoded><![CDATA[<p>This release contains a number of small bits and bops here and there to finetune the package and give it some extra shine:</p><ul><li>Fix a possible security issue due to <a href="https://portswigger.net/daily-swig/prototype-pollution-the-dangerous-and-underrated-vulnerability-impacting-javascript-applications" target="_blank" rel="noopener noreferrer">prototype polution</a></li><li>Inject version number into loading log message</li><li>Add hack to get the Map class back</li><li>Move raising specialized gmcp events to the NXS package for improved visibility and document them</li></ul>]]></content:encoded>
+            <author>keneanung@gmail.com (keneanung)</author>
+        </item>
+        <item>
+            <title><![CDATA[Hello World]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2021/10/27/_hello_world</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2021/10/27/_hello_world</guid>
+            <pubDate>Wed, 27 Oct 2021 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Khaseems Wishlist: v0.1.1]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2021/04/27/_Khaseems_Wishlist</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2021/04/27/_Khaseems_Wishlist</guid>
+            <pubDate>Tue, 27 Apr 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[This release is something, the Achaean Player Khaseem wished for. He's been using the original EventStream module of NexSys very extenively. However, he'd like to move to an external package to help the adoption of a standard set of Nexus packages.]]></description>
+            <content:encoded><![CDATA[<p>This release is something, the Achaean Player Khaseem wished for. He's been using the original EventStream module of NexSys very extenively. However, he'd like to move to an external package to help the adoption of a standard set of Nexus packages.</p><p>The original EventStream had a set of features that were part of his development flow: The ability to unsubscribe from events using a function name and access to the list of subscribers to an event.</p><p>While the former is about a preferred coding style, the latter is useful for debugging code: That way you can easily have a look at the list of subscribers to an event and determine if all subscribers actually belong there at this point.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="new-features">New Features<a href="#new-features" class="hash-link" aria-label="Direct link to New Features" title="Direct link to New Features">​</a></h2><p>You may now subscribe or unsubscribe to events using a callback function name instead of a function reference. To avoid accidental overwriting of existing callbacks, especially between different users of the EventBus, duplicate subscription names generate an error. So you may want to namespace your event names.</p><p>You can now access the list of subscribers to an event using the <code>getSubscribers</code> method. This allows easy inspection of the subscription state of callbacks. The subscribers may not be changed this way.</p>]]></content:encoded>
+            <author>keneanung@gmail.com (keneanung)</author>
+        </item>
+    </channel>
+</rss>
