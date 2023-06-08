@@ -22,7 +22,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"src/**/*.{ts,tsx}\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
     "version": "npm test && npm run lint && npm run format && git add -A src",
-    "nxs": "npm run webpackProd && nexus-package-builder nxs/queueManager.yaml nxs/"
+    "nxs": "npm run webpackProd && nexus-package-builder -v $(jq -r '.version' package.json) nxs/queueManager.yaml nxs/"
   },
   "files": [
     "lib/**/*",
