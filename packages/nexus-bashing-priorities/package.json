@@ -17,14 +17,11 @@
     "webpack": "npm test && webpack build --mode development",
     "webpackProd": "npm test && webpack build --mode production",
     "lint": "eslint . --ext .ts,.tsx",
-    "test": "jest --testLocationInResults --collect-coverage --config jestconfig.json",
-    "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
+    "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
+    "watchTest": "jest --collect-coverage --config jestconfig.js --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
-    "preversion": "npm test && npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
-    "website": "cd website && npm run start"
+    "version": "npm test && npm run lint && npm run format && git add -A src"
   },
   "files": [
     "lib/**/*",

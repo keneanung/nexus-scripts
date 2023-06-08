@@ -26,9 +26,7 @@
     "watchTest": "jest --testLocationInResults --collect-coverage --config jestconfig.js --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
-    "preversion": "npm test && npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
+    "version": "npm test && npm run lint && npm run format && git add -A src",
     "nxs": "npm run webpackProd && nexus-package-builder nxs/EventBus.yaml nxs/"
   },
   "files": [

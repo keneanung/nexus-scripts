@@ -25,10 +25,7 @@
     "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"src/**/*.{ts,tsx}\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
-    "preversion": "npm test && npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
-    "website": "cd website && npm run start",
+    "version": "npm test && npm run lint && npm run format && git add -A src",
     "nxs": "npm run webpackProd && nexus-package-builder nxs/nexusPackageManager.yaml nxs/"
   },
   "files": [
