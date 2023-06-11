@@ -14,3 +14,11 @@ If you want make sure that package is properly loaded, check the browser console
 loading Package Manager version X.Y.Z...
 Package Manager loaded.
 ```
+
+Additionally, a new UI tab should appear in the lower right tab panel.
+
+## Usage ##
+
+After login, the package listing is empty. You can update the list by pressing the `Update Package Listing` button. For each package in the listing, you can view the package details. Installed packages can be updated and uninstalled, while packages not installed can be installed with the buttons.
+
+
