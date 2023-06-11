@@ -1,4 +1,9 @@
-# v0.2.0 Dependencies
+---
+authors: keneanung
+tags:
+  - package-manager
+---
+# Nexus Package Manager v0.2.0: Dependencies
 
 I'm happy to announce that the project reached a huge milestone. It now handles dependencies of packages that are [listed in package repository](https://keneanung.github.io/nexus-package-repository/).
 
@@ -12,14 +17,14 @@ The package manager will also make sure, that dependencies are listed in the cor
 
 The UI also got some improvements. You can now show package details within the window, including version, description, dependencies and a link to the website.
 
-![package detail view](2023_04_24_files/detail_page.png)
+![package detail view](2023-04-24_files/detail_page.png)
 
 The UI main page got some layout imprvements by using icons instead of text for buttons, which makes the page much cleaner.
 
-![package list view](2023_04_24_files/package_listing.png)
+![package list view](2023-04-24_files/package_listing.png)
 
 ## Closing words
 
 If these features got you interested, please feel free to either [open an issue about including your package](https://github.com/keneanung/nexus-package-repository/issues/new?assignees=&labels=new+package&template=new_package.yml&title=%5BPackage%5D%3A+) in the package listing or contact me on the Achaea or Nexus discrod if you need more information. You can also send me a direct message.
 
-If you like the project, please consider leaving a star on the [GitHub project](https://github.com/keneanung/nexus-package-manager) and [sponsoring me](https://github.com/sponsors/keneanung).
+If you like the project, please consider leaving a star on the [GitHub project](https://github.com/keneanung/nexus-scripts) and [sponsoring me](https://github.com/sponsors/keneanung).

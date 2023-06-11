@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+id: api
+---
 # API
 
 The package manager includes a public API which can be used to interact with it.

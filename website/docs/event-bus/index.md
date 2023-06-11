@@ -1,8 +1,8 @@
 ---
 id: index
-sidebar_position: 1
+sidebar_position: 2
 ---
-# EventBus #
+# Nexus EventBus #
 
 Welcome to the documentation of the EventBus package for the IRE Nexus client.
 

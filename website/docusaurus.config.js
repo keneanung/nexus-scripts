@@ -3,7 +3,7 @@
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Collection of IRE Nexus scripts',
+  title: 'Keneanungs Collection of IRE Nexus scripts',
   tagline: 'Documentation for my Nexus packages and more',
   url: `https://keneanung.github.io`,
   baseUrl: `/nexus-scripts/`,
@@ -11,7 +11,7 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   organizationName: 'keneanung', // Usually your GitHub org/user name.
-  projectName: 'IRE Nexus scripts', // Usually your repo name.
+  projectName: 'nexus-scripts', // Usually your repo name.
 
   presets: [
     [
@@ -40,7 +40,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Collection of IRE Nexus scripts',
+        title: 'Keneanungs Collection of IRE Nexus scripts',
         logo: {
           alt: 'Logo',
           src: 'img/logo.svg',
