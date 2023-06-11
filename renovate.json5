@@ -42,9 +42,8 @@
       "depTypeList": ["devDependencies"],
       "groupName": "Dev Dependencies"
     },
-    // Docusaurus does not work with mdx-js/react version 2
-    {
-      "ignoreDeps": ["mdx-js/react"]
-    }
-  ]
+  ],
+  
+  // Docusaurus does not work with mdx-js/react version 2
+  "ignoreDeps": ["mdx-js/react"]
 }
