@@ -45,5 +45,8 @@
   ],
   
   // Docusaurus does not work with mdx-js/react version 2
-  "ignoreDeps": ["@mdx-js/react"]
+  "ignoreDeps": ["@mdx-js/react"],
+  "constraints": {
+    "npm": " ^9.0.0"
+  }
 }
