@@ -47,16 +47,16 @@ declare namespace nexusclient {
     get_package_list: () => ReflexPackage[]
     determine_package_for_reflex: (r: client.Reflex) => (client.Package | null)
     encode: (e: client.Reflex | null) => EncodedReflex
-    apply: (list: any[]) => void
+    apply: (list: unknown[]) => void
     add_waiting_action: (action: client.WaitForAction) => void
-    match_waiting_actions: (text: string, block: any, idx: number) => void
+    match_waiting_actions: (text: string, block: unknown, idx: number) => void
     make_action: (atype: 'script' | 'command' | 'notify' | 'notification' | 'sound' | 'wait' | 'waitfor' | 'variable' | 'if' | 'repeat' | 'label' | 'goto' | 'stop' | 'button' | 'disableme' | 'disable' | 'enable' | 'function') => client.Action
     find_function_by_name: (name: string, enabled: boolean, pkg: client.Package | number | string) => (client.Function | undefined)
     handle_functions: (input: string) => (string | false)
-    run_function: (name: string, args: any[] | undefined, pkg: client.Package | number | string) => void
+    run_function: (name: string, args: unknown[] | undefined, pkg: client.Package | number | string) => void
   }
 
   export interface EncodedReflex {
-    [key: string]: any
+    [key: string]: unknown
   }
 }

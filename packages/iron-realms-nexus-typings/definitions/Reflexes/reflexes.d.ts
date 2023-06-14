@@ -120,9 +120,9 @@ declare namespace client {
 
         /**
          * Matching type of the alias:
-         * * exact: The text must be matching exactly as is written here.
-         * * begins: The text must begin with what is written here.
-         * * regex: The text must match the regular expression that is written here.
+         * - exact: The text must be matching exactly as is written here.
+         * - begins: The text must begin with what is written here.
+         * - regex: The text must match the regular expression that is written here.
          */
         matching: 'exact' | 'begins' | 'regexp',
 
@@ -233,10 +233,10 @@ declare namespace client {
 
         /**
          * Matching type of the trigger:
-         * * exact: The text must be matching exactly as is written here.
-         * * begins: The text must begin with what is written here.
-         * * regex: The text must match the regular expression that is written here.
-         * * substring: The text must have a part that looks like it is written here.
+         * - exact: The text must be matching exactly as is written here.
+         * - begins: The text must begin with what is written here.
+         * - regex: The text must match the regular expression that is written here.
+         * - substring: The text must have a part that looks like it is written here.
          */
         matching: 'exact' | 'begins' | 'regexp' | 'substring',
 

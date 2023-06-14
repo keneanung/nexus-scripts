@@ -1,2 +1,2 @@
-/// <reference path="./reflexes.d.ts"/>
-/// <reference path="./actions.d.ts"/>
+export * from './reflexes'
+export * from './actions'
