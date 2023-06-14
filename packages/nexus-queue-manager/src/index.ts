@@ -83,9 +83,9 @@ const defaultQueueTranslations: { [key: string]: string } = {
   paralysis: '!p',
   unbound: '!w',
   stun: '!t',
-  free: 'be!p!t',
-  freestand: 'be!p!tu',
-  full: 'be!p!tuc',
+  free: 'be!p!t!w',
+  freestand: 'be!p!tu!w',
+  full: 'be!p!tuc!w',
 };
 
 /**

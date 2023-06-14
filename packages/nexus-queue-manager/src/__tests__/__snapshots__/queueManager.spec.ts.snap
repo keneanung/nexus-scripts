@@ -9,6 +9,7 @@ exports[`Should have remove items in class queue after clear("c") 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -37,6 +38,7 @@ exports[`Should have remove items in class queue after clear("class") 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -112,6 +114,7 @@ exports[`Should put items at given position in queue with trackAt 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -135,6 +138,7 @@ exports[`Should put items at given position in queue with trackAt 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -162,6 +166,7 @@ exports[`Should put prepended items first in queue 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -175,6 +180,7 @@ exports[`Should put prepended items first in queue 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -430,6 +436,7 @@ exports[`Should remove items at given position in queue with trackRemove 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -490,6 +497,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -504,6 +512,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -518,6 +527,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -532,6 +542,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStunned": false,
       "haveBalance": true,
       "haveEq": true,
@@ -549,6 +560,7 @@ exports[`Should remove run command from queue 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -563,6 +575,7 @@ exports[`Should remove run command from queue 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -577,6 +590,7 @@ exports[`Should remove run command from queue 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStunned": false,
       "haveBalance": true,
       "haveEq": true,
@@ -589,6 +603,7 @@ exports[`Should remove run command from queue 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStunned": false,
       "haveBalance": true,
       "haveEq": true,
@@ -606,6 +621,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -620,6 +636,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -634,6 +651,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStunned": false,
       "haveBalance": true,
       "haveEq": true,
@@ -646,6 +664,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStunned": false,
       "haveBalance": true,
       "haveEq": true,
@@ -663,6 +682,7 @@ exports[`Should replace items at given position in queue with trackReplace 1`] =
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -677,6 +697,7 @@ exports[`Should replace items at given position in queue with trackReplace 1`] =
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -900,6 +921,7 @@ exports[`Should translate property "free" correctly 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStunned": false,
       "haveBalance": true,
       "haveEq": true,
@@ -917,6 +939,7 @@ exports[`Should translate property "freestand" correctly 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
@@ -947,6 +970,7 @@ exports[`Should translate property "full" correctly 1`] = `
     "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
+      "beBound": false,
       "beStanding": true,
       "beStunned": false,
       "haveBalance": true,
