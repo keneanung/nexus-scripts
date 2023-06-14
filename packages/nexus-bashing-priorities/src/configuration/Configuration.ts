@@ -15,7 +15,6 @@ export class Configuration {
 
   /**
    * Constructs a new configuration from the given primitive configuration object.
-   *
    * @param {PrimitiveConfiguration} config The configuration to use.
    */
   constructor(config: PrimitiveConfiguration = {}) {
@@ -24,7 +23,6 @@ export class Configuration {
 
   /**
    * Converts this configuration domain object to a collection of primitive values.
-   *
    * @returns {PrimitiveConfiguration} The current configuration as a primitive configuration object that can be serialized.
    */
   public AsPrimitive(): PrimitiveConfiguration {

@@ -20,8 +20,7 @@ export class AreaPriorities {
 
   /**
    * Constructs a new object that is initialized with the given priorities.
-   *
-   * @param {Object<string,string[]>} priorityDictionary A dictionary with an area name as key and a list of things in order of priority.
+   * @param { { [areaName: string]: string[] }} priorityDictionary A dictionary with an area name as key and a list of things in order of priority.
    */
   constructor(priorityDictionary: { [areaName: string]: string[] } = {}) {
     this.priorityLists = {};
@@ -33,8 +32,7 @@ export class AreaPriorities {
 
   /**
    * Returns a serializable representation of this object.
-   *
-   * @returns {Object<string,string[]>} A dictionary with an area name as key and a list of things in order of priority.
+   * @returns {{ [areaName: string]: string[] }} A dictionary with an area name as key and a list of things in order of priority.
    */
   AsDictionary(): { [areaName: string]: string[] } {
     const result: { [areaName: string]: string[] } = {};
@@ -48,7 +46,6 @@ export class AreaPriorities {
 
   /**
    * Changes the priorities of the given area to the given list order.
-   *
    * @param {string} areaName The name of the area to modify the order of priorities for.
    * @param {string[]} newPriorities The new priority order for the given area.
    * @throws {Error} If the given area does not exist.
@@ -74,7 +71,6 @@ export class AreaPriorities {
 
   /**
    * Returns the priority of the given element in the given area.
-   *
    * @param {string} area The name of the area to get the priority of the given thing in.
    * @param {string} name The name of the thing to get the priority of.
    * @returns {number | undefined} The priority of the given thing in the given area.
@@ -91,7 +87,6 @@ export class AreaPriorities {
 
   /**
    * Appends a new thing to an areas priority list.
-   *
    * @param {string} area The area to add the thing to.
    * @param {string} name The thing to append to the areas priority list.
    */
@@ -108,7 +103,6 @@ export class AreaPriorities {
 
   /**
    * Removes a thing from an areas priority list.
-   *
    * @param {string} area The area to remove the thing from.
    * @param {string} name The thing to remove from the areas priority list.
    */

@@ -6,7 +6,6 @@ export class PriorityList {
 
   /**
    * Constructs a new priority list from the given array of priorities.
-   *
    * @param {string[]} priorities The list of priorities to seed this list with.
    */
   constructor(priorities?: string[]) {
@@ -21,7 +20,6 @@ export class PriorityList {
 
   /**
    * Returns the list of priorities as an array. This is useful for serialization and UIs.
-   *
    * @returns {string[]} The list of priorities as an array.
    */
   public AsArray(): string[] {
@@ -30,7 +28,6 @@ export class PriorityList {
 
   /**
    * Returns the priority of the given element.
-   *
    * @param {string} name The name of the thing to get the priority of.
    * @returns {number} The priority of the given thing.
    */
@@ -40,7 +37,6 @@ export class PriorityList {
 
   /**
    * Appends a new thing to the priority list.
-   *
    * @param {string} name The name of the thing to add to the priority list.
    */
   public Append(name: string): void {
@@ -52,7 +48,6 @@ export class PriorityList {
 
   /**
    * Removes the given thing from the priority list.
-   *
    * @param {string} name The name of the thing to remove from the priority list.
    */
   Remove(name: string) {
