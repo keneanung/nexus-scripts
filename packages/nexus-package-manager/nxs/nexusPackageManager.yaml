@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=../node_modules/@keneanung/nexus-package-builder/resources/nexus-schema.json
+# yaml-language-server: $schema=../../../node_modules/@keneanung/nexus-package-builder/resources/nexus-schema.json
 name: NexusPackageManager
 enabled: true
 description: The original package manager for Iron Realms Nexus
