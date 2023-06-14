@@ -288,7 +288,7 @@ exports[`Should queue command to in-game queue when added locally and queue is f
 }
 `;
 
-exports[`Should queue command to in-game queue when added locally and queue not full 1`] = `
+exports[`Should queue command to queue when added locally and queue not full 1`] = `
 [MockFunction] {
   "calls": [
     [
@@ -449,6 +449,38 @@ exports[`Should remove items at given position in queue with trackRemove 1`] = `
     "repeat": false,
   },
 ]
+`;
+
+exports[`Should remove queued command from in-game queue if command to undo was found in game queue and locally controlled 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "queue remove 1",
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should remove queued command from in-game queue if command to undo was found in game queue and locally controlled even if casing is different 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "queue remove 1",
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
 `;
 
 exports[`Should remove run command from queue (not first item) 1`] = `
@@ -1039,4 +1071,4 @@ exports[`Should translate property "w" correctly 1`] = `
 ]
 `;
 
-exports[`Workaround for in-game bug #17807 1`] = `[]`;
+exports[`Workaround for bug #17807 1`] = `[]`;

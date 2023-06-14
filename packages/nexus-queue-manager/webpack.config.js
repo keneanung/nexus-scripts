@@ -45,7 +45,7 @@ module.exports = {
     path: path.resolve(__dirname, 'nxs'),
     library: {
       type: 'global',
-      name: "queueManager",
+      name: "QueueManager",
       export: 'default',
     },
   },

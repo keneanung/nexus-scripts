@@ -161,7 +161,7 @@ test('Should remove run command from queue (not first item)', () => {
   expect(sut.getQueue()).toMatchSnapshot();
 });
 
-test('Workaround for in-game bug #17807', () => {
+test('Workaround for bug #17807', () => {
   const sut = new QueueManager();
   sut.track('sit', 'full');
   sut.track('stand', 'full');
@@ -174,7 +174,7 @@ test('Workaround for in-game bug #17807', () => {
   expect(sut.getQueue()).toMatchSnapshot();
 });
 
-test('Should queue command to in-game queue when added locally and queue not full', () => {
+test('Should queue command to queue when added locally and queue not full', () => {
   const sut = new QueueManager();
 
   sut.do(
@@ -784,3 +784,75 @@ test('Should assume non-local commands to consume balance', () => {
 
   expect(sendCommandMock).toHaveBeenCalledTimes(0);
 });
+
+test('Should return false if command to undo is not queued', () => {
+  const sut = new QueueManager();
+
+  const result = sut.undo('non-existing');
+
+  expect(result).toBe(false);
+});
+
+test('Should return true if command to undo was found locally', () => {
+  const sut = new QueueManager();
+  sut.track('external', 'full');
+  sut.do('local existing', {}, false);
+
+  const result = sut.undo('local existing');
+
+  expect(result).toBe(true);
+});
+
+test('Should not queue command to undo if it was found locally', () => {
+  const sut = new QueueManager();
+  sut.track('external', 'full');
+  sut.do('local existing', {}, false);
+
+  sut.undo('local existing');
+  sut.run('external', 'full');
+
+  expect(sendCommandMock).toHaveBeenCalledTimes(0);
+});
+
+test('Should return true if command to undo was found in game queue and locally controlled', () => {
+  const sut = new QueueManager();
+  sut.do('existing', { haveBalance: true }, false);
+  sut.track('existing', 'b');
+
+  const result = sut.undo('existing');
+
+  expect(result).toBe(true);
+});
+
+test('Should remove queued command from in-game queue if command to undo was found in game queue and locally controlled', () => {
+  const sut = new QueueManager();
+  sut.do('existing', { haveBalance: true }, false);
+  sut.track('existing', 'b');
+  sendCommandMock.mockReset();
+
+  sut.undo('existing');
+
+  expect(sendCommandMock).toMatchSnapshot();
+});
+
+test('Should return true if command to undo was found in game queue and locally controlled even if casing is different', () => {
+  const sut = new QueueManager();
+  sut.do('existing', { haveBalance: true }, false);
+  sut.track('EXISTING', 'b');
+
+  const result = sut.undo('existing');
+
+  expect(result).toBe(true);
+});
+
+test('Should remove queued command from in-game queue if command to undo was found in game queue and locally controlled even if casing is different', () => {
+  const sut = new QueueManager();
+  sut.do('existing', { haveBalance: true }, false);
+  sut.track('EXISTING', 'b');
+  sendCommandMock.mockReset();
+
+  sut.undo('existing');
+
+  expect(sendCommandMock).toMatchSnapshot();
+});
+

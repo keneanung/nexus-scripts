@@ -98,7 +98,7 @@ export class QueueManager {
   public track(command: string, queue: string) {
     const itemProperties = this.parseQueue(queue);
     const localFound = this.localUnsyncedItems.findIndex(
-      (item) => item.command === command && itemPropertiesEqual(item.properties, itemProperties),
+      (item) => item.command.toLowerCase() === command.toLowerCase() && itemPropertiesEqual(item.properties, itemProperties),
     );
     let local: UnsyncedItem | undefined = undefined;
     if (localFound > -1) {
@@ -257,5 +257,19 @@ export class QueueManager {
     if (queueing !== undefined) {
       queueing.queueing = false;
     }
+  };
+
+  public undo = (command: string) => {
+    const queuedIndex = this.queue.findIndex((item) => item.command.toLowerCase() === command.toLowerCase() && item.locallyControlled);
+    if (queuedIndex > -1) {
+      sendCommand(`queue remove ${queuedIndex + 1}`);
+      return true;
+    }
+    const unsyncedIndex = this.localUnsyncedItems.findIndex((item) => item.command.toLowerCase() === command.toLowerCase());
+    if (unsyncedIndex > -1) {
+      this.localUnsyncedItems.splice(unsyncedIndex, 1);
+      return true;
+    }
+    return false;
   };
 }
