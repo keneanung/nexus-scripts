@@ -19,7 +19,6 @@ type EventCallbackSubscriptions<T extends any = any> = Map<string, EventCallback
 export interface IEventBus {
   /**
    * Subscribes a new callback to a given event.
-   *
    * @param {string} eventName The name of the event to describe to. Use '*' to subscribe to all events.
    * @param {EventCallback} callback The callback to run on the given event
    * @param {string} callbackName Optional name of the callback. If not given, a random name will be generated.
@@ -29,7 +28,6 @@ export interface IEventBus {
 
   /**
    * Raises an event in the event broker and calls all subscribed callback.
-   *
    * @param {string} eventName The name of the event to raise.
    * @param {T} eventArgument Argument to this event.
    * @template T The type of eventArgument.
@@ -38,7 +36,6 @@ export interface IEventBus {
 
   /**
    * Removes the subscription of a callback from an event.
-   *
    * @param {string} eventName The name of the event to remove the callback from.
    * @param {EventCallback | string} callback The callback to remove or its name.
    */
@@ -46,7 +43,6 @@ export interface IEventBus {
 
   /**
    * Returns all the callbacks subscribed to a given event.
-   *
    * @param {EventCallback} eventName The name of the event to get all subscribed events for.
    * @returns {NamedEventCallback[]} The list of subscribed callbacks.
    */
