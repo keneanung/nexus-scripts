@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { NexusIcon } from './Icons';
+import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 const buttonCss = css`
   &:hover {
@@ -24,7 +25,7 @@ type ButtonProps = {
  * @param {ButtonProps} root0 Props of the component.
  * @param {() => void} root0.onClick The event handler for the click event.
  * @param {string} root0.text The text the button should display.
- * @returns {JSX.Element} The button component.
+ * @returns {EmotionJSX.Element} The button component.
  */
 export function SmallButton({ onClick, text, testId, icon }: ButtonProps) {
   return (
@@ -44,7 +45,7 @@ export function SmallButton({ onClick, text, testId, icon }: ButtonProps) {
  * @param {ButtonProps} root0 Props of the component.
  * @param {() => void} root0.onClick The event handler for the click event.
  * @param {string} root0.text The text the button should display.
- * @returns {JSX.Element} The button component.
+ * @returns {EmotionJSX.Element} The button component.
  */
 export function LargeButton({ onClick, text }: ButtonProps) {
   return (
