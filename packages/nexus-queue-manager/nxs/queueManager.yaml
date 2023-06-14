@@ -109,4 +109,39 @@ items:
     actions:
       - action: script
         script: globalThis.queueManager.blocked()
+  - type: alias
+    matching: regexp
+    text: ^do (.+)$
+    actions:
+      - action: script
+        script: |
+          globalThis.queueManager.do(args[1], {
+            haveBalance: true,
+            haveEq: true,
+            beBound: false,
+            beStanding: true,
+            beStunned: false,
+            haveParalysis: false
+          }, true)
+  - type: alias
+    matching: regexp
+    text: ^dor (.+)$
+    actions:
+      - action: script
+        script: |
+          globalThis.queueManager.do(args[1], {
+            haveBalance: true,
+            haveEq: true,
+            beBound: false,
+            beStanding: true,
+            beStunned: false,
+            haveParalysis: false
+          }, true, true)
+  - type: alias
+    matching: regexp
+    text: ^undo (.+)$
+    actions:
+      - action: script
+        script: |
+          globalThis.queueManager.undo(args[1])
 
