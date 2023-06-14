@@ -177,13 +177,17 @@ test('Workaround for in-game bug #17807', () => {
 test('Should queue command to in-game queue when added locally and queue not full', () => {
   const sut = new QueueManager();
 
-  sut.do('stand', {
-    haveBalance: true,
-    haveEq: true,
-    haveParalysis: false,
-    beStunned: false,
-    beBound: false,
-  });
+  sut.do(
+    'stand',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
 
   expect(sendCommandMock).toMatchSnapshot();
 });
@@ -197,13 +201,17 @@ test('Should not attempt to queue command to in-game queue when added locally an
   sut.track('sit', 'full');
   sut.track('sit', 'full');
 
-  sut.do('stand', {
-    haveBalance: true,
-    haveEq: true,
-    haveParalysis: false,
-    beStunned: false,
-    beBound: false,
-  });
+  sut.do(
+    'stand',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
 
   expect(sendCommandMock).toHaveBeenCalledTimes(0);
 });
@@ -211,13 +219,17 @@ test('Should not attempt to queue command to in-game queue when added locally an
 test('Should recognize own queue item on confirmation in game and mark it accordingly', () => {
   const sut = new QueueManager();
 
-  sut.do('stand', {
-    haveBalance: true,
-    haveEq: true,
-    haveParalysis: false,
-    beStunned: false,
-    beBound: false,
-  });
+  sut.do(
+    'stand',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
   sut.track('stand', 'eb!p!t!w');
 
   expect(sut.getQueue()).toMatchSnapshot();
@@ -226,13 +238,17 @@ test('Should recognize own queue item on confirmation in game and mark it accord
 test('Should not mark same item multiple times as local', () => {
   const sut = new QueueManager();
 
-  sut.do('stand', {
-    haveBalance: true,
-    haveEq: true,
-    haveParalysis: false,
-    beStunned: false,
-    beBound: false,
-  });
+  sut.do(
+    'stand',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
   sut.track('stand', 'eb!p!t!w');
   sut.track('stand', 'eb!p!t!w');
 
@@ -241,64 +257,256 @@ test('Should not mark same item multiple times as local', () => {
 
 test('Should queue command to in-game queue when added locally and queue is full, but queue ran', () => {
   const sut = new QueueManager();
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
 
-  sut.do('stand', {
-    haveBalance: true,
-    haveEq: true,
-    haveParalysis: false,
-    beStunned: false,
-    beBound: false,
-  });
-  sut.run('sit', 'full');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sendCommandMock.mockReset();
+
+  sut.do(
+    'waiting',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.run('filling', 'eb!p!t!w');
 
   expect(sendCommandMock).toMatchSnapshot();
 });
 
 test('Should not queue commands that are already being queued', () => {
   const sut = new QueueManager();
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sendCommandMock.mockReset();
 
-  sut.do('stand', {
-    haveBalance: true,
-    haveEq: true,
-    haveParalysis: false,
-    beStunned: false,
-    beBound: false,
-  });
-  sut.track('sit', 'full');
-  sut.run('sit', 'full');
+  sut.do(
+    'queueing',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('between', 'eb!p!t!w');
+  sut.run('filling', 'eb!p!t!w');
 
   expect(sendCommandMock).toMatchSnapshot();
 });
 
 test('Should re-attempt to queue things if first attempt was blocked due to queue being full', () => {
   const sut = new QueueManager();
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
-  sut.track('sit', 'full');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sut.do(
+    'filling',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('filling', 'eb!p!t!w');
+  sendCommandMock.mockReset();
 
-  sut.do('stand', {
-    haveBalance: true,
-    haveEq: true,
-    haveParalysis: false,
-    beStunned: false,
-    beBound: false,
-  });
-  sut.track('sit', 'full');
+  sut.do(
+    'blocked',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('between', 'full');
   sut.blocked();
-  sut.run('sit', 'full');
+  sut.run('between', 'full');
 
   expect(sendCommandMock).toMatchSnapshot();
 });
@@ -315,10 +523,264 @@ test('Should re-queue things after being queued with dor and run', () => {
       beStunned: false,
       beBound: false,
     },
+    false,
     true,
   );
   sut.track('stand', 'eb!p!t!w');
   sut.run('stand', 'eb!p!t!w');
 
   expect(sendCommandMock).toMatchSnapshot();
+});
+
+test('Should queue only 1 action that consumes balance at any time', () => {
+  const sut = new QueueManager();
+
+  sut.do(
+    'stand',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.do(
+    'stand',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+
+  expect(sendCommandMock).toMatchSnapshot();
+});
+
+test('Should queue second action that consumes balance after first one ran', () => {
+  const sut = new QueueManager();
+
+  sut.do(
+    'first consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.do(
+    'second consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.track('first consuming', 'be!p!t!w');
+  sendCommandMock.mockReset();
+  sut.run('first consuming', 'be!p!t!w');
+
+  expect(sendCommandMock).toMatchSnapshot();
+});
+
+test('Should queue all non-consuming actions after consuming one ran', () => {
+  const sut = new QueueManager();
+
+  sut.do(
+    'consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.do(
+    'non-consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.do(
+    'non-consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.do(
+    'non-consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('consuming', 'be!p!t!w');
+  sendCommandMock.mockReset();
+  sut.run('consuming', 'be!p!t!w');
+
+  expect(sendCommandMock).toMatchSnapshot();
+});
+
+test('Should queue all non-consuming actions and first following consuming after consuming one ran', () => {
+  const sut = new QueueManager();
+
+  sut.do(
+    'first consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.do(
+    'non-consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.do(
+    'non-consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.do(
+    'non-consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.do(
+    'second consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.track('first consuming', 'be!p!t!w');
+  sendCommandMock.mockReset();
+  sut.run('first consuming', 'be!p!t!w');
+
+  expect(sendCommandMock).toMatchSnapshot();
+});
+
+test('Should queue non-consuming actions and first following consuming after consuming one ran, but no non-consuming after that', () => {
+  const sut = new QueueManager();
+
+  sut.do(
+    'first consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.do(
+    'non-consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.do(
+    'second consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+  sut.do(
+    'non-consuming unsent',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    false,
+  );
+  sut.track('first consuming', 'be!p!t!w');
+  sendCommandMock.mockReset();
+  sut.run('first consuming', 'be!p!t!w');
+
+  expect(sendCommandMock).toMatchSnapshot();
+});
+
+test('Should assume non-local commands to consume balance', () => {
+  const sut = new QueueManager();
+
+  sut.track('external', 'free');
+  sut.do(
+    'consuming',
+    {
+      haveBalance: true,
+      haveEq: true,
+      haveParalysis: false,
+      beStunned: false,
+      beBound: false,
+    },
+    true,
+  );
+
+  expect(sendCommandMock).toHaveBeenCalledTimes(0);
 });

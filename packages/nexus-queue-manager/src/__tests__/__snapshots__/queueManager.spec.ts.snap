@@ -6,6 +6,7 @@ exports[`Should have remove items in class queue after clear("c") 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -19,6 +20,7 @@ exports[`Should have remove items in class queue after clear("c") 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": true,
@@ -32,6 +34,7 @@ exports[`Should have remove items in class queue after clear("class") 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -45,6 +48,7 @@ exports[`Should have remove items in class queue after clear("class") 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": true,
@@ -58,6 +62,7 @@ exports[`Should not mark same item multiple times as local 1`] = `
 [
   {
     "command": "stand",
+    "consumesBalance": false,
     "locallyControlled": true,
     "properties": {
       "beBound": false,
@@ -70,6 +75,7 @@ exports[`Should not mark same item multiple times as local 1`] = `
   },
   {
     "command": "stand",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beBound": false,
@@ -87,7 +93,7 @@ exports[`Should not queue commands that are already being queued 1`] = `
 [MockFunction] {
   "calls": [
     [
-      "queue add eb!p!w!t stand",
+      "queue add eb!p!w!t queueing",
     ],
   ],
   "results": [
@@ -103,6 +109,7 @@ exports[`Should put items at given position in queue with trackAt 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -116,6 +123,7 @@ exports[`Should put items at given position in queue with trackAt 1`] = `
   },
   {
     "command": "bar",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveClassBalance": true,
@@ -124,6 +132,7 @@ exports[`Should put items at given position in queue with trackAt 1`] = `
   },
   {
     "command": "bamboozle",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -136,6 +145,7 @@ exports[`Should put items at given position in queue with trackAt 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": true,
@@ -149,6 +159,7 @@ exports[`Should put prepended items first in queue 1`] = `
 [
   {
     "command": "bamboozle",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -161,6 +172,7 @@ exports[`Should put prepended items first in queue 1`] = `
   },
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -174,6 +186,7 @@ exports[`Should put prepended items first in queue 1`] = `
   },
   {
     "command": "bar",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveClassBalance": true,
@@ -182,6 +195,7 @@ exports[`Should put prepended items first in queue 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": true,
@@ -191,11 +205,78 @@ exports[`Should put prepended items first in queue 1`] = `
 ]
 `;
 
+exports[`Should queue all non-consuming actions after consuming one ran 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "queue add eb!p!w!t non-consuming",
+    ],
+    [
+      "queue add eb!p!w!t non-consuming",
+    ],
+    [
+      "queue add eb!p!w!t non-consuming",
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+    {
+      "type": "return",
+      "value": undefined,
+    },
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should queue all non-consuming actions and first following consuming after consuming one ran 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "queue add eb!p!w!t non-consuming",
+    ],
+    [
+      "queue add eb!p!w!t non-consuming",
+    ],
+    [
+      "queue add eb!p!w!t non-consuming",
+    ],
+    [
+      "queue add eb!p!w!t second consuming",
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+    {
+      "type": "return",
+      "value": undefined,
+    },
+    {
+      "type": "return",
+      "value": undefined,
+    },
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
 exports[`Should queue command to in-game queue when added locally and queue is full, but queue ran 1`] = `
 [MockFunction] {
   "calls": [
     [
-      "queue add eb!p!w!t stand",
+      "queue add eb!p!w!t waiting",
     ],
   ],
   "results": [
@@ -223,14 +304,69 @@ exports[`Should queue command to in-game queue when added locally and queue not 
 }
 `;
 
-exports[`Should re-attempt to queue things if first attempt was blocked due to queue being full 1`] = `
+exports[`Should queue non-consuming actions and first following consuming after consuming one ran, but no non-consuming after that 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "queue add eb!p!w!t non-consuming",
+    ],
+    [
+      "queue add eb!p!w!t second consuming",
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should queue only 1 action that consumes balance at any time 1`] = `
 [MockFunction] {
   "calls": [
     [
       "queue add eb!p!w!t stand",
     ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should queue second action that consumes balance after first one ran 1`] = `
+[MockFunction] {
+  "calls": [
     [
-      "queue add eb!p!w!t stand",
+      "queue add eb!p!w!t second consuming",
+    ],
+  ],
+  "results": [
+    {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Should re-attempt to queue things if first attempt was blocked due to queue being full 1`] = `
+[MockFunction] {
+  "calls": [
+    [
+      "queue add eb!p!w!t blocked",
+    ],
+    [
+      "queue add eb!p!w!t blocked",
     ],
   ],
   "results": [
@@ -273,6 +409,7 @@ exports[`Should recognize own queue item on confirmation in game and mark it acc
 [
   {
     "command": "stand",
+    "consumesBalance": false,
     "locallyControlled": true,
     "properties": {
       "beBound": false,
@@ -290,6 +427,7 @@ exports[`Should remove items at given position in queue with trackRemove 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -303,6 +441,7 @@ exports[`Should remove items at given position in queue with trackRemove 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": true,
@@ -316,6 +455,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -329,6 +469,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
   },
   {
     "command": "bar",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -342,6 +483,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -355,6 +497,7 @@ exports[`Should remove run command from queue (not first item) 1`] = `
   },
   {
     "command": "boom",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -371,6 +514,7 @@ exports[`Should remove run command from queue 1`] = `
 [
   {
     "command": "bar",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -384,6 +528,7 @@ exports[`Should remove run command from queue 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -397,6 +542,7 @@ exports[`Should remove run command from queue 1`] = `
   },
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -408,6 +554,7 @@ exports[`Should remove run command from queue 1`] = `
   },
   {
     "command": "boom",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -424,6 +571,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
 [
   {
     "command": "bar",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -437,6 +585,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -450,6 +599,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
   },
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -461,6 +611,7 @@ exports[`Should remove run command from queue with different casing 1`] = `
   },
   {
     "command": "boom",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -477,6 +628,7 @@ exports[`Should replace items at given position in queue with trackReplace 1`] =
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -490,6 +642,7 @@ exports[`Should replace items at given position in queue with trackReplace 1`] =
   },
   {
     "command": "bamboozle",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -502,6 +655,7 @@ exports[`Should replace items at given position in queue with trackReplace 1`] =
   },
   {
     "command": "baz",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": true,
@@ -515,6 +669,7 @@ exports[`Should translate property "!b" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveBalance": false,
@@ -528,6 +683,7 @@ exports[`Should translate property "!c" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveClassBalance": false,
@@ -541,6 +697,7 @@ exports[`Should translate property "!e" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveEq": false,
@@ -554,6 +711,7 @@ exports[`Should translate property "!p" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveParalysis": false,
@@ -567,6 +725,7 @@ exports[`Should translate property "!s" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": false,
@@ -580,6 +739,7 @@ exports[`Should translate property "!t" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -593,6 +753,7 @@ exports[`Should translate property "!u" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": false,
@@ -606,6 +767,7 @@ exports[`Should translate property "!w" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beBound": false,
@@ -619,6 +781,7 @@ exports[`Should translate property "b" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveBalance": true,
@@ -632,6 +795,7 @@ exports[`Should translate property "balance" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveBalance": true,
@@ -645,6 +809,7 @@ exports[`Should translate property "c" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveClassBalance": true,
@@ -658,6 +823,7 @@ exports[`Should translate property "class" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveClassBalance": true,
@@ -671,6 +837,7 @@ exports[`Should translate property "e" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveEq": true,
@@ -684,6 +851,7 @@ exports[`Should translate property "equilibrium" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveEq": true,
@@ -697,6 +865,7 @@ exports[`Should translate property "free" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -713,6 +882,7 @@ exports[`Should translate property "freestand" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -730,6 +900,7 @@ exports[`Should translate property "frl" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {},
     "repeat": false,
@@ -741,6 +912,7 @@ exports[`Should translate property "full" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -759,6 +931,7 @@ exports[`Should translate property "p" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveParalysis": true,
@@ -772,6 +945,7 @@ exports[`Should translate property "paralysis" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveParalysis": false,
@@ -785,6 +959,7 @@ exports[`Should translate property "s" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "haveShipBalance": true,
@@ -798,6 +973,7 @@ exports[`Should translate property "stun" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": false,
@@ -811,6 +987,7 @@ exports[`Should translate property "t" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStunned": true,
@@ -824,6 +1001,7 @@ exports[`Should translate property "u" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beStanding": true,
@@ -837,6 +1015,7 @@ exports[`Should translate property "unbound" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beBound": false,
@@ -850,6 +1029,7 @@ exports[`Should translate property "w" correctly 1`] = `
 [
   {
     "command": "foo",
+    "consumesBalance": true,
     "locallyControlled": false,
     "properties": {
       "beBound": true,

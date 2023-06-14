@@ -5,6 +5,7 @@ interface UnsyncedItem {
   properties: QueuedItemProperties;
   queueing: boolean;
   repeat: boolean;
+  consumesBalance: boolean;
 }
 
 interface QueuedItem {
@@ -12,6 +13,7 @@ interface QueuedItem {
   properties: QueuedItemProperties;
   locallyControlled: boolean;
   repeat: boolean;
+  consumesBalance: boolean;
 }
 
 interface QueuedItemProperties {
@@ -108,6 +110,7 @@ export class QueueManager {
       properties: itemProperties,
       locallyControlled: localFound > -1,
       repeat: local?.repeat ?? false,
+      consumesBalance: local?.consumesBalance ?? true,
     });
   }
 
@@ -150,7 +153,13 @@ export class QueueManager {
 
   public trackFirst = (command: string, queue: string) => {
     const itemProperties = this.parseQueue(queue);
-    this.queue.unshift({ command, properties: itemProperties, locallyControlled: false, repeat: false });
+    this.queue.unshift({
+      command,
+      properties: itemProperties,
+      locallyControlled: false,
+      repeat: false,
+      consumesBalance: true,
+    });
   };
 
   public trackAt = (position: number, command: string, queue: string) => {
@@ -160,6 +169,7 @@ export class QueueManager {
       properties: itemProperties,
       locallyControlled: false,
       repeat: false,
+      consumesBalance: true,
     });
   };
 
@@ -170,6 +180,7 @@ export class QueueManager {
       properties: itemProperties,
       locallyControlled: false,
       repeat: false,
+      consumesBalance: true,
     });
   };
 
@@ -204,23 +215,29 @@ export class QueueManager {
     return undefined;
   }
 
-  public do = (command: string, properties: QueuedItemProperties, repeat = false) => {
-    this.localUnsyncedItems.push({ command, properties, queueing: false, repeat: repeat });
+  public do = (command: string, properties: QueuedItemProperties, consumesBalance: boolean, repeat = false) => {
+    this.localUnsyncedItems.push({ command, properties, queueing: false, repeat: repeat, consumesBalance });
     this.sendLocalCommands();
   };
 
   private sendLocalCommands = () => {
     let index = 0;
 
+    if (this.queue.some((item) => item.consumesBalance)) {
+      return;
+    }
+
     while (this.queue.length + index < 6 && index < this.localUnsyncedItems.length) {
       const item = this.localUnsyncedItems[index];
       index++;
-      if (item.queueing) {
-        continue;
+      if (!item.queueing) {
+        const queueLetters: string = this.translateItemProperties(item.properties);
+        sendCommand(`queue add ${queueLetters} ${item.command}`);
+        item.queueing = true;
       }
-      const queueLetters: string = this.translateItemProperties(item.properties);
-      sendCommand(`queue add ${queueLetters} ${item.command}`);
-      item.queueing = true;
+      if (item.consumesBalance) {
+        break;
+      }
     }
   };
 
