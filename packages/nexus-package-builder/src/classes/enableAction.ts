@@ -8,7 +8,6 @@ export class EnableAction implements client.EnableAction {
 
   /**
    * Constructs a new complete enable action from a partial one.
-   *
    * @param {Partial<client.EnableAction>} partialEnableAction The partial enable action to construct a new complete enable action from.
    */
   constructor(partialEnableAction: Partial<client.EnableAction>) {

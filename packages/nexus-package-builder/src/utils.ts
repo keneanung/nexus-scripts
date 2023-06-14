@@ -42,7 +42,6 @@ export class IdGenerator {
 
   /**
    * Returns a unique identifier.
-   *
    * @returns {number} A new id
    */
   getId = (): number => ++this.lastId;
@@ -68,7 +67,6 @@ const isPartialKeybind = (partial: PartialReflex): partial is PartialKeybind =>
 
 /**
  * Converts an array of potentially partial reflexes to an array of complete reflexes.
- *
  * @param {PartialReflex[]} reflexes The array of partial reflexes to convert.
  * @param {IdGenerator} idGenerator The IdGenerator to use to generate IDs of new items.
  * @param {string} packageDefinitionFile The path to the package definition file.
@@ -160,7 +158,6 @@ const isPartialWaitForAction = (partialAction: PartialAction): partialAction is 
 
 /**
  * Converts an array of potentially partial actions to an array of complete actions.
- *
  * @param {PartialAction[]} actions The array of partial actions to convert.
  * @param {string} packageDefinitionFile The path to the package definition file.
  * @returns {client.Action[]} The converted array of (now complete) actions.

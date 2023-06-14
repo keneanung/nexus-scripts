@@ -8,7 +8,6 @@ export class NotificationAction implements client.NotificationAction {
 
   /**
    * Constructs a new complete notification action from a partial one.
-   *
    * @param {Partial<client.NotificationAction>} partialNotification The partial notification action to construct a complete notification action from
    */
   constructor(partialNotification: Partial<client.NotificationAction>) {

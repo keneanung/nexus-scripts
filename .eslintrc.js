@@ -25,6 +25,11 @@ module.exports = {
           "caughtErrorsIgnorePattern": "^_"
         }
       ],
+      "jsdoc/no-undefined-types": [1, {
+        "definedTypes": [
+          "client"
+        ]
+      }]
     },
     ignorePatterns: ['node_modules', 'lib'],
   };

@@ -20,7 +20,6 @@ export interface ReturnValue {
 
 /**
  * Checks, whether the given package definition file is a usable file.
- *
  * @param {string} absolutePackageDefinitionPath The (absolute) path to the package definition file.
  * @returns {ReturnValue} The result key contains the success of the operation. If false, errorMessage contains an error message.
  */
@@ -39,7 +38,6 @@ export const checkPackageDefinitionFile = (absolutePackageDefinitionPath: string
 
 /**
  * Checks, whether the given output path is a usable director. It creates the directory if it does not exist.
- *
  * @param {string} absoluteOutputDirPath The (absolute) path of the output directory.
  * @returns {ReturnValue} The result key contains the success of the operation. If false, errorMessage contains an error message.
  */
@@ -55,7 +53,6 @@ export const prepareOutputDirectory = (absoluteOutputDirPath: string): ReturnVal
 
 /**
  * Reads the package definition file and returns its content as an object.
- *
  * @param {string} absolutePackageDefinitionPath The (absolute) path to the package definition file.
  * @returns {PartialPackage} A partial package definition.
  */
@@ -66,7 +63,6 @@ export const readPackageDefinitionFile = (absolutePackageDefinitionPath: string)
 
 /**
  * Reads a file relative to a package definition and returns its content.
- *
  * @param {string} relativeFilePath The path of the file to read, relative to the package definition file.
  * @param {string} absolutePackageDefinitionPath The absolute path to the package definition file.
  * @returns {string} The contents of the given file.
@@ -83,7 +79,6 @@ export const readScriptFileRelativeToDefintion = (
 
 /**
  * Writes the given content to the given file path to disk.
- *
  * @param {string} jsonContent The JSON document (string) to write to disk.
  * @param {string} outputPath The file name to write the content to.
  */

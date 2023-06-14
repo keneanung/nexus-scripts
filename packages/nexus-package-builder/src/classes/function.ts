@@ -14,7 +14,6 @@ export class NexusFunction implements client.Function {
 
   /**
    * Creates a complete function object from a partial one.
-   *
    * @param {PartialFunction} partialFunction A partial function object. This object might additionally contain the codeFile property,
    * which makes this function replace the code property with the content of the given file. The path of that file must
    * be relative to the packageDefinitionFile.

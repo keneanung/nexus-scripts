@@ -8,7 +8,6 @@ export class DisableAction implements client.DisableAction {
 
   /**
    * Constructs a new complete disable action from a partial one.
-   *
    * @param {Partial<client.DisableAction>} partialDisableAction The partial disable action to construct a new complete disable action from.
    */
   constructor(partialDisableAction: Partial<client.DisableAction>) {

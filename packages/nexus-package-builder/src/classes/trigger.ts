@@ -17,7 +17,6 @@ export class Trigger implements client.Trigger {
 
   /**
    * Constructs a new complete trigger from a partial one.
-   *
    * @param {PartialTrigger} partialTrigger The partial trigger that should be converted to a new complete trigger.
    * @param {IdGenerator} idGenerator The generator to retrieve this item's ID from.
    * @param {string} packageDefinitionFile The path to the package definition file.

@@ -17,7 +17,6 @@ export class IfAction implements client.IfAction {
 
   /**
    * Constructs a new complete if action from a partial one.
-   *
    * @param {Partial<client.IfAction>} partialIfAction Partial if action to construct a new complete if action from.
    */
   constructor(partialIfAction: Partial<client.IfAction>) {

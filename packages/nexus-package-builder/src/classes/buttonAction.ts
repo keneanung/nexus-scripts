@@ -10,7 +10,6 @@ export class ButtonAction implements client.ButtonAction {
 
   /**
    * Constructs a new complete button action object from a partial one.
-   *
    * @param {Partial<client.ButtonAction>} partialButtonAction A partial button action object.
    */
   constructor(partialButtonAction: Partial<client.ButtonAction>) {

@@ -9,7 +9,6 @@ import {
 
 /**
  * Creates a Nexus package from the given package definition file and saves it at the given location.
- *
  * @param {string} packageDefinition Path to the package definition file
  * @param {string} outputDir Output directory of the nexus package
  * @param {string|undefined} packageVersion Version of the package. Will override any values in the package definition file

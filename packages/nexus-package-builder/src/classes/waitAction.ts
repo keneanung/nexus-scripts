@@ -8,7 +8,6 @@ export class WaitAction implements client.WaitAction {
 
   /**
    * Constructs a new complete wait action from a partial one.
-   *
    * @param {Partial<client.WaitAction>} partialWaitAction The partial wait action to construct a new complete wait action from.
    */
   constructor(partialWaitAction: Partial<client.WaitAction>) {

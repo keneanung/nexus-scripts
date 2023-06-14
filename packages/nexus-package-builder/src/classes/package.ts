@@ -17,7 +17,6 @@ export class Package implements client.Package {
 
   /**
    * Constructs a new package instance from a partial definition.
-   *
    * @param {PartialPackage} partialPackage Partial package definition. Will be completed with default values.
    * @param {string} packageDefinitionFile Path to the package definition file.
    * @param {string|undefined} packageVersion Version of the package. Overrides any value inside the partial package definition.

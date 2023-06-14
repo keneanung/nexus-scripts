@@ -10,7 +10,6 @@ export class ScriptAction implements client.ScriptAction {
 
   /**
    * Constructs a new complete script action object from a partial one.
-   *
    * @param {PartialScriptAction} partialScriptAction A partial script object. This object might additionally contain the scriptFile property,
    * which makes this function replace the script property with the content of the given file. The path of that file must
    * be relative to the packageDefinitionFile.

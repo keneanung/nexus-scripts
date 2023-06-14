@@ -8,7 +8,6 @@ export class CommandAction implements client.CommandAction {
 
   /**
    * Constructs a new complete command action from a partial one.
-   *
    * @param {Partial<client.CommandAction>} partialCommandAction Partial command action to construct a new command action from.
    */
   constructor(partialCommandAction: Partial<client.CommandAction>) {

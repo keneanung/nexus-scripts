@@ -18,7 +18,6 @@ export class Alias implements client.Alias {
 
   /**
    * Constructs a new complete alias from a partial one.
-   *
    * @param {PartialAlias} partialAlias The partial alias that should be used to construct the new complete alias.
    * @param {IdGenerator} idGenerator The IdGenerator to retrieve this alias' ID from.
    * @param {string} packageDefinitionFile The path to the package definition file.

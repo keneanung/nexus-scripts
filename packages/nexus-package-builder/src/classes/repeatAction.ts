@@ -15,7 +15,6 @@ export class RepeatAction implements client.RepeatAction {
 
   /**
    * Constructs a new complete repeat action from a partial one.
-   *
    * @param {Partial<client.RepeatAction>} partialRepeatAction The partial repeat action to construct a new complete repeat action from
    */
   constructor(partialRepeatAction: Partial<client.RepeatAction>) {

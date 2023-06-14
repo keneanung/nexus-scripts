@@ -9,7 +9,6 @@ export class NotifyAction implements client.NotifyAction {
 
   /**
    * Constructs a new complete notify object from a partial one.
-   *
    * @param {Partial<client.NotifyAction>} partialNotifyAction Partial notify object to construct a new complete one from.
    */
   constructor(partialNotifyAction: Partial<client.NotifyAction>) {

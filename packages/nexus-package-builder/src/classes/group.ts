@@ -13,7 +13,6 @@ export class Group implements client.Group {
 
   /**
    * Creates a complete group object from a partial one.
-   *
    * @param {PartialGroup} partialGroup A partial group object.
    * @param {IdGenerator} idGenerator The IdGenerator to use for retrieving the ID.
    * @param {string} packageDefinitionFile The (absolute) path to the package definition file that this function pbject is built from.

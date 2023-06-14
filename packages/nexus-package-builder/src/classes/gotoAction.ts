@@ -7,7 +7,6 @@ export class GotoAction implements client.GotoAction {
 
   /**
    * Constructs a new complete goto action from a partial one.
-   *
    * @param {Partial<client.GotoAction>} partialGotoAction Partial goto action to construct a new complete goto action from.
    */
   constructor(partialGotoAction: Partial<client.GotoAction>) {

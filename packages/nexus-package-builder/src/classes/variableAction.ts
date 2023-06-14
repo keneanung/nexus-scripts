@@ -10,7 +10,6 @@ export class VariableAction implements client.VariableAction {
 
   /**
    * Constructs a new complete variable action from a partial one.
-   *
    * @param {Partial<client.VariableAction>} partialVariableAction The partial variable action to construct a complete variable action from.
    */
   constructor(partialVariableAction: Partial<client.VariableAction>) {

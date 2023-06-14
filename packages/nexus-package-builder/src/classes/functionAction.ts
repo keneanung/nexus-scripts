@@ -7,7 +7,6 @@ export class FunctionAction implements client.FunctionAction {
 
   /**
    * Constructs a new complete function action object from a partial one.
-   *
    * @param {Partial<client.FunctionAction>} partialFunction A partial function action object.
    */
   constructor(partialFunction: Partial<client.FunctionAction>) {

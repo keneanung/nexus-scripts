@@ -11,7 +11,6 @@ export class WaitForAction implements client.WaitForAction {
 
   /**
    * Constructs a new complete waitFor action from a partial one.
-   *
    * @param {Partial<client.WaitForAction>} partialWaitForAction The partial waitFor action to construct a new complete waitFor action from.
    */
   constructor(partialWaitForAction: Partial<client.WaitForAction>) {

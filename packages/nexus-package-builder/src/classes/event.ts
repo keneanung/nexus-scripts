@@ -24,7 +24,6 @@ export class Event implements client.Event {
 
   /**
    * Constructs a new complete event from a partial one
-   *
    * @param {PartialEvent} partialEvent The partial event a new complete event should be constructed from
    * @param {IdGenerator} idGenerator The generator to get this items ID from
    * @param {string} packageDefinitionFile The path to the package definition file
