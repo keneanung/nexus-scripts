@@ -14,8 +14,10 @@ if(typeof(Map) !== 'function') {
     tab?.removeChild(frame)
 }
 
-const eventBus = new EventBus();
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+globalThis.EventBus = new EventBus();
 
-export default eventBus;
+export default { EventBus };
 
 console.log('event bus loaded.')

@@ -17,4 +17,4 @@ if (globalThis.React && nexusclient.ui().layout().register_custom_tab) {
 
 console.log('Package Manager loaded');
 
-export default PackageManager;
+export default { PackageManager };

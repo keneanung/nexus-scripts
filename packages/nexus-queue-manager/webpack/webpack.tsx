@@ -11,4 +11,4 @@ globalThis.queueManager = queueManager;
 
 console.log('Queue Manager loaded');
 
-export default QueueManager;
+export default { QueueManager };

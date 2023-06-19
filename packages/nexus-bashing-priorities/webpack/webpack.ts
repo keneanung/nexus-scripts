@@ -3,4 +3,4 @@
 
 import { Bashing } from "../src//index"
 
-export default Bashing;
+export default { Bashing };

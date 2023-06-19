@@ -44,7 +44,7 @@ module.exports = {
     path: path.resolve(__dirname, 'nxs'),
     library: {
       type: 'global',
-      name: 'eventBus',
+      name: 'EventBus',
       export: 'default',
     },
   },
