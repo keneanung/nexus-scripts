@@ -90,7 +90,7 @@ const defaultQueueTranslations: { [key: string]: string } = {
 
 export interface IQueueManager {
   track: (command: string, queue: string) => void
-  getQueue: () => QueuedItem[]
+  getQueue: () => (QueuedItem|UnsyncedItem)[]
   clear: (queue: string) => void
   trackFirst: (command: string, queue: string) => void
   trackAt: (position: number, command: string, queue: string) => void
@@ -150,7 +150,7 @@ export class QueueManager implements IQueueManager {
     return customProperties;
   }
 
-  public getQueue = () => this.queue;
+  public getQueue = () => [ ...this.queue, ...this.localUnsyncedItems];
 
   public clear = (queue: string) => {
     if (queue === 'all') {
