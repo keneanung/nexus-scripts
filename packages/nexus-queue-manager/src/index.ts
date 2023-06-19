@@ -88,10 +88,24 @@ const defaultQueueTranslations: { [key: string]: string } = {
   full: 'be!p!tuc!w',
 };
 
+export interface IQueueManager {
+  track: (command: string, queue: string) => void
+  getQueue: () => QueuedItem[]
+  clear: (queue: string) => void
+  trackFirst: (command: string, queue: string) => void
+  trackAt: (position: number, command: string, queue: string) => void
+  trackReplace: (position: number, command: string, queue: string) => void
+  trackRemove: (position: number) => void
+  run: (command: string, queue: string) => void
+  do: (command: string, itemProperties: QueuedItemProperties, consumesBalance: boolean, repeat?: boolean) => void
+  blocked: () => void
+  undo: (command: string) => boolean
+}
+
 /**
  *  Tracks the content of the in-game queue and allows client side queueing to integrate with it while allowing other sources for queued items.
  */
-export class QueueManager {
+export class QueueManager implements IQueueManager {
   private queue: QueuedItem[] = [];
   private localUnsyncedItems: UnsyncedItem[] = [];
 
