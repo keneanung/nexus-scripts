@@ -10,15 +10,15 @@ The queue manager has an API that is split in 2 parts: one for client side usage
 
 ### `getQueue()` ###
 
-#### Arguments ####
+#### Return Value ####
 
-*None*
+`(QueuedItem | UnsyncedItem)[]` - The current queue
 
 #### Description ####
 
 Returns the current queue. Each item contains the keys `command`, `properties` with the individual balance settings, whether the command will be repeated and if it consumes balance (**Note**: all actions queued externally are assumed to consume balance).
 
-If an action is only in the local queue, but not in the in-game queue yet, it will also have the key `queueing` (sent to the game, but not confirmed yet), while items in the in-game queue have the key `locallyControlled` to mark, whether the queue manager added the command or not.
+If an action is only in the local queue, but not in the in-game queue yet, it will also have the key `queueing` (sent to the game, but not confirmed yet), while items in the in-game queue have the key `locallyControlled` to mark whether the queue manager added the command or not.
 
 #### Examples ####
 
@@ -85,18 +85,44 @@ queueManager.do('kill', {
   haveParalysis: false
 }, true, true);
 ```
+### `undo(command)` ###
 
+#### Arguments ####
 
-undo: (command: string) => boolean
+**command**: `string` - The command to remove from the queue.
+
+#### Return Value ####
+
+`boolean` - Whether a command to remove was found.
+
+#### Description ####
+
+Removes a *locally controlled* command from the queue. These can be still in the local queue or already in the in-game queue. Repeating queued commands are also removed and not requeued.
+
+Externally controlled commands are not touched.
+
+#### Examples ####
+
+```js
+queueManager.do('sit', {
+  haveBalance: true,
+  haveEq: true,
+  beStanding: true
+}, false)
+
+queueManager.undo('sit')
+```
 
 ## Server Side Tracking ##
 
-track: (command: string, queue: string) => void
-clear: (queue: string) => void
-trackFirst: (command: string, queue: string) => void
-trackAt: (position: number, command: string, queue: string) => void
-trackReplace: (position: number, command: string, queue: string) => void
-trackRemove: (position: number) => void
-run: (command: string, queue: string) => void
-blocked: () => void
+Due to not being intended for common use, these are documented in a short form.
+
+- `track: (command: string, queue: string) => void` - Track addition of commands to the in-game queue.
+- `clear: (queue: string) => void` - Track clearing of the queue. The special queue `all` clears it completely.
+- `trackFirst: (command: string, queue: string) => void` - Track queueing actions as first element.
+- `trackAt: (position: number, command: string, queue: string) => void` - Track queueing actions at a given position.
+- `trackReplace: (position: number, command: string, queue: string) => void` - Track queueing actions replacing a given position.
+- `trackRemove: (position: number) => void` - Track removing actions from the queue.
+- `run: (command: string, queue: string) => void` - Track running a given command.
+- `blocked: () => void` - Track an action getting blocked due to queue being full.
   
