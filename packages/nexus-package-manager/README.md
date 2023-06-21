@@ -12,6 +12,8 @@ The package manager aims to solve these problem by using [a community based publ
 
 # Installation #
 
+**Note** This package is only supported for browsers. Mobile and desktop apps are currently unable to support parts of the package.
+
 Download [the latest version of the package manager](https://keneanung.github.io/nexus-package-manager/nexusPackageManager.nxs) and install it in Nexus via the `Reflex Packages` menu option. Afterwards, a new UI tab should appear, which lets you interact with the manager.
 
 # Usage #

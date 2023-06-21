@@ -4,6 +4,8 @@ sidebar_position: 4
 ---
 # Nexus Package Manager #
 
+**Note** This package is only supported for browsers. Mobile and desktop apps are currently unable to support parts of the package.
+
 ## Purpose of the Package Manager ##
 
 The Iron Realms Nexus client allows players to write own reflexes that enhance gameplay by reacting to game output automatically, using shortcut commands, scripts and more. They are organized in packages and can be downloaded and shared with other players. However, there is currently no official central repository or way to discover, which public packages exist.
