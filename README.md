@@ -8,4 +8,4 @@ The packages are still available for individual download. The easiest way is to 
 
 If you would like to manually install individual packages, use the `Download` link in the [Package Repository](https://keneanung.github.io/nexus-package-repository), which always has the latest links. The repository also lists more packages that might be of interest.
 
-If you would like to contribute a package or feature, have a look at [the Contributing Guidelines](https://github.com/keneanung/nexus-scripts/blob/main/CONTRIBUTING.md)
+If you would like to contribute a package or feature, have a look at [the Contributing Guidelines](https://github.com/keneanung/nexus-scripts/blob/main/CONTRIBUTING.md).
