@@ -2,6 +2,7 @@
 authors: keneanung
 tags: 
   - package-manager
+  - release-notes
 ---
 # Nexus Package Manager v0.2.1 & v0.2.2: Bugfix for Disappearing Actions
 

@@ -2,6 +2,7 @@
 authors: keneanung
 tags:
   - event-bus
+  - release-notes
 ---
 
 # Nexus EventBus v0.3.0: Finetuning

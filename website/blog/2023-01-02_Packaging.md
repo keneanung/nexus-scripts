@@ -2,6 +2,7 @@
 authors: keneanung
 tags:
   - event-bus
+  - release-notes
 ---
 
 # Nexus EventBus v0.5.0 + v0.5.1: Packaging improvements

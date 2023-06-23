@@ -2,6 +2,7 @@
 authors: keneanung
 tags:
   - package-manager
+  - release-notes
 ---
 # Nexus Package Manager v0.2.0: Dependencies
 
