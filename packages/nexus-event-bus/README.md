@@ -4,7 +4,7 @@ An implementation of the [publish-subscriber pattern](https://en.wikipedia.org/w
 
 ## Installation ##
 
-To install the package, first download it to your machine via [this link](https://keneanung.github.io/nexus-event-bus/EventBus.nxs).
+To install the package, first download it to your machine via [this link](https://keneanung.github.io/nexus-scripts/EventBus.nxs).
 
 You can then proceed to install it as a normal package into your Nexus profile. You may have to log in and out after installing the package.
 
@@ -26,4 +26,4 @@ eventBus.raise('myEvent', 'Hello World!');
 
 This will print `Hello World!` to the console.
 
-For documentation on the inidividual methods, advanced usage and some best practices, see the [Nexus Event Bus documentation](https://keneanung.github.io/nexus-event-bus/docs/).
+For documentation on the inidividual methods, advanced usage and some best practices, see the [Nexus Event Bus documentation](https://keneanung.github.io/nexus-scripts/docs/event-bus).
