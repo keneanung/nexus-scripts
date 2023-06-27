@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[8089],{3651:s=>{s.exports=JSON.parse('{"label":"event-bus","permalink":"/nexus-scripts/blog/tags/event-bus","allTagsPath":"/nexus-scripts/blog/tags","count":4}')}}]);

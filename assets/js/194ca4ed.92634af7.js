@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[361],{6508:e=>{e.exports=JSON.parse('[{"label":"package-manager","permalink":"/nexus-scripts/blog/tags/package-manager","count":3},{"label":"event-bus","permalink":"/nexus-scripts/blog/tags/event-bus","count":3}]')}}]);
