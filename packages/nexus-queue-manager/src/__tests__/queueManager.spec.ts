@@ -855,4 +855,3 @@ test('Should remove queued command from in-game queue if command to undo was fou
 
   expect(sendCommandMock).toMatchSnapshot();
 });
-

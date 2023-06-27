@@ -89,17 +89,17 @@ const defaultQueueTranslations: { [key: string]: string } = {
 };
 
 export interface IQueueManager {
-  track: (command: string, queue: string) => void
-  getQueue: () => (QueuedItem|UnsyncedItem)[]
-  clear: (queue: string) => void
-  trackFirst: (command: string, queue: string) => void
-  trackAt: (position: number, command: string, queue: string) => void
-  trackReplace: (position: number, command: string, queue: string) => void
-  trackRemove: (position: number) => void
-  run: (command: string, queue: string) => void
-  do: (command: string, itemProperties: QueuedItemProperties, consumesBalance: boolean, repeat?: boolean) => void
-  blocked: () => void
-  undo: (command: string) => boolean
+  track: (command: string, queue: string) => void;
+  getQueue: () => (QueuedItem | UnsyncedItem)[];
+  clear: (queue: string) => void;
+  trackFirst: (command: string, queue: string) => void;
+  trackAt: (position: number, command: string, queue: string) => void;
+  trackReplace: (position: number, command: string, queue: string) => void;
+  trackRemove: (position: number) => void;
+  run: (command: string, queue: string) => void;
+  do: (command: string, itemProperties: QueuedItemProperties, consumesBalance: boolean, repeat?: boolean) => void;
+  blocked: () => void;
+  undo: (command: string) => boolean;
 }
 
 /**
@@ -112,7 +112,8 @@ export class QueueManager implements IQueueManager {
   public track(command: string, queue: string) {
     const itemProperties = this.parseQueue(queue);
     const localFound = this.localUnsyncedItems.findIndex(
-      (item) => item.command.toLowerCase() === command.toLowerCase() && itemPropertiesEqual(item.properties, itemProperties),
+      (item) =>
+        item.command.toLowerCase() === command.toLowerCase() && itemPropertiesEqual(item.properties, itemProperties),
     );
     let local: UnsyncedItem | undefined = undefined;
     if (localFound > -1) {
@@ -150,7 +151,7 @@ export class QueueManager implements IQueueManager {
     return customProperties;
   }
 
-  public getQueue = () => [ ...this.queue, ...this.localUnsyncedItems];
+  public getQueue = () => [...this.queue, ...this.localUnsyncedItems];
 
   public clear = (queue: string) => {
     if (queue === 'all') {
@@ -274,12 +275,16 @@ export class QueueManager implements IQueueManager {
   };
 
   public undo = (command: string) => {
-    const queuedIndex = this.queue.findIndex((item) => item.command.toLowerCase() === command.toLowerCase() && item.locallyControlled);
+    const queuedIndex = this.queue.findIndex(
+      (item) => item.command.toLowerCase() === command.toLowerCase() && item.locallyControlled,
+    );
     if (queuedIndex > -1) {
       sendCommand(`queue remove ${queuedIndex + 1}`);
       return true;
     }
-    const unsyncedIndex = this.localUnsyncedItems.findIndex((item) => item.command.toLowerCase() === command.toLowerCase());
+    const unsyncedIndex = this.localUnsyncedItems.findIndex(
+      (item) => item.command.toLowerCase() === command.toLowerCase(),
+    );
     if (unsyncedIndex > -1) {
       this.localUnsyncedItems.splice(unsyncedIndex, 1);
       return true;
