@@ -22,15 +22,18 @@ const config = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           editUrl: 'https://github.com/keneanung/nexus-scripts/edit/development/website/',
-          admonitions: {
-            
-          }
+          remarkPlugins: [require('mdx-mermaid')]
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           editUrl:
           'https://github.com/keneanung/nexus-scripts/edit/development/website/blog/',
+          remarkPlugins: [require('mdx-mermaid')],
+          
+        },
+        pages: {
+          remarkPlugins: [require('mdx-mermaid')],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
