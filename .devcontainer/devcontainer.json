@@ -13,7 +13,9 @@
 			"extensions": [
 				"redhat.vscode-yaml",
 				"dbaeumer.vscode-eslint",
-				"Orta.vscode-jest"
+				"Orta.vscode-jest",
+				"vivaxy.vscode-conventional-commits",
+				"github.vscode-github-actions"
 			]
 		}
 	}
