@@ -32,4 +32,7 @@ module.exports = {
       }]
     },
     ignorePatterns: ['node_modules', 'lib'],
+    env: {
+      node: true
+    }
   };
