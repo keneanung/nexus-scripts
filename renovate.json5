@@ -4,7 +4,9 @@
 
   // Use recommended defaults
   "extends": [
-    "config:base"
+    "config:base",
+    ":semanticCommits",
+    ":semanticCommitScopeDisabled"
   ],
 
   // Run on a monthly schedule to keep interruptions to a minimum,
