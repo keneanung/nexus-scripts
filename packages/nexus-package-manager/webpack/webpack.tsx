@@ -7,11 +7,9 @@ const packageManager = new PackageManager();
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 globalThis.packageManager = packageManager;
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-if (globalThis.React && nexusclient.ui().layout().register_custom_tab && !nexusclient.platform().real_mobile() && !nexusclient.platform().is_desktop() ) {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+
+if (globalThis.React && !nexusclient.platform().real_mobile() && !nexusclient.platform().is_desktop() ) {
+
   const layout = nexusclient.ui().layout();
   const tabName = 'npkg_ui';
   if(layout.custom_tabs()[tabName]){
@@ -19,8 +17,6 @@ if (globalThis.React && nexusclient.ui().layout().register_custom_tab && !nexusc
   }
   layout.register_custom_tab(tabName, <PackageManagerUi packageManager={packageManager} />);
 }else{
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   nexusclient.display_notice('This platform is not supported by the package manager.')
 }
 
