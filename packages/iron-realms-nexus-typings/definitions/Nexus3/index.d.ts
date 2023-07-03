@@ -59,4 +59,19 @@ declare namespace nexusclient {
   export interface EncodedReflex {
     [key: string]: unknown
   }
+
+  export interface Interface {
+    layout(): LayoutManager
+  }
+
+  export interface LayoutManager{
+    register_custom_tab(name: string, component?: string | React.JSX.Element): void
+    custom_tabs(): {[key:string]: unkown}
+    unregister_custom_tab(name: string): void
+  }
+
+  export interface NexusPlatform{
+    real_mobile(): boolean
+    is_desktop(): boolean
+  }
 }
