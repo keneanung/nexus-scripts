@@ -12,7 +12,12 @@ globalThis.packageManager = packageManager;
 if (globalThis.React && nexusclient.ui().layout().register_custom_tab && !nexusclient.platform().real_mobile() && !nexusclient.platform().is_desktop() ) {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  nexusclient.ui().layout().register_custom_tab('npk_ui', <PackageManagerUi packageManager={packageManager} />);
+  const layout = nexusclient.ui().layout();
+  const tabName = 'npkg_ui';
+  if(layout.custom_tabs()[tabName]){
+    layout.unregister_custom_tab(tabName)
+  }
+  layout.register_custom_tab(tabName, <PackageManagerUi packageManager={packageManager} />);
 }else{
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
