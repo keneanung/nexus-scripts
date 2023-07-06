@@ -79,3 +79,18 @@ test("Should not convert function actions with empty function name", () => {
 
     expect(result).toMatchSnapshot();
 })
+
+test("Should be able to convert disable actions", () => {
+
+    const actions: client.Action[] = [
+        {
+            action: "disable",
+            type: "alias",
+            name: "foo"
+        }
+    ]
+
+    const result = convertActions(actions)
+
+    expect(result).toMatchSnapshot();
+})

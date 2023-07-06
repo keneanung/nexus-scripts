@@ -11,6 +11,16 @@ const convertActions = (actions: client.Action[]) => {
             if(action.fn && action.fn.length > 0) {
                 result += `nexusclient.reflexes().run_function("${action.fn}")\n`
             }
+        }else if(action.action === "disable"){
+            result += `{
+  const reflex = nexusclient.reflexes().find_by_name("${action.type}", "${action.name}", true, false, current_package);
+  if(!reflex){
+    nexusclient.display_notice('Disable reflex: unable to find any ${action.type} called "${action.name}" in ' + (current_package?current_package:'global reflexes'), 'red');
+  }else{
+    nexusclient.reflexes().disable_reflex(reflex);
+  }
+}
+`
         }
     }
 

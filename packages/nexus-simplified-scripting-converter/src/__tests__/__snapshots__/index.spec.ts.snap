@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Should be able to convert disable actions 1`] = `
+"{
+  const reflex = nexusclient.reflexes().find_by_name("alias", "foo", true, false, current_package);
+  if(!reflex){
+    nexusclient.display_notice('Disable reflex: unable to find any alias called "foo" in ' + (current_package?current_package:'global reflexes'), 'red');
+  }else{
+    nexusclient.reflexes().disable_reflex(reflex);
+  }
+}
+"
+`;
+
 exports[`Should be able to convert function actions 1`] = `
 "nexusclient.reflexes().run_function("foo")
 "
