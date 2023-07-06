@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should be able to convert function actions 1`] = `
+"nexusclient.reflexes().run_function("foo")
+"
+`;
+
+exports[`Should be able to convert script actions 1`] = `
+"console.log('foo')
+"
+`;
+
+exports[`Should be able to handle empty packages 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [],
+  "name": "TestPackage",
+  "type": "group",
+}
+`;
+
+exports[`Should be able to handle groups 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [
+    {
+      "enabled": true,
+      "id": 2,
+      "items": [],
+      "name": "group",
+      "type": "group",
+    },
+  ],
+  "name": "TestPackage",
+  "type": "group",
+}
+`;
+
+exports[`Should not convert function actions with empty function name 1`] = `""`;

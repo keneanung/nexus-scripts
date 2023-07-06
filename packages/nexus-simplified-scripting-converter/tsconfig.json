@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "lib/",
+    "rootDirs": [
+      "src/"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "node_modules/@keneanung",
+      "../../node_modules/@types",
+      "../../node_modules/@keneanung"
+    ],
+    "types": [
+      "jest",
+      "iron-realms-nexus-typings",
+      "node"
+    ]
+  }
+}
