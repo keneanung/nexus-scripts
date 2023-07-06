@@ -3,8 +3,11 @@ const convertActions = (actions: client.Action[]) => {
 
     for (const action of actions) {
         if(action.action === "script"){
-            result += action.script + "\n"
-        }else if(action.action == "function"){
+            result += `{
+  ${action.script}
+}
+`
+        }else if(action.action === "function"){
             if(action.fn && action.fn.length > 0) {
                 result += `nexusclient.reflexes().run_function("${action.fn}")\n`
             }

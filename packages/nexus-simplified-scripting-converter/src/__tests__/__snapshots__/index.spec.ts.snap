@@ -6,7 +6,9 @@ exports[`Should be able to convert function actions 1`] = `
 `;
 
 exports[`Should be able to convert script actions 1`] = `
-"console.log('foo')
+"{
+  console.log('foo')
+}
 "
 `;
 
