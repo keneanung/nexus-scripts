@@ -31,6 +31,54 @@ const convertActions = (actions: client.Action[]) => {
   }
 }
 `;
+    } else if (action.action === 'command'){
+      /*
+      args is the full match object for regex matches:
+      {
+      0: "test test",
+      1: " test",
+      groups: {foo: ' test'},
+      index: 10,
+      input: "this is a test test"
+      }
+      for begin of line and substring matches, it is null
+*/
+      result += `{
+    let cmd = "${action.command}";
+    if(args){
+      const prefix = args.input.substr(0, args.index);
+      const posend = args.index + args[0].length;
+      const suffix = args.input.substr(posend);
+      const replace = {};
+      replace["match"] = args[0];
+      replace["line"] = args.input;
+      replace["prefix"] = prefix;
+      replace["suffix"] = suffix;
+      if(args.length > 1){
+        for(let i = 1; i++; i < args.length){
+          replace[i] = args[i];
+        }
+      }
+      if(args.groups){
+        for(const group in args.groups){
+          replace[group] = args.groups[group];
+        }
+      }
+      cmd = nexusclient.variables().expand(cmd, replace);
+
+      ${action.prefix_suffix ? 
+        `if(prefix){
+        cmd = prefix + cmd;
+      }
+      if(suffix){
+        cmd = cmd + suffix;
+      }
+`
+        :""}
+    }
+    nexusclient.send_command(cmd)
+  }
+  `
     }
   }
 
