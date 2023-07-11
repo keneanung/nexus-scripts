@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should be able to convert command actions 1`] = `
-"{
+"// command action (index 0)
+{
     let cmd = "foo";
     if(args){
       const prefix = args.input.substr(0, args.index);
@@ -38,7 +39,8 @@ exports[`Should be able to convert command actions 1`] = `
 `;
 
 exports[`Should be able to convert command actions without suffix 1`] = `
-"{
+"// command action (index 0)
+{
     let cmd = "foo";
     if(args){
       const prefix = args.input.substr(0, args.index);
@@ -69,7 +71,8 @@ exports[`Should be able to convert command actions without suffix 1`] = `
 `;
 
 exports[`Should be able to convert disable actions 1`] = `
-"{
+"// disable action (index 0)
+{
   const reflex = nexusclient.reflexes().find_by_name("alias", "foo", true, false, current_package);
   if(!reflex){
     nexusclient.display_notice('Disable reflex: unable to find any alias called "foo" in ' + (current_package?current_package:'global reflexes'), 'red');
@@ -81,7 +84,8 @@ exports[`Should be able to convert disable actions 1`] = `
 `;
 
 exports[`Should be able to convert enable actions 1`] = `
-"{
+"// enable action (index 0)
+{
   const reflex = nexusclient.reflexes().find_by_name("alias", "foo", true, false, current_package);
   if(!reflex){
     nexusclient.display_notice('Enable reflex: unable to find any alias called "foo" in ' + (current_package?current_package:'global reflexes'), 'red');
@@ -93,12 +97,14 @@ exports[`Should be able to convert enable actions 1`] = `
 `;
 
 exports[`Should be able to convert function actions 1`] = `
-"nexusclient.reflexes().run_function("foo")
+"// function action (index 0)
+nexusclient.reflexes().run_function("foo")
 "
 `;
 
 exports[`Should be able to convert notify actions 1`] = `
-"{
+"// notify action (index 0)
+{
     let cmd = "foo";
     if(args){
       const prefix = args.input.substr(0, args.index);
@@ -129,7 +135,8 @@ exports[`Should be able to convert notify actions 1`] = `
 `;
 
 exports[`Should be able to convert script actions 1`] = `
-"{
+"// script action (index 0)
+{
   console.log('foo')
 }
 "
@@ -165,4 +172,7 @@ exports[`Should be able to handle groups 1`] = `
 }
 `;
 
-exports[`Should not convert function actions with empty function name 1`] = `""`;
+exports[`Should not convert function actions with empty function name 1`] = `
+"// function action (index 0)
+"
+`;

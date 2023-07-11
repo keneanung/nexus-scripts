@@ -1,7 +1,9 @@
 const convertActions = (actions: client.Action[]) => {
   let result = '';
+  let index = 0;
 
   for (const action of actions) {
+    result += `// ${action.action} action (index ${index++})\n`
     if (action.action === 'script') {
       result += `{
   ${action.script}
