@@ -76,7 +76,7 @@ const convertActions = (actions: client.Action[]) => {
 `
         :""}
     }
-    nexusclient.send_command(cmd)
+    nexusclient.send_commands(cmd)
   }
   `
     }
