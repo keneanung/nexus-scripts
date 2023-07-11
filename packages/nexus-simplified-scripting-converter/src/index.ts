@@ -31,7 +31,7 @@ const convertActions = (actions: client.Action[]) => {
   }
 }
 `;
-    } else if (action.action === 'command'){
+    } else if (action.action === 'command') {
       /*
       args is the full match object for regex matches:
       {
@@ -66,20 +66,22 @@ const convertActions = (actions: client.Action[]) => {
       }
       cmd = nexusclient.variables().expand(cmd, replace);
 
-      ${action.prefix_suffix ? 
-        `if(prefix){
+      ${
+        action.prefix_suffix
+          ? `if(prefix){
         cmd = prefix + cmd;
       }
       if(suffix){
         cmd = cmd + suffix;
       }
 `
-        :""}
+          : ''
+      }
     }
     nexusclient.send_commands(cmd)
   }
-  `
-    } else if(action.action === 'notify') {
+  `;
+    } else if (action.action === 'notify') {
       result += `{
     let cmd = "${action.notice}";
     if(args){
@@ -107,7 +109,7 @@ const convertActions = (actions: client.Action[]) => {
     }
     nexusclient.display_notice(cmd, "${action.notice_fg}", "${action.notice_bg}")
   }
-  `
+  `;
     }
   }
 
