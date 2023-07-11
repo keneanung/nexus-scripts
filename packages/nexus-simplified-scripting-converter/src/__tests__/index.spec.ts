@@ -120,13 +120,27 @@ test('Should be able to convert command actions', () => {
   expect(result).toMatchSnapshot();
 });
 
-
 test('Should be able to convert command actions without suffix', () => {
   const actions: client.Action[] = [
     {
       action: 'command',
       command: 'foo',
       prefix_suffix: false
+    },
+  ];
+
+  const result = convertActions(actions);
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert notify actions', () => {
+  const actions: client.Action[] = [
+    {
+      action: 'notify',
+      notice: 'foo',
+      notice_bg: 'green',
+      notice_fg: 'black',
     },
   ];
 

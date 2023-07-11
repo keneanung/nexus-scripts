@@ -79,6 +79,35 @@ const convertActions = (actions: client.Action[]) => {
     nexusclient.send_commands(cmd)
   }
   `
+    } else if(action.action === 'notify') {
+      result += `{
+    let cmd = "${action.notice}";
+    if(args){
+      const prefix = args.input.substr(0, args.index);
+      const posend = args.index + args[0].length;
+      const suffix = args.input.substr(posend);
+      const replace = {};
+      replace["match"] = args[0];
+      replace["line"] = args.input;
+      replace["prefix"] = prefix;
+      replace["suffix"] = suffix;
+      if(args.length > 1){
+        for(let i = 1; i++; i < args.length){
+          replace[i] = args[i];
+        }
+      }
+      if(args.groups){
+        for(const group in args.groups){
+          replace[group] = args.groups[group];
+        }
+      }
+      cmd = nexusclient.variables().expand(cmd, replace);
+      cmd = nexusclient.variables().expand(cmd);
+      
+    }
+    nexusclient.display_notice(cmd, "${action.notice_fg}", "${action.notice_bg}")
+  }
+  `
     }
   }
 
