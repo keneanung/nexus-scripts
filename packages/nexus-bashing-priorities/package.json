@@ -14,7 +14,7 @@
   "scripts": {
     "serve": "webpack serve --mode development",
     "build": "tsc",
-    "webpack": "npm test && webpack build --mode development",
+    "webpack": "npm test && webpack build --mode development --devtool eval-source-map",
     "webpackProd": "npm test && webpack build --mode production",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
