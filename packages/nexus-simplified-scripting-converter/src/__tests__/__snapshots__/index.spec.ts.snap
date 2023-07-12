@@ -3,71 +3,69 @@
 exports[`Should be able to convert command actions 1`] = `
 "// command action (index 0)
 {
-    let cmd = "foo";
-    if(args){
-      const prefix = args.input.substr(0, args.index);
-      const posend = args.index + args[0].length;
-      const suffix = args.input.substr(posend);
-      const replace = {};
-      replace["match"] = args[0];
-      replace["line"] = args.input;
-      replace["prefix"] = prefix;
-      replace["suffix"] = suffix;
-      if(args.length > 1){
-        for(let i = 1; i++; i < args.length){
-          replace[i] = args[i];
-        }
+  let cmd = "foo";
+  if(args){
+    const prefix = args.input.substr(0, args.index);
+    const posend = args.index + args[0].length;
+    const suffix = args.input.substr(posend);
+    const replace = {};
+    replace["match"] = args[0];
+    replace["line"] = args.input;
+    replace["prefix"] = prefix;
+    replace["suffix"] = suffix;
+    if(args.length > 1){
+      for(let i = 1; i++; i < args.length){
+        replace[i] = args[i];
       }
-      if(args.groups){
-        for(const group in args.groups){
-          replace[group] = args.groups[group];
-        }
-      }
-      cmd = nexusclient.variables().expand(cmd, replace);
-
-      if(prefix){
-        cmd = prefix + cmd;
-      }
-      if(suffix){
-        cmd = cmd + suffix;
-      }
-
     }
-    nexusclient.send_commands(cmd)
+    if(args.groups){
+      for(const group in args.groups){
+        replace[group] = args.groups[group];
+      }
+    }
+    cmd = nexusclient.variables().expand(cmd, replace);
+
+    
+    if(prefix){
+      cmd = prefix + cmd;
+    }
+    if(suffix){
+      cmd = cmd + suffix;
+    }
   }
-  "
+  nexusclient.send_commands(cmd)
+}"
 `;
 
 exports[`Should be able to convert command actions without suffix 1`] = `
 "// command action (index 0)
 {
-    let cmd = "foo";
-    if(args){
-      const prefix = args.input.substr(0, args.index);
-      const posend = args.index + args[0].length;
-      const suffix = args.input.substr(posend);
-      const replace = {};
-      replace["match"] = args[0];
-      replace["line"] = args.input;
-      replace["prefix"] = prefix;
-      replace["suffix"] = suffix;
-      if(args.length > 1){
-        for(let i = 1; i++; i < args.length){
-          replace[i] = args[i];
-        }
+  let cmd = "foo";
+  if(args){
+    const prefix = args.input.substr(0, args.index);
+    const posend = args.index + args[0].length;
+    const suffix = args.input.substr(posend);
+    const replace = {};
+    replace["match"] = args[0];
+    replace["line"] = args.input;
+    replace["prefix"] = prefix;
+    replace["suffix"] = suffix;
+    if(args.length > 1){
+      for(let i = 1; i++; i < args.length){
+        replace[i] = args[i];
       }
-      if(args.groups){
-        for(const group in args.groups){
-          replace[group] = args.groups[group];
-        }
-      }
-      cmd = nexusclient.variables().expand(cmd, replace);
-
-      
     }
-    nexusclient.send_commands(cmd)
+    if(args.groups){
+      for(const group in args.groups){
+        replace[group] = args.groups[group];
+      }
+    }
+    cmd = nexusclient.variables().expand(cmd, replace);
+
+    
   }
-  "
+  nexusclient.send_commands(cmd)
+}"
 `;
 
 exports[`Should be able to convert disable actions 1`] = `
@@ -79,8 +77,7 @@ exports[`Should be able to convert disable actions 1`] = `
   }else{
     nexusclient.reflexes().disable_reflex(reflex);
   }
-}
-"
+}"
 `;
 
 exports[`Should be able to convert enable actions 1`] = `
@@ -92,54 +89,49 @@ exports[`Should be able to convert enable actions 1`] = `
   }else{
     nexusclient.reflexes().enable_reflex(reflex);
   }
-}
-"
+}"
 `;
 
 exports[`Should be able to convert function actions 1`] = `
 "// function action (index 0)
-nexusclient.reflexes().run_function("foo")
-"
+nexusclient.reflexes().run_function("foo")"
 `;
 
 exports[`Should be able to convert notify actions 1`] = `
 "// notify action (index 0)
 {
-    let cmd = "foo";
-    if(args){
-      const prefix = args.input.substr(0, args.index);
-      const posend = args.index + args[0].length;
-      const suffix = args.input.substr(posend);
-      const replace = {};
-      replace["match"] = args[0];
-      replace["line"] = args.input;
-      replace["prefix"] = prefix;
-      replace["suffix"] = suffix;
-      if(args.length > 1){
-        for(let i = 1; i++; i < args.length){
-          replace[i] = args[i];
-        }
+  let cmd = "foo";
+  if(args){
+    const prefix = args.input.substr(0, args.index);
+    const posend = args.index + args[0].length;
+    const suffix = args.input.substr(posend);
+    const replace = {};
+    replace["match"] = args[0];
+    replace["line"] = args.input;
+    replace["prefix"] = prefix;
+    replace["suffix"] = suffix;
+    if(args.length > 1){
+      for(let i = 1; i++; i < args.length){
+        replace[i] = args[i];
       }
-      if(args.groups){
-        for(const group in args.groups){
-          replace[group] = args.groups[group];
-        }
-      }
-      cmd = nexusclient.variables().expand(cmd, replace);
-      cmd = nexusclient.variables().expand(cmd);
-      
     }
-    nexusclient.display_notice(cmd, "black", "green")
+    if(args.groups){
+      for(const group in args.groups){
+        replace[group] = args.groups[group];
+      }
+    }
+    cmd = nexusclient.variables().expand(cmd, replace);
+    cmd = nexusclient.variables().expand(cmd);
   }
-  "
+  nexusclient.display_notice(cmd, "black", "green")
+}"
 `;
 
 exports[`Should be able to convert script actions 1`] = `
 "// script action (index 0)
 {
   console.log('foo')
-}
-"
+}"
 `;
 
 exports[`Should be able to handle empty packages 1`] = `
