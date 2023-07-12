@@ -23,7 +23,7 @@ jobs:
             npm ci
             npm run build
             npm ci
-            npm run nxs
+            npm run nxsProd
         - name: copy assets to website
           run: |
             find  -type f -name "*.nxs" -exec cp "{}" website/static/ \;

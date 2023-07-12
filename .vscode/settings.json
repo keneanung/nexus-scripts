@@ -1,3 +1,9 @@
 {
-  "jest.jestCommandLine": "npm run test --"
+  "jest.jestCommandLine": "npm run test --",
+  "conventionalCommits.scopes": [
+    "nexus-bashing-priorities",
+    "nexus-event-bus",
+    "nexus-package-manager",
+    "nexus-queue-manager"
+  ]
 }

@@ -61,6 +61,7 @@
     "webpackProd": "lerna exec --no-bail --no-progress --stream --ignore @keneanung/iron-realms-nexus-typings --ignore @keneanung/nexus-package-builder -- webpack build --mode production",
     "build": "lerna run --no-bail --no-progress build",
     "nxs": "lerna run --no-bail --no-progress nxs",
+    "nxsProd": "lerna run --no-bail --no-progress nxsProd",
     "commit": "git-cz"
   },
   "config": {
