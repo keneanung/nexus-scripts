@@ -38,6 +38,103 @@ test('Should be able to handle groups', () => {
   expect(pkg).toMatchSnapshot();
 });
 
+test('Should be able to handle aliases', () => {
+  const pkg: client.Package = {
+    name: 'TestPackage',
+    enabled: true,
+    description: '',
+    items: [
+      {
+        type: 'alias',
+        id: 2,
+        case_sensitive: false,
+        enabled: true,
+        matching: 'regexp',
+        name: 'foo',
+        prefix_suffix: false,
+        whole_words: true,
+        text: '^Hello World$',
+        actions: [
+          {
+            action: 'function',
+            fn: 'bar'
+          }
+        ]
+      }
+    ],
+    type: 'group',
+    id: 1,
+  };
+
+  convertPackage(pkg);
+
+  expect(pkg).toMatchSnapshot();
+});
+
+test('Should be able to handle triggers', () => {
+  const pkg: client.Package = {
+    name: 'TestPackage',
+    enabled: true,
+    description: '',
+    items: [
+      {
+        type: 'trigger',
+        id: 2,
+        case_sensitive: false,
+        enabled: true,
+        matching: 'regexp',
+        name: 'foo',
+        whole_words: true,
+        text: '^Hello World$',
+        actions: [
+          {
+            action: 'function',
+            fn: 'bar'
+          }
+        ]
+      }
+    ],
+    type: 'group',
+    id: 1,
+  };
+
+  convertPackage(pkg);
+
+  expect(pkg).toMatchSnapshot();
+});
+
+test('Should be able to handle keybinds', () => {
+  const pkg: client.Package = {
+    name: 'TestPackage',
+    enabled: true,
+    description: '',
+    items: [
+      {
+        type: 'keybind',
+        id: 2,
+        enabled: true,
+        name: 'foo',
+        key: 2,
+        key_alt: false,
+        key_ctrl: false,
+        key_shift: false,
+        actions: [
+          {
+            action: 'function',
+            fn: 'bar'
+          }
+        ]
+      }
+    ],
+    type: 'group',
+    id: 1,
+  };
+
+  convertPackage(pkg);
+
+  expect(pkg).toMatchSnapshot();
+});
+
 test('Should be able to convert script actions', () => {
   const actions: client.Action[] = [
     {

@@ -134,6 +134,36 @@ exports[`Should be able to convert script actions 1`] = `
 }"
 `;
 
+exports[`Should be able to handle aliases 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "// function action (index 0)
+nexusclient.reflexes().run_function("bar")",
+        },
+      ],
+      "case_sensitive": false,
+      "enabled": true,
+      "id": 2,
+      "matching": "regexp",
+      "name": "foo",
+      "prefix_suffix": false,
+      "text": "^Hello World$",
+      "type": "alias",
+      "whole_words": true,
+    },
+  ],
+  "name": "TestPackage",
+  "type": "group",
+}
+`;
+
 exports[`Should be able to handle empty packages 1`] = `
 {
   "description": "",
@@ -157,6 +187,64 @@ exports[`Should be able to handle groups 1`] = `
       "items": [],
       "name": "group",
       "type": "group",
+    },
+  ],
+  "name": "TestPackage",
+  "type": "group",
+}
+`;
+
+exports[`Should be able to handle keybinds 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "// function action (index 0)
+nexusclient.reflexes().run_function("bar")",
+        },
+      ],
+      "enabled": true,
+      "id": 2,
+      "key": 2,
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "foo",
+      "type": "keybind",
+    },
+  ],
+  "name": "TestPackage",
+  "type": "group",
+}
+`;
+
+exports[`Should be able to handle triggers 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "// function action (index 0)
+nexusclient.reflexes().run_function("bar")",
+        },
+      ],
+      "case_sensitive": false,
+      "enabled": true,
+      "id": 2,
+      "matching": "regexp",
+      "name": "foo",
+      "text": "^Hello World$",
+      "type": "trigger",
+      "whole_words": true,
     },
   ],
   "name": "TestPackage",

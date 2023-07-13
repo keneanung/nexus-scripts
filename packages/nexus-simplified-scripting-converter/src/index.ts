@@ -3,7 +3,7 @@ import functionTemplate from './templates/function.jsr';
 import disableTemplate from './templates/disable.jsr';
 import enableTemplate from './templates/enable.jsr';
 import commandTemplate from './templates/command.jsr';
-import notifyTemplate from './templates/notify.jsr'
+import notifyTemplate from './templates/notify.jsr';
 import jsrender from 'jsrender';
 
 const templates = jsrender.templates({
@@ -32,6 +32,14 @@ const convertReflex = (reflex: client.Reflex) => {
     for (const item of reflex.items) {
       convertReflex(item);
     }
+  } else if (reflex.type === 'alias' || reflex.type === 'keybind' || reflex.type === 'trigger') {
+    const newScript = convertActions(reflex.actions);
+    reflex.actions = [
+      {
+        action: 'script',
+        script: newScript,
+      },
+    ];
   }
 };
 
