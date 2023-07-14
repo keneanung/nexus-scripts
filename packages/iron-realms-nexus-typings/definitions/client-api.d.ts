@@ -1,9 +1,10 @@
+import { ReflexPackages, Reflexes, Interface, NexusPlatform } from "./Nexus3";
+import { Package } from "./Reflexes";
 /**
  * Alias for the global window object in Nexus 2. While optional, prepending functions with
  * client makes it explicit that you interact with Nexus 2.
  */
 declare namespace client {
-
   /**
    * Send a command to the game.
    * @param {string} input Text to send to the game
@@ -45,10 +46,10 @@ declare namespace client {
 }
 
 declare namespace nexusclient {
-  export function packages(): ReflexPackages
-  export function reflexes(): Reflexes
-  export function send_commands(input: string, no_expansion = false): boolean?
-  export function display_notice(...params: string[]): void
-  export function ui(): Interface
-  export function platform(): NexusPlatform
+  export function packages(): ReflexPackages;
+  export function reflexes(): Reflexes;
+  export function send_commands(input: string, no_expansion: boolean): boolean | undefined;
+  export function display_notice(...params: string[]): void;
+  export function ui(): Interface;
+  export function platform(): NexusPlatform;
 }
