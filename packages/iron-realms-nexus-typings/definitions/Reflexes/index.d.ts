@@ -1,2 +1,2 @@
-export * from './reflexes'
-export * from './actions'
+export * from './reflexes';
+export * from './actions';
