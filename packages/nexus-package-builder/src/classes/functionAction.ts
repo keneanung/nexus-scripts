@@ -1,3 +1,4 @@
+import * as client from '@keneanung/iron-realms-nexus-typings'
 /**
  * Class for a nexus function action.
  */

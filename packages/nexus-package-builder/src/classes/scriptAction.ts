@@ -1,5 +1,6 @@
 import { readScriptFileRelativeToDefintion } from '../functionsInteractingWithFileSystem';
 import { PartialScriptAction } from '../types';
+import * as client from '@keneanung/iron-realms-nexus-typings'
 
 /**
  * Class for a Nexus script action.

@@ -1,4 +1,5 @@
 import { DisableAction } from '../disableAction';
+import * as client from '@keneanung/iron-realms-nexus-typings'
 
 test('Should initialize all members', () => {
   const disableAction = new DisableAction({});
