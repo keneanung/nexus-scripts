@@ -57,8 +57,8 @@
   "scripts": {
     "test": "echo 'Workaround for npm rfc #575'; lerna exec --ignore @keneanung/iron-realms-nexus-typings --no-bail --no-progress --stream -- npx jest --testLocationInResults --collect-coverage --config jestconfig.js",
     "lint": "lerna exec --no-bail --no-progress --stream -- eslint . --ext .ts,.tsx",
-    "webpack": "lerna exec --no-bail --no-progress --stream --ignore @keneanung/iron-realms-nexus-typings --ignore @keneanung/nexus-package-builder -- webpack build --mode development",
-    "webpackProd": "lerna exec --no-bail --no-progress --stream --ignore @keneanung/iron-realms-nexus-typings --ignore @keneanung/nexus-package-builder -- webpack build --mode production",
+    "webpack": "lerna exec --no-bail --no-progress --stream --ignore @keneanung/iron-realms-nexus-typings --ignore @keneanung/nexus-package-builder --ignore @keneanung/nexus-simplified-scripting-converter -- webpack build --mode development",
+    "webpackProd": "lerna exec --no-bail --no-progress --stream --ignore @keneanung/iron-realms-nexus-typings --ignore @keneanung/nexus-package-builder --ignore @keneanung/nexus-simplified-scripting-converter -- webpack build --mode production",
     "build": "lerna run --no-bail --no-progress build",
     "nxs": "lerna run --no-bail --no-progress nxs",
     "nxsProd": "lerna run --no-bail --no-progress nxsProd",
