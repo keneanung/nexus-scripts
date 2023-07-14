@@ -4,6 +4,7 @@
     "nexus-bashing-priorities",
     "nexus-event-bus",
     "nexus-package-manager",
-    "nexus-queue-manager"
+    "nexus-queue-manager",
+    "iron-realms-nexus-typings"
   ]
 }
