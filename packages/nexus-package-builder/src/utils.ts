@@ -33,6 +33,7 @@ import {
   PartialTrigger,
 } from './types';
 import { Keybind } from './classes/keybind';
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 /**
  * Generator for IDs.

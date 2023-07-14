@@ -1,3 +1,5 @@
+import * as client from "@keneanung/iron-realms-nexus-typings";
+
 export type PartialPackage = Omit<Partial<client.Package>, 'items'> & { items?: PartialReflex[] } & {
   version?: string;
   dependencies?: string[];
@@ -12,7 +14,7 @@ export type PartialReflex =
   | PartialKeybind
   | PartialGroup;
 
-export type PartialFunction = Partial<client.Function> & { codeFile?: string };
+export type PartialFunction = Partial<client.FunctionReflex> & { codeFile?: string };
 export type PartialGroup = Omit<Partial<client.Group>, 'items'> & { items?: PartialReflex[] };
 export type PartialAlias = Omit<Partial<client.Alias>, 'actions'> & { actions?: PartialAction[] };
 export type PartialTrigger = Omit<Partial<client.Trigger>, 'actions'> & { actions?: PartialAction[] };
