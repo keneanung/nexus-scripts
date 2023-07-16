@@ -54,10 +54,7 @@ export interface Reflexes {
     include_groups: boolean,
     include_packages: boolean,
   ) => void;
-  get_flat_list: (
-    type: 'group' | 'function' | 'alias' | 'keybind' | 'trigger' | 'event',
-    active: boolean,
-  ) => Reflex[];
+  get_flat_list: (type: 'group' | 'function' | 'alias' | 'keybind' | 'trigger' | 'event', active: boolean) => Reflex[];
   get_active_list: (type: 'group' | 'function' | 'alias' | 'keybind' | 'trigger' | 'event') => Reflex[];
   get_package_list: () => ReflexPackage[];
   determine_package_for_reflex: (r: Reflex) => Package | null;

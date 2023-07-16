@@ -1,5 +1,4 @@
-
-import { Action } from "./actions";
+import { Action } from './actions';
 /**
  * Interface for Nexus script packages.
  */
