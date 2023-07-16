@@ -1,81 +1,79 @@
-import { convertActions, convertPackage } from ".."
+import { Action, Package } from '@keneanung/iron-realms-nexus-typings';
+import { convertActions, convertPackage } from '..';
 
-test("Should be able to handle empty packages", () => {
-    const pkg: client.Package = {
-        name: 'TestPackage',
-        enabled: true,
-        description: "",
+test('Should be able to handle empty packages', () => {
+  const pkg: Package = {
+    name: 'TestPackage',
+    enabled: true,
+    description: '',
+    items: [],
+    type: 'group',
+    id: 1,
+  };
+
+  convertPackage(pkg);
+
+  expect(pkg).toMatchSnapshot();
+});
+
+test('Should be able to handle groups', () => {
+  const pkg: Package = {
+    name: 'TestPackage',
+    enabled: true,
+    description: '',
+    items: [
+      {
+        id: 2,
+        name: 'group',
+        type: 'group',
         items: [],
-        type: "group",
-        id: 1
-    }
-
-    convertPackage(pkg)
-
-    expect(pkg).toMatchSnapshot();
-})
-
-test("Should be able to handle groups", () => {
-    const pkg: client.Package = {
-        name: 'TestPackage',
         enabled: true,
-        description: "",
-        items: [
-            {
-                id: 2,
-                name: "group",
-                type: "group",
-                items: [],
-                enabled: true
-            }
-        ],
-        type: "group",
-        id: 1
-    }
+      },
+    ],
+    type: 'group',
+    id: 1,
+  };
 
-    convertPackage(pkg)
+  convertPackage(pkg);
 
-    expect(pkg).toMatchSnapshot();
-})
+  expect(pkg).toMatchSnapshot();
+});
 
-test("Should be able to convert script actions", () => {
+test('Should be able to convert script actions', () => {
+  const actions: Action[] = [
+    {
+      action: 'script',
+      script: "console.log('foo')",
+    },
+  ];
 
-    const actions: client.Action[] = [
-        {
-            action: "script",
-            script: "console.log('foo')"
-        }
-    ]
+  const result = convertActions(actions);
 
-    const result = convertActions(actions)
+  expect(result).toMatchSnapshot();
+});
 
-    expect(result).toMatchSnapshot();
-})
+test('Should be able to convert function actions', () => {
+  const actions: Action[] = [
+    {
+      action: 'function',
+      fn: 'foo',
+    },
+  ];
 
-test("Should be able to convert function actions", () => {
+  const result = convertActions(actions);
 
-    const actions: client.Action[] = [
-        {
-            action: "function",
-            fn: "foo"
-        }
-    ]
+  expect(result).toMatchSnapshot();
+});
 
-    const result = convertActions(actions)
+test('Should not convert function actions with empty function name', () => {
+  const actions: Action[] = [
+    {
+      action: 'function',
+      fn: '',
+    },
+  ];
 
-    expect(result).toMatchSnapshot();
-})
+  const result = convertActions(actions);
 
-test("Should not convert function actions with empty function name", () => {
-
-    const actions: client.Action[] = [
-        {
-            action: "function",
-            fn: ""
-        }
-    ]
-
-    const result = convertActions(actions)
-
-    expect(result).toMatchSnapshot();
-})
+  expect(result).toMatchSnapshot();
+});
