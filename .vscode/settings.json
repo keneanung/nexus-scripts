@@ -5,6 +5,7 @@
     "nexus-event-bus",
     "nexus-package-manager",
     "nexus-queue-manager",
-    "iron-realms-nexus-typings"
+    "iron-realms-nexus-typings",
+    "nexus-package-builder"
   ]
 }
