@@ -1,3 +1,4 @@
+import { ReflexPackage } from '@keneanung/iron-realms-nexus-typings';
 import {
   getPackageList,
   installNexusPackage,
@@ -89,11 +90,11 @@ export class PackageManager implements IPackageManager {
   };
 
   private orderPackages = () => {
-    const newOrder: nexusclient.ReflexPackage[] = [];
+    const newOrder: ReflexPackage[] = [];
     const unresolved = new Set<string>();
     const packages = getPackageList();
 
-    const createOrder = (currentPackage: nexusclient.ReflexPackage) => {
+    const createOrder = (currentPackage: ReflexPackage) => {
       const packageName = currentPackage.name;
 
       if (newOrder.find((entry) => entry.name == packageName)) {
