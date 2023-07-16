@@ -4,6 +4,7 @@ node_modules
 **/nxs/*.js.map
 **/nxs/*.nxs
 lib
+!**/src/**/lib/
 *.tgz
 coverage
 # stryker temp files
