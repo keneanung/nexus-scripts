@@ -49,7 +49,7 @@ declare global {
   namespace nexusclient {
     export function packages(): ReflexPackages;
     export function reflexes(): Reflexes;
-    export function send_commands(input: string, no_expansion: boolean): boolean | undefined;
+    export function send_commands(input: string, no_expansion?: boolean): boolean | undefined;
     export function display_notice(...params: string[]): void;
     export function ui(): Interface;
     export function platform(): NexusPlatform;
