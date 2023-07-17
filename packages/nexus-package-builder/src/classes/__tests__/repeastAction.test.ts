@@ -1,5 +1,5 @@
 import { RepeatAction } from '../repeatAction';
-import * as client from '@keneanung/iron-realms-nexus-typings'
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 test('Should initialize all members', () => {
   const repeat = new RepeatAction({});

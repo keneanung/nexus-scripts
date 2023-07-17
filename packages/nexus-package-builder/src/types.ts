@@ -1,4 +1,4 @@
-import * as client from "@keneanung/iron-realms-nexus-typings";
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 export type PartialPackage = Omit<Partial<client.Package>, 'items'> & { items?: PartialReflex[] } & {
   version?: string;

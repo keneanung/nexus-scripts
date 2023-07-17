@@ -1,5 +1,5 @@
 import { IfAction } from '../ifAction';
-import * as client from '@keneanung/iron-realms-nexus-typings'
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 test('Should initialize all members', () => {
   const ifAction = new IfAction({});

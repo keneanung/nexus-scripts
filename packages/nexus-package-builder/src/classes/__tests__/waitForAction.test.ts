@@ -1,5 +1,5 @@
 import { WaitForAction } from '../waitForAction';
-import * as client from '@keneanung/iron-realms-nexus-typings'
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 test('Should initialize all members', () => {
   const waitFor = new WaitForAction({});

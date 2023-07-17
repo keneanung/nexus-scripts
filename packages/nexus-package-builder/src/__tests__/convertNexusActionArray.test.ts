@@ -18,7 +18,7 @@ import { StopAction } from '../classes/stopAction';
 import { VariableAction } from '../classes/variableAction';
 import { WaitAction } from '../classes/waitAction';
 import { WaitForAction } from '../classes/waitForAction';
-import * as client from '@keneanung/iron-realms-nexus-typings'
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 test('Should return an empty array on an empty array', () => {
   const result = convertNexusActionArray([], 'definitionFile');

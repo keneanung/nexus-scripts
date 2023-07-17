@@ -1,4 +1,4 @@
-import * as client from '@keneanung/iron-realms-nexus-typings'
+import * as client from '@keneanung/iron-realms-nexus-typings';
 /**
  * Class for nexus command actions.
  */

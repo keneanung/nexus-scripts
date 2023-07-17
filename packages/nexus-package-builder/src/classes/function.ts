@@ -1,7 +1,7 @@
 import { readScriptFileRelativeToDefintion } from '../functionsInteractingWithFileSystem';
 import { PartialFunction } from '../types';
 import { IdGenerator } from '../utils';
-import * as client from '@keneanung/iron-realms-nexus-typings'
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 /**
  * Class representing a function nexus reflex object.
