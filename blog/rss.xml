@@ -4,10 +4,27 @@
         <title>Keneanungs Collection of IRE Nexus scripts Blog</title>
         <link>https://keneanung.github.io/nexus-scripts/blog</link>
         <description>Keneanungs Collection of IRE Nexus scripts Blog</description>
-        <lastBuildDate>Tue, 04 Jul 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 17 Jul 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[What's Your Type?]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2023/07/17/_Whats_your_type</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2023/07/17/_Whats_your_type</guid>
+            <pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[You have a type]]></description>
+            <content:encoded><![CDATA[<p><img src="https://media1.giphy.com/media/f16wgrNYaKkBcvOu5r/giphy.gif" alt="You have a type"></p><p>Part of what makes TypeScript so enjoyable for me is the ability for IDEs and tooling to check, whether functions, objects and properties you use actually exist.
+However, since TypeScript is interoperable with the vast JavaScript ecosystem which doesn't support the type system out of the box, away to add the information is required.
+Enter typings. This is a way to declare the typings of a JavaScript object through a number of helper files without adding functionality.</p><p>Since Nexus is written in plain JavaScript and doesn't publish any type information, the subproject <code>@keneanung/iron-realms-nexus-typings</code> was created. It is a ever expanding collection
+of typings for the different Nexus APIs and classes it uses.</p><h2 id="the-problem">The Problem</h2><p>Writing the types itself is pretty straightforward since they mostly use standard TypeScript constructs. However, structuring them in a way that is logical and that makes the global
+<code>nexusclient</code> object available, is hard 8for me). TypeScript by default supports Module syntaxes only. After some trial and error, I found a way to support both the monorepo usecase of this repository
+as well as consuming the types in an external project like <a href="https://keneanung.github.io/nssc/">nssc</a>.</p><h2 id="whats-breaking">What's Breaking?</h2><p>Due to the restructuring, types for the different Nexus objects like Reflexes, Actions and so on now need to be imported like normal classes (eg. <code>import {Reflex} from '@keneanung/irong-realms-nexus-typings'</code>)
+instead of using the <code>nexusclient</code> namespace. Functions like <code>ui()</code> or <code>send_commands()</code> on the namespace still work by siply using the namespace without any imports: <code>nexusclient.send_commands()</code>.</p><p>If you like the project, please consider leaving a star on the <a href="https://github.com/keneanung/nexus-scripts">GitHub project</a> and <a href="https://github.com/sponsors/keneanung">sponsoring me</a>.</p>]]></content:encoded>
+            <author>keneanung@gmail.com (keneanung)</author>
+            <category>typings</category>
+            <category>release-notes</category>
+        </item>
         <item>
             <title><![CDATA[Breaking the UI]]></title>
             <link>https://keneanung.github.io/nexus-scripts/blog/2023/07/04/_Breaking_the_UI</link>
