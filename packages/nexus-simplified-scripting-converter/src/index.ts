@@ -24,7 +24,7 @@ const templates = jsrender.templates({
   stop: stopTemplate,
 });
 
-const convertActions = (actions: Action[]) => {
+const convertActions = (actions: Action[], parentReflexName: string, parentReflexType: 'alias' | 'trigger' | 'keybind') => {
   const result = [];
   let index = 0;
 
@@ -32,8 +32,16 @@ const convertActions = (actions: Action[]) => {
     result.push(templates.templates['doReplace']())
   }
 
-  for (const action of actions) {
+  for (let action of actions) {
     result.push(`// ${action.action} action (index ${index++})`);
+    if(action.action === 'disableme'){
+      // reroute disableme actions to more general disable actions
+      action = {
+        action: 'disable',
+        name: parentReflexName,
+        type: parentReflexType,
+      }
+    }
     result.push(templates.templates[action.action](action));
   }
 
@@ -46,7 +54,7 @@ const convertReflex = (reflex: Reflex) => {
       convertReflex(item);
     }
   } else if (reflex.type === 'alias' || reflex.type === 'keybind' || reflex.type === 'trigger') {
-    const newScript = convertActions(reflex.actions);
+    const newScript = convertActions(reflex.actions, reflex.name, reflex.type);
     reflex.actions = [
       {
         action: 'script',

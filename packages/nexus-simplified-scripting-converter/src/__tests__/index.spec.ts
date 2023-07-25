@@ -144,7 +144,7 @@ test('Should be able to convert script actions', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -157,7 +157,7 @@ test('Should be able to convert function actions', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -170,7 +170,7 @@ test('Should not convert function actions with empty function name', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -184,7 +184,7 @@ test('Should be able to convert disable actions', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -198,7 +198,7 @@ test('Should be able to convert enable actions', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -212,7 +212,7 @@ test('Should be able to convert command actions', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -226,7 +226,7 @@ test('Should be able to convert command actions without suffix', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -241,7 +241,7 @@ test('Should be able to convert notify actions', () => {
     },
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -256,7 +256,7 @@ test('Should be able to convert notification actions' ,() => {
     }
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -269,7 +269,7 @@ test('Should be able to convert sound actions', () => {
     }
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
 
   expect(result).toMatchSnapshot();
 });
@@ -281,7 +281,20 @@ test('Should be able to convert stop actions', () => {
     }
   ];
 
-  const result = convertActions(actions);
+  const result = convertActions(actions, 'foo', 'alias');
+
+  expect(result).toMatchSnapshot();
+});
+
+
+test('Should be able to convert disableme actions', () => {
+  const actions: Action[] = [
+    {
+      action: 'disableme',
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
 
   expect(result).toMatchSnapshot();
 });
