@@ -1,0 +1,11 @@
+{
+  let title = "{{:heading}}"
+  if(args){
+    title = do_replace(title, args)
+  }
+  let text = "{{:text}}"
+  if(args){
+    text = do_replace(text, args)
+  }
+  nexusclient.ui().notifications().notify(title, text);
+}

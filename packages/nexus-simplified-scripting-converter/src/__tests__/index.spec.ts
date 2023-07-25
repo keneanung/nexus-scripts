@@ -245,3 +245,18 @@ test('Should be able to convert notify actions', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+
+test('Should be able to convert notification actions' ,() => {
+  const actions: Action[] = [
+    {
+      action: 'notification',
+      heading: 'Foo',
+      text: 'bar'
+    }
+  ];
+
+  const result = convertActions(actions);
+
+  expect(result).toMatchSnapshot();
+});

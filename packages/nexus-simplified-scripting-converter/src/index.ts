@@ -4,6 +4,8 @@ import disableTemplate from './templates/disable.jsr';
 import enableTemplate from './templates/enable.jsr';
 import commandTemplate from './templates/command.jsr';
 import notifyTemplate from './templates/notify.jsr';
+import doReplaceTemplate from './templates/doReplace.jsr';
+import notificationTemplate from './templates/notification.jsr';
 import jsrender from 'jsrender';
 import { Action, Package, Reflex } from '@keneanung/iron-realms-nexus-typings';
 
@@ -14,11 +16,17 @@ const templates = jsrender.templates({
   enable: enableTemplate,
   command: commandTemplate,
   notify: notifyTemplate,
+  doReplace: doReplaceTemplate,
+  notification: notificationTemplate,
 });
 
 const convertActions = (actions: Action[]) => {
   const result = [];
   let index = 0;
+
+  if(actions.some((action) => action.action === 'command' || action.action === 'notification' || action.action === 'notify')){
+    result.push(templates.templates['doReplace']())
+  }
 
   for (const action of actions) {
     result.push(`// ${action.action} action (index ${index++})`);
