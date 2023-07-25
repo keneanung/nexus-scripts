@@ -273,3 +273,15 @@ test('Should be able to convert sound actions', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('Should be able to convert stop actions', () => {
+  const actions: Action[] = [
+    {
+      action: 'stop',
+    }
+  ];
+
+  const result = convertActions(actions);
+
+  expect(result).toMatchSnapshot();
+});

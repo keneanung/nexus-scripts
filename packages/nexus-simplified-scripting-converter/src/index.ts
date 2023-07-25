@@ -7,6 +7,7 @@ import notifyTemplate from './templates/notify.jsr';
 import doReplaceTemplate from './templates/doReplace.jsr';
 import notificationTemplate from './templates/notification.jsr';
 import soundTemplate from './templates/sound.jsr';
+import stopTemplate from './templates/stop.jsr';
 import jsrender from 'jsrender';
 import { Action, Package, Reflex } from '@keneanung/iron-realms-nexus-typings';
 
@@ -20,6 +21,7 @@ const templates = jsrender.templates({
   doReplace: doReplaceTemplate,
   notification: notificationTemplate,
   sound: soundTemplate,
+  stop: stopTemplate,
 });
 
 const convertActions = (actions: Action[]) => {

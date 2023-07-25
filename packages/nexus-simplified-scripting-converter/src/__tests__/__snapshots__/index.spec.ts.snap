@@ -191,6 +191,11 @@ exports[`Should be able to convert sound actions 1`] = `
 nexusclient.ui().sounds().play_sound("sfx/foo", false, false);"
 `;
 
+exports[`Should be able to convert stop actions 1`] = `
+"// stop action (index 0)
+return;"
+`;
+
 exports[`Should be able to handle aliases 1`] = `
 {
   "description": "",
