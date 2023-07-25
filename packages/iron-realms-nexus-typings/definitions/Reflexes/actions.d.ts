@@ -55,7 +55,7 @@ export interface WaitForAction {
 export interface VariableAction {
   action: 'variable';
   varname: string;
-  valtype: 'variable' | 'target' | 'value';
+  valtype: 'variable' | 'target' | 'value' | 'catpure';
   value: string;
   op: 'set' | 'del' | 'add' | 'sub' | 'mul' | 'div';
 }
