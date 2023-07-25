@@ -1,3 +1,5 @@
+import * as client from '@keneanung/iron-realms-nexus-typings';
+
 /**
  * Class for the Nexus variable action
  */

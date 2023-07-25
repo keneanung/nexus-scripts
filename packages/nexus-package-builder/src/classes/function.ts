@@ -1,11 +1,12 @@
 import { readScriptFileRelativeToDefintion } from '../functionsInteractingWithFileSystem';
 import { PartialFunction } from '../types';
 import { IdGenerator } from '../utils';
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 /**
  * Class representing a function nexus reflex object.
  */
-export class NexusFunction implements client.Function {
+export class NexusFunction implements client.FunctionReflex {
   name = '';
   id = 0;
   type = 'function' as const;

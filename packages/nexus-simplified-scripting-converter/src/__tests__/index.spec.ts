@@ -1,7 +1,8 @@
+import { Action, Package } from '@keneanung/iron-realms-nexus-typings';
 import { convertActions, convertPackage } from '..';
 
 test('Should be able to handle empty packages', () => {
-  const pkg: client.Package = {
+  const pkg: Package = {
     name: 'TestPackage',
     enabled: true,
     description: '',
@@ -16,7 +17,7 @@ test('Should be able to handle empty packages', () => {
 });
 
 test('Should be able to handle groups', () => {
-  const pkg: client.Package = {
+  const pkg: Package = {
     name: 'TestPackage',
     enabled: true,
     description: '',
@@ -39,7 +40,7 @@ test('Should be able to handle groups', () => {
 });
 
 test('Should be able to handle aliases', () => {
-  const pkg: client.Package = {
+  const pkg: Package = {
     name: 'TestPackage',
     enabled: true,
     description: '',
@@ -72,7 +73,7 @@ test('Should be able to handle aliases', () => {
 });
 
 test('Should be able to handle triggers', () => {
-  const pkg: client.Package = {
+  const pkg: Package = {
     name: 'TestPackage',
     enabled: true,
     description: '',
@@ -104,7 +105,7 @@ test('Should be able to handle triggers', () => {
 });
 
 test('Should be able to handle keybinds', () => {
-  const pkg: client.Package = {
+  const pkg: Package = {
     name: 'TestPackage',
     enabled: true,
     description: '',
@@ -136,7 +137,7 @@ test('Should be able to handle keybinds', () => {
 });
 
 test('Should be able to convert script actions', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'script',
       script: "console.log('foo')",
@@ -149,7 +150,7 @@ test('Should be able to convert script actions', () => {
 });
 
 test('Should be able to convert function actions', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'function',
       fn: 'foo',
@@ -162,7 +163,7 @@ test('Should be able to convert function actions', () => {
 });
 
 test('Should not convert function actions with empty function name', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'function',
       fn: '',
@@ -175,7 +176,7 @@ test('Should not convert function actions with empty function name', () => {
 });
 
 test('Should be able to convert disable actions', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'disable',
       type: 'alias',
@@ -189,7 +190,7 @@ test('Should be able to convert disable actions', () => {
 });
 
 test('Should be able to convert enable actions', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'enable',
       type: 'alias',
@@ -203,7 +204,7 @@ test('Should be able to convert enable actions', () => {
 });
 
 test('Should be able to convert command actions', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'command',
       command: 'foo',
@@ -217,7 +218,7 @@ test('Should be able to convert command actions', () => {
 });
 
 test('Should be able to convert command actions without suffix', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'command',
       command: 'foo',
@@ -231,7 +232,7 @@ test('Should be able to convert command actions without suffix', () => {
 });
 
 test('Should be able to convert notify actions', () => {
-  const actions: client.Action[] = [
+  const actions: Action[] = [
     {
       action: 'notify',
       notice: 'foo',

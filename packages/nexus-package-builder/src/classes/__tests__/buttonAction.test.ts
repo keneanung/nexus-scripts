@@ -1,4 +1,5 @@
 import { ButtonAction } from '../buttonAction';
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 test('Should initialize all members', () => {
   const buttonAction = new ButtonAction({});

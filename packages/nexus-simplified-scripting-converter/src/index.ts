@@ -5,6 +5,7 @@ import enableTemplate from './templates/enable.jsr';
 import commandTemplate from './templates/command.jsr';
 import notifyTemplate from './templates/notify.jsr';
 import jsrender from 'jsrender';
+import { Action, Package, Reflex } from '@keneanung/iron-realms-nexus-typings';
 
 const templates = jsrender.templates({
   script: scriptTemplate,
@@ -15,7 +16,7 @@ const templates = jsrender.templates({
   notify: notifyTemplate,
 });
 
-const convertActions = (actions: client.Action[]) => {
+const convertActions = (actions: Action[]) => {
   const result = [];
   let index = 0;
 
@@ -27,7 +28,7 @@ const convertActions = (actions: client.Action[]) => {
   return result.join('\n');
 };
 
-const convertReflex = (reflex: client.Reflex) => {
+const convertReflex = (reflex: Reflex) => {
   if (reflex.type === 'group') {
     for (const item of reflex.items) {
       convertReflex(item);
@@ -43,7 +44,7 @@ const convertReflex = (reflex: client.Reflex) => {
   }
 };
 
-const convertPackage = (pkg: client.Package) => {
+const convertPackage = (pkg: Package) => {
   for (const item of pkg.items) {
     convertReflex(item);
   }

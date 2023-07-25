@@ -1,4 +1,5 @@
 import { VariableAction } from '../variableAction';
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 test('Should initialize all members', () => {
   const variable = new VariableAction({});
