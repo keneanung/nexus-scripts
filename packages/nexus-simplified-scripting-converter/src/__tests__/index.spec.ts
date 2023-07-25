@@ -260,3 +260,16 @@ test('Should be able to convert notification actions' ,() => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('Should be able to convert sound actions', () => {
+  const actions: Action[] = [
+    {
+      action: 'sound',
+      sound: 'foo',
+    }
+  ];
+
+  const result = convertActions(actions);
+
+  expect(result).toMatchSnapshot();
+});

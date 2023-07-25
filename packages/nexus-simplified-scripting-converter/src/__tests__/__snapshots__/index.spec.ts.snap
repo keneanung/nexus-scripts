@@ -186,6 +186,11 @@ exports[`Should be able to convert script actions 1`] = `
 }"
 `;
 
+exports[`Should be able to convert sound actions 1`] = `
+"// sound action (index 0)
+nexusclient.ui().sounds().play_sound("sfx/foo", false, false);"
+`;
+
 exports[`Should be able to handle aliases 1`] = `
 {
   "description": "",

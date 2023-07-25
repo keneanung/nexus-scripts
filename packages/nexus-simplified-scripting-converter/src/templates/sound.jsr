@@ -1,0 +1,1 @@
+nexusclient.ui().sounds().play_sound("sfx/{{:sound}}", false, false);
