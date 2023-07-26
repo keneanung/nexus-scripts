@@ -298,3 +298,163 @@ test('Should be able to convert disableme actions', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('Should be able to convert variable actions with valtype value', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'add',
+      valtype: 'value',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with valtype variable', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'add',
+      valtype: 'variable',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with valtype target', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'add',
+      valtype: 'target',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with valtype capture', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'add',
+      valtype: 'capture',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with op add', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'add',
+      valtype: 'value',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with op sub', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'sub',
+      valtype: 'value',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with op mul', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'mul',
+      valtype: 'value',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with op div', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'div',
+      valtype: 'value',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with op set', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'set',
+      valtype: 'value',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert variable actions with op del', () => {
+  const actions: Action[] = [
+    {
+      action: 'variable',
+      op: 'del',
+      valtype: 'value',
+      varname: 'myVar',
+      value: 'myValue'
+    }
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});

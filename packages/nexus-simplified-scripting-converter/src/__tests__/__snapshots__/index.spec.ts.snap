@@ -208,6 +208,119 @@ exports[`Should be able to convert stop actions 1`] = `
 return;"
 `;
 
+exports[`Should be able to convert variable actions with op add 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+  
+  nexusclient.variables().inc(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with op del 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+  
+  nexusclient.variables().del(name)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with op div 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+  
+  nexusclient.variables().div(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with op mul 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+  
+  nexusclient.variables().mul(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with op set 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+  
+  nexusclient.variables().set(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with op sub 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+  
+  nexusclient.variables().dec(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype capture 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = args[myValue];
+  
+  nexusclient.variables().inc(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype target 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = nexusclient.datahandler().current_target();
+  
+  nexusclient.variables().inc(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype value 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+  
+  nexusclient.variables().inc(name, value)
+  
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype variable 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  let value = '@myValue';
+  value = do_replace(value, args);
+  // do the replacement with global variables
+  value = do_replace(value);
+  
+  nexusclient.variables().inc(name, value)
+  
+}"
+`;
+
 exports[`Should be able to handle aliases 1`] = `
 {
   "description": "",
