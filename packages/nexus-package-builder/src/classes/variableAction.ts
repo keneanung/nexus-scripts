@@ -6,7 +6,7 @@ import * as client from '@keneanung/iron-realms-nexus-typings';
 export class VariableAction implements client.VariableAction {
   action = 'variable' as const;
   varname = '';
-  valtype: 'variable' | 'target' | 'value' = 'variable';
+  valtype: 'variable' | 'target' | 'value' | 'capture' = 'variable';
   value = '';
   op: 'set' | 'del' | 'add' | 'sub' | 'mul' | 'div' = 'set';
 
