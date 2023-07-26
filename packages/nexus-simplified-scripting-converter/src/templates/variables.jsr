@@ -4,7 +4,7 @@
   {{else valtype === 'variable'}}let value = '{{if !value.startsWith('@')}}@{{/if}}{{:value}}';
   value = do_replace(value, args);
   // do the replacement with global variables
-  value = do_replace(value);
+  value = nexusclient.variables().expand(value);
   {{else valtype === 'target'}}const value = nexusclient.datahandler().current_target();
   {{else valtype === 'capture'}}const value = args[{{:value}}];
   {{/if}}

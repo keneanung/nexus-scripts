@@ -308,13 +308,35 @@ exports[`Should be able to convert variable actions with valtype value 1`] = `
 `;
 
 exports[`Should be able to convert variable actions with valtype variable 1`] = `
-"// variable action (index 0)
+"const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if(args.length > 1){
+    for(let i = 1; i++; i < args.length){
+      replace[i] = args[i];
+    }
+  }
+  if(args.groups){
+    for(const group in args.groups){
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// variable action (index 0)
 {
   const name = 'myVar'
   let value = '@myValue';
   value = do_replace(value, args);
   // do the replacement with global variables
-  value = do_replace(value);
+  value = nexusclient.variables().expand(value);
   
   nexusclient.variables().inc(name, value)
   

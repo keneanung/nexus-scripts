@@ -30,7 +30,7 @@ const convertActions = (actions: Action[], parentReflexName: string, parentRefle
   const result = [];
   let index = 0;
 
-  if(actions.some((action) => action.action === 'command' || action.action === 'notification' || action.action === 'notify')){
+  if(actions.some((action) => action.action === 'command' || action.action === 'notification' || action.action === 'notify' || (action.action === 'variable' && action.valtype === 'variable'))){
     result.push(templates.templates['doReplace']())
   }
 
