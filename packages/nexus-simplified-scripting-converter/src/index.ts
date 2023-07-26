@@ -26,23 +26,35 @@ const templates = jsrender.templates({
   variable: variableTemplate,
 });
 
-const convertActions = (actions: Action[], parentReflexName: string, parentReflexType: 'alias' | 'trigger' | 'keybind') => {
+const convertActions = (
+  actions: Action[],
+  parentReflexName: string,
+  parentReflexType: 'alias' | 'trigger' | 'keybind',
+) => {
   const result = [];
   let index = 0;
 
-  if(actions.some((action) => action.action === 'command' || action.action === 'notification' || action.action === 'notify' || (action.action === 'variable' && action.valtype === 'variable'))){
-    result.push(templates.templates['doReplace']())
+  if (
+    actions.some(
+      (action) =>
+        action.action === 'command' ||
+        action.action === 'notification' ||
+        action.action === 'notify' ||
+        (action.action === 'variable' && action.valtype === 'variable'),
+    )
+  ) {
+    result.push(templates.templates['doReplace']());
   }
 
   for (let action of actions) {
     result.push(`// ${action.action} action (index ${index++})`);
-    if(action.action === 'disableme'){
+    if (action.action === 'disableme') {
       // reroute disableme actions to more general disable actions
       action = {
         action: 'disable',
         name: parentReflexName,
         type: parentReflexType,
-      }
+      };
     }
     result.push(templates.templates[action.action](action));
   }

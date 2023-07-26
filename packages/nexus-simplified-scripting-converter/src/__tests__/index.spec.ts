@@ -58,10 +58,10 @@ test('Should be able to handle aliases', () => {
         actions: [
           {
             action: 'function',
-            fn: 'bar'
-          }
-        ]
-      }
+            fn: 'bar',
+          },
+        ],
+      },
     ],
     type: 'group',
     id: 1,
@@ -90,10 +90,10 @@ test('Should be able to handle triggers', () => {
         actions: [
           {
             action: 'function',
-            fn: 'bar'
-          }
-        ]
-      }
+            fn: 'bar',
+          },
+        ],
+      },
     ],
     type: 'group',
     id: 1,
@@ -122,10 +122,10 @@ test('Should be able to handle keybinds', () => {
         actions: [
           {
             action: 'function',
-            fn: 'bar'
-          }
-        ]
-      }
+            fn: 'bar',
+          },
+        ],
+      },
     ],
     type: 'group',
     id: 1,
@@ -246,14 +246,13 @@ test('Should be able to convert notify actions', () => {
   expect(result).toMatchSnapshot();
 });
 
-
-test('Should be able to convert notification actions' ,() => {
+test('Should be able to convert notification actions', () => {
   const actions: Action[] = [
     {
       action: 'notification',
       heading: 'Foo',
-      text: 'bar'
-    }
+      text: 'bar',
+    },
   ];
 
   const result = convertActions(actions, 'foo', 'alias');
@@ -266,7 +265,7 @@ test('Should be able to convert sound actions', () => {
     {
       action: 'sound',
       sound: 'foo',
-    }
+    },
   ];
 
   const result = convertActions(actions, 'foo', 'alias');
@@ -278,7 +277,7 @@ test('Should be able to convert stop actions', () => {
   const actions: Action[] = [
     {
       action: 'stop',
-    }
+    },
   ];
 
   const result = convertActions(actions, 'foo', 'alias');
@@ -286,12 +285,11 @@ test('Should be able to convert stop actions', () => {
   expect(result).toMatchSnapshot();
 });
 
-
 test('Should be able to convert disableme actions', () => {
   const actions: Action[] = [
     {
       action: 'disableme',
-    }
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -306,8 +304,8 @@ test('Should be able to convert variable actions with valtype value', () => {
       op: 'add',
       valtype: 'value',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -322,8 +320,8 @@ test('Should be able to convert variable actions with valtype variable', () => {
       op: 'add',
       valtype: 'variable',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -338,8 +336,8 @@ test('Should be able to convert variable actions with valtype target', () => {
       op: 'add',
       valtype: 'target',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -354,8 +352,8 @@ test('Should be able to convert variable actions with valtype capture', () => {
       op: 'add',
       valtype: 'capture',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -370,8 +368,8 @@ test('Should be able to convert variable actions with op add', () => {
       op: 'add',
       valtype: 'value',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -386,8 +384,8 @@ test('Should be able to convert variable actions with op sub', () => {
       op: 'sub',
       valtype: 'value',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -402,8 +400,8 @@ test('Should be able to convert variable actions with op mul', () => {
       op: 'mul',
       valtype: 'value',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -418,8 +416,8 @@ test('Should be able to convert variable actions with op div', () => {
       op: 'div',
       valtype: 'value',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -434,8 +432,8 @@ test('Should be able to convert variable actions with op set', () => {
       op: 'set',
       valtype: 'value',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
@@ -450,8 +448,8 @@ test('Should be able to convert variable actions with op del', () => {
       op: 'del',
       valtype: 'value',
       varname: 'myVar',
-      value: 'myValue'
-    }
+      value: 'myValue',
+    },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
