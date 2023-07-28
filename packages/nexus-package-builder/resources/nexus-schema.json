@@ -359,6 +359,12 @@
           },
           {
             "$ref": "#/$defs/functionAction"
+          },
+          {
+            "$ref": "#/$defs/gagAction"
+          },
+          {
+            "$ref": "#/$defs/highlightAction"
           }
         ]
       }
@@ -861,6 +867,53 @@
         },
         "fn": {
           "type": "string"
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "gagAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "gag"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "highlightAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "highlight"
+          ]
+        },
+        "highlight_fg": {
+          "type": "string"
+        },
+        "highlight_bg": {
+          "type": "string"
+        },
+        "highlight_backref": {
+          "type": "string"
+        },
+        "highlight": {
+          "type": "string",
+          "enum": [
+            "match",
+            "line",
+            "prefix",
+            "suffix",
+            "backref"
+          ]
         }
       },
       "required": [
