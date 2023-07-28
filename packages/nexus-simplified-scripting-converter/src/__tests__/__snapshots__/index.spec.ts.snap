@@ -119,6 +119,13 @@ exports[`Should be able to convert function actions 1`] = `
 nexusclient.reflexes().run_function("foo")"
 `;
 
+exports[`Should be able to convert gag actions 1`] = `
+"// gag action (index 0)
+if (nexusclient.current_line){
+  nexusclient.current_line.gag = true;
+}"
+`;
+
 exports[`Should be able to convert notification actions 1`] = `
 "const do_replace = (cmd, args) => {
   const prefix = args.input.substr(0, args.index);

@@ -456,3 +456,15 @@ test('Should be able to convert variable actions with op del', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('Should be able to convert gag actions', () => {
+  const actions: Action[] = [
+    {
+      action: 'gag',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
