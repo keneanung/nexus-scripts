@@ -34,6 +34,7 @@ import {
 } from './types';
 import { Keybind } from './classes/keybind';
 import * as client from '@keneanung/iron-realms-nexus-typings';
+import { GagAction } from './classes/gagAction';
 
 /**
  * Generator for IDs.
@@ -157,6 +158,9 @@ const isPartialWaitAction = (partialAction: PartialAction): partialAction is Par
 const isPartialWaitForAction = (partialAction: PartialAction): partialAction is Partial<client.WaitForAction> =>
   partialAction.action !== undefined && partialAction.action === 'waitfor';
 
+const isGagAction = (partialAction: PartialAction): partialAction is client.GagAction =>
+  partialAction.action !== undefined && partialAction.action === 'gag';
+
 /**
  * Converts an array of potentially partial actions to an array of complete actions.
  * @param {PartialAction[]} actions The array of partial actions to convert.
@@ -205,6 +209,8 @@ export const convertNexusActionArray = (actions: PartialAction[], packageDefinit
       convertedElement = new WaitAction(element);
     } else if (isPartialWaitForAction(element)) {
       convertedElement = new WaitForAction(element);
+    } else if (isGagAction(element)) {
+      convertedElement = new GagAction();
     } else {
       throw new Error('Unrecognized action type. Are you missing the "action" property?');
     }
