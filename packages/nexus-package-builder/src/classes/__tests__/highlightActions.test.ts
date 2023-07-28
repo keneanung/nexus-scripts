@@ -1,6 +1,5 @@
-import { HighlightAction } from "../highlightAction";
-import * as client from '@keneanung/iron-realms-nexus-typings'
-
+import { HighlightAction } from '../highlightAction';
+import * as client from '@keneanung/iron-realms-nexus-typings';
 
 test('Should initialize all members', () => {
   const highlightAction = new HighlightAction({});
@@ -15,7 +14,7 @@ test('Should initialize all members', () => {
 });
 
 test('Should overwrite the highlight property if given', () => {
-  const partialHighlight: Partial<client.HighlightAction> = { highlight: "prefix" };
+  const partialHighlight: Partial<client.HighlightAction> = { highlight: 'prefix' };
 
   const highlightAction = new HighlightAction(partialHighlight);
 
@@ -25,7 +24,7 @@ test('Should overwrite the highlight property if given', () => {
 });
 
 test('Should overwrite the highlight_fg property if given', () => {
-  const partialHighlight: Partial<client.HighlightAction> = { highlight_fg: "0xFFFFFF" };
+  const partialHighlight: Partial<client.HighlightAction> = { highlight_fg: '0xFFFFFF' };
 
   const highlightAction = new HighlightAction(partialHighlight);
 
@@ -35,7 +34,7 @@ test('Should overwrite the highlight_fg property if given', () => {
 });
 
 test('Should overwrite the highlight_bg property if given', () => {
-  const partialHighlight: Partial<client.HighlightAction> = { highlight_bg: "0xFFFFFF" };
+  const partialHighlight: Partial<client.HighlightAction> = { highlight_bg: '0xFFFFFF' };
 
   const highlightAction = new HighlightAction(partialHighlight);
 
@@ -45,7 +44,7 @@ test('Should overwrite the highlight_bg property if given', () => {
 });
 
 test('Should overwrite the highlight_backref property if given', () => {
-  const partialHighlight: Partial<client.HighlightAction> = { highlight_backref: "0xFFFFFF" };
+  const partialHighlight: Partial<client.HighlightAction> = { highlight_backref: '0xFFFFFF' };
 
   const highlightAction = new HighlightAction(partialHighlight);
 

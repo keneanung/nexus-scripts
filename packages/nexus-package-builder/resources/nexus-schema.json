@@ -365,6 +365,9 @@
           },
           {
             "$ref": "#/$defs/highlightAction"
+          },
+          {
+            "$ref": "#/$defs/rewriteAction"
           }
         ]
       }
@@ -906,6 +909,48 @@
           "type": "string"
         },
         "highlight": {
+          "type": "string",
+          "enum": [
+            "match",
+            "line",
+            "prefix",
+            "suffix",
+            "backref"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "rewriteAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "rewrite"
+          ]
+        },
+        "rewrite_text_type": {
+          "type": "string"
+        },
+        "rewrite_text": {
+          "type": "string"
+        },
+        "rewrite_backref": {
+          "type": "string"
+        },
+        "rewrite_colors": {
+          "type": "string"
+        },
+        "rewrite_fg": {
+          "type": "string"
+        },
+        "rewrite_bg": {
+          "type": "string"
+        },
+        "rewrite": {
           "type": "string",
           "enum": [
             "match",

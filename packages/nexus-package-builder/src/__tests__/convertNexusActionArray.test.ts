@@ -21,6 +21,7 @@ import { WaitForAction } from '../classes/waitForAction';
 import * as client from '@keneanung/iron-realms-nexus-typings';
 import { GagAction } from '../classes/gagAction';
 import { HighlightAction } from '../classes/highlightAction';
+import { RewriteAction } from '../classes/rewriteAction';
 
 test('Should return an empty array on an empty array', () => {
   const result = convertNexusActionArray([], 'definitionFile');
@@ -180,12 +181,20 @@ test('Should return array with a gag action if a gag action was given', () => {
   expect(result).toContainEqual(new GagAction());
 });
 
-test('Should return array with a highligh action if a highlight action was given', () => {
+test('Should return array with a highlight action if a highlight action was given', () => {
   const input: Partial<client.HighlightAction>[] = [{ action: 'highlight' }];
 
   const result = convertNexusActionArray(input, '');
 
   expect(result).toContainEqual(new HighlightAction({}));
+});
+
+test('Should return array with a rewrite action if a highlight action was given', () => {
+  const input: Partial<client.RewriteAction>[] = [{ action: 'rewrite' }];
+
+  const result = convertNexusActionArray(input, '');
+
+  expect(result).toContainEqual(new RewriteAction({}));
 });
 
 test('Should throw an error if no action key is present in an object', () => {
