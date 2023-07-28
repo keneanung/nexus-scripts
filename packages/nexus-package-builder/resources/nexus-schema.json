@@ -368,6 +368,9 @@
           },
           {
             "$ref": "#/$defs/rewriteAction"
+          },
+          {
+            "$ref": "#/$defs/linkifyAction"
           }
         ]
       }
@@ -951,6 +954,48 @@
           "type": "string"
         },
         "rewrite": {
+          "type": "string",
+          "enum": [
+            "match",
+            "line",
+            "prefix",
+            "suffix",
+            "backref"
+          ]
+        }
+      },
+      "required": [
+        "action"
+      ]
+    },
+    "linkifyAction": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "linkify"
+          ]
+        },
+        "linkify_backref": {
+          "type": "string"
+        },
+        "linkify_text_type": {
+          "type": "string"
+        },
+        "linkify_text": {
+          "type": "string"
+        },
+        "linkify_command_type": {
+          "type": "string"
+        },
+        "linkify_command": {
+          "type": "string"
+        },
+        "linkify_color": {
+          "type": "string"
+        },
+        "linkify": {
           "type": "string",
           "enum": [
             "match",

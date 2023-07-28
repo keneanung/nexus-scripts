@@ -14,32 +14,32 @@ export class RewriteAction implements client.RewriteAction {
    *
    */
   constructor(partialRewriteAction: Partial<client.RewriteAction>) {
-    if(partialRewriteAction.rewrite !== undefined) {
-        this.rewrite = partialRewriteAction.rewrite;
+    if (partialRewriteAction.rewrite !== undefined) {
+      this.rewrite = partialRewriteAction.rewrite;
     }
 
-    if(partialRewriteAction.rewrite_backref !== undefined) {
-        this.rewrite_backref = partialRewriteAction.rewrite_backref;
-    }
-    
-    if(partialRewriteAction.rewrite_text_type !== undefined) {
-        this.rewrite_text_type = partialRewriteAction.rewrite_text_type;
+    if (partialRewriteAction.rewrite_backref !== undefined) {
+      this.rewrite_backref = partialRewriteAction.rewrite_backref;
     }
 
-    if(partialRewriteAction.rewrite_text !== undefined) {
-        this.rewrite_text = partialRewriteAction.rewrite_text;
+    if (partialRewriteAction.rewrite_text_type !== undefined) {
+      this.rewrite_text_type = partialRewriteAction.rewrite_text_type;
     }
 
-    if(partialRewriteAction.rewrite_colors !== undefined) {
-        this.rewrite_colors = partialRewriteAction.rewrite_colors;
+    if (partialRewriteAction.rewrite_text !== undefined) {
+      this.rewrite_text = partialRewriteAction.rewrite_text;
     }
 
-    if(partialRewriteAction.rewrite_fg !== undefined) {
-        this.rewrite_fg = partialRewriteAction.rewrite_fg;
+    if (partialRewriteAction.rewrite_colors !== undefined) {
+      this.rewrite_colors = partialRewriteAction.rewrite_colors;
     }
 
-    if(partialRewriteAction.rewrite_bg !== undefined) {
-        this.rewrite_bg = partialRewriteAction.rewrite_bg;
+    if (partialRewriteAction.rewrite_fg !== undefined) {
+      this.rewrite_fg = partialRewriteAction.rewrite_fg;
+    }
+
+    if (partialRewriteAction.rewrite_bg !== undefined) {
+      this.rewrite_bg = partialRewriteAction.rewrite_bg;
     }
   }
 }

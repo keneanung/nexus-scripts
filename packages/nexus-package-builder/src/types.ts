@@ -42,5 +42,6 @@ export type PartialAction =
   | Partial<client.WaitForAction>
   | client.GagAction
   | Partial<client.HighlightAction>
-  | Partial<client.RewriteAction>;
+  | Partial<client.RewriteAction>
+  | Partial<client.LinkifyAction>;
 export type PartialScriptAction = Partial<client.ScriptAction> & { scriptFile?: string };
