@@ -19,6 +19,10 @@ import { VariableAction } from '../classes/variableAction';
 import { WaitAction } from '../classes/waitAction';
 import { WaitForAction } from '../classes/waitForAction';
 import * as client from '@keneanung/iron-realms-nexus-typings';
+import { GagAction } from '../classes/gagAction';
+import { HighlightAction } from '../classes/highlightAction';
+import { RewriteAction } from '../classes/rewriteAction';
+import { LinkifyAction } from '../classes/linkifyAction';
 
 test('Should return an empty array on an empty array', () => {
   const result = convertNexusActionArray([], 'definitionFile');
@@ -168,6 +172,38 @@ test('Should return array with a waitFor action if a waitFor action was given', 
   const result = convertNexusActionArray(input, '');
 
   expect(result).toContainEqual(new WaitForAction({}));
+});
+
+test('Should return array with a gag action if a gag action was given', () => {
+  const input: Partial<client.GagAction>[] = [{ action: 'gag' }];
+
+  const result = convertNexusActionArray(input, '');
+
+  expect(result).toContainEqual(new GagAction());
+});
+
+test('Should return array with a highlight action if a highlight action was given', () => {
+  const input: Partial<client.HighlightAction>[] = [{ action: 'highlight' }];
+
+  const result = convertNexusActionArray(input, '');
+
+  expect(result).toContainEqual(new HighlightAction({}));
+});
+
+test('Should return array with a rewrite action if a rewrite action was given', () => {
+  const input: Partial<client.RewriteAction>[] = [{ action: 'rewrite' }];
+
+  const result = convertNexusActionArray(input, '');
+
+  expect(result).toContainEqual(new RewriteAction({}));
+});
+
+test('Should return array with a linkify action if a linkify action was given', () => {
+  const input: Partial<client.LinkifyAction>[] = [{ action: 'linkify' }];
+
+  const result = convertNexusActionArray(input, '');
+
+  expect(result).toContainEqual(new LinkifyAction({}));
 });
 
 test('Should throw an error if no action key is present in an object', () => {

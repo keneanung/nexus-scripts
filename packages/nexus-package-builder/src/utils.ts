@@ -34,6 +34,10 @@ import {
 } from './types';
 import { Keybind } from './classes/keybind';
 import * as client from '@keneanung/iron-realms-nexus-typings';
+import { GagAction } from './classes/gagAction';
+import { HighlightAction } from './classes/highlightAction';
+import { RewriteAction } from './classes/rewriteAction';
+import { LinkifyAction } from './classes/linkifyAction';
 
 /**
  * Generator for IDs.
@@ -157,6 +161,18 @@ const isPartialWaitAction = (partialAction: PartialAction): partialAction is Par
 const isPartialWaitForAction = (partialAction: PartialAction): partialAction is Partial<client.WaitForAction> =>
   partialAction.action !== undefined && partialAction.action === 'waitfor';
 
+const isGagAction = (partialAction: PartialAction): partialAction is client.GagAction =>
+  partialAction.action !== undefined && partialAction.action === 'gag';
+
+const isPartialHighlightAction = (partialAction: PartialAction): partialAction is client.HighlightAction =>
+  partialAction.action !== undefined && partialAction.action === 'highlight';
+
+const isPartialRewriteAction = (partialAction: PartialAction): partialAction is client.RewriteAction =>
+  partialAction.action !== undefined && partialAction.action === 'rewrite';
+
+const isPartialLinkifyAction = (partialAction: PartialAction): partialAction is client.LinkifyAction =>
+  partialAction.action !== undefined && partialAction.action === 'linkify';
+
 /**
  * Converts an array of potentially partial actions to an array of complete actions.
  * @param {PartialAction[]} actions The array of partial actions to convert.
@@ -205,6 +221,14 @@ export const convertNexusActionArray = (actions: PartialAction[], packageDefinit
       convertedElement = new WaitAction(element);
     } else if (isPartialWaitForAction(element)) {
       convertedElement = new WaitForAction(element);
+    } else if (isGagAction(element)) {
+      convertedElement = new GagAction();
+    } else if (isPartialHighlightAction(element)) {
+      convertedElement = new HighlightAction(element);
+    } else if (isPartialRewriteAction(element)) {
+      convertedElement = new RewriteAction(element);
+    } else if (isPartialLinkifyAction(element)) {
+      convertedElement = new LinkifyAction(element);
     } else {
       throw new Error('Unrecognized action type. Are you missing the "action" property?');
     }

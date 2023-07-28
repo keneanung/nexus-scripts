@@ -141,6 +141,40 @@ export interface FunctionAction {
   fn: string;
 }
 
+export interface GagAction {
+  action: 'gag';
+}
+
+export interface HighlightAction {
+  action: 'highlight';
+  highlight_fg: string;
+  highlight_bg: string;
+  highlight: 'match' | 'line' | 'prefix' | 'suffix' | 'backref';
+  highlight_backref: string;
+}
+
+export interface RewriteAction {
+  action: 'rewrite';
+  rewrite: 'match' | 'line' | 'prefix' | 'suffix' | 'backref';
+  rewrite_backref: string;
+  rewrite_text_type: string;
+  rewrite_text: string;
+  rewrite_colors: string;
+  rewrite_fg: string;
+  rewrite_bg: string;
+}
+
+export interface LinkifyAction {
+  action: 'linkify';
+  linkify: 'match' | 'line' | 'prefix' | 'suffix' | 'backref';
+  linkify_backref: string;
+  linkify_text_type: string;
+  linkify_text: string;
+  linkify_command_type: string;
+  linkify_command: string;
+  linkify_color: string;
+}
+
 /**
  * Type that encompasses all action types.
  */
@@ -162,4 +196,8 @@ export type Action =
   | DisablemeAction
   | DisableAction
   | EnableAction
-  | FunctionAction;
+  | FunctionAction
+  | GagAction
+  | HighlightAction
+  | RewriteAction
+  | LinkifyAction;
