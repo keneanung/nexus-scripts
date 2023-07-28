@@ -1,5 +1,7 @@
 import * as client from '@keneanung/iron-realms-nexus-typings';
-
+/**
+ * Class for a Nexus rewrite action
+ */
 export class RewriteAction implements client.RewriteAction {
   action = 'rewrite' as const;
   rewrite: 'match' | 'line' | 'prefix' | 'suffix' | 'backref' = 'match';
@@ -11,7 +13,8 @@ export class RewriteAction implements client.RewriteAction {
   rewrite_bg = '';
 
   /**
-   *
+   * Constructs a new complete rewrite action from a partial one.
+   * @param {Partial<client.RewriteAction>} partialRewriteAction The partial rewrite action to construct a complete rewrite action from
    */
   constructor(partialRewriteAction: Partial<client.RewriteAction>) {
     if (partialRewriteAction.rewrite !== undefined) {

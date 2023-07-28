@@ -13,7 +13,8 @@ export class LinkifyAction implements client.LinkifyAction {
   linkify_color = '';
 
   /**
-   *
+   * Constructs a new complete linkify action from a partial one.
+   * @param {Partial<client.LinkifyAction>} partialLinkifyAction The partial linkify action to construct a complete linkify action from
    */
   constructor(partialLinkifyAction: Partial<LinkifyAction>) {
     if (partialLinkifyAction.linkify !== undefined) {
