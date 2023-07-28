@@ -9,6 +9,10 @@ export class HighlightAction implements client.HighlightAction {
   highlight: 'match' | 'line' | 'prefix' | 'suffix' | 'backref' = 'match';
   highlight_backref = '';
 
+  /**
+   * Constructs a new complete highligh action from a partial one.
+   * @param {Partial<client.HighlightAction>} partialHighlightAction The partial highlight action to construct a complete highlight action from
+   */
   constructor(partialHighlightAction: Partial<client.HighlightAction>) {
     if (partialHighlightAction.highlight !== undefined) {
       this.highlight = partialHighlightAction.highlight;
