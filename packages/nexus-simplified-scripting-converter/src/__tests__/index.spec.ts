@@ -468,3 +468,83 @@ test('Should be able to convert gag actions', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('Should be able to convert highlight actions with type line', () => {
+  const actions: Action[] = [
+    {
+      action: 'highlight',
+      highlight: 'line',
+      highlight_backref: '1',
+      highlight_bg: '#ffffff',
+      highlight_fg: '#000000',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert highlight actions with type backref', () => {
+  const actions: Action[] = [
+    {
+      action: 'highlight',
+      highlight: 'backref',
+      highlight_backref: '1',
+      highlight_bg: '#ffffff',
+      highlight_fg: '#000000',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert highlight actions with type match', () => {
+  const actions: Action[] = [
+    {
+      action: 'highlight',
+      highlight: 'match',
+      highlight_backref: '1',
+      highlight_bg: '#ffffff',
+      highlight_fg: '#000000',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert highlight actions with type prefix', () => {
+  const actions: Action[] = [
+    {
+      action: 'highlight',
+      highlight: 'prefix',
+      highlight_backref: '1',
+      highlight_bg: '#ffffff',
+      highlight_fg: '#000000',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert highlight actions with type suffix', () => {
+  const actions: Action[] = [
+    {
+      action: 'highlight',
+      highlight: 'suffix',
+      highlight_backref: '1',
+      highlight_bg: '#ffffff',
+      highlight_fg: '#000000',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});

@@ -1,0 +1,21 @@
+{
+  const fg = '{{:highlight_fg}}';
+  let bg = '{{:highlight_bg}}';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  {{if highlight === 'line'}}const start = 0;
+  const len = text.length;
+  {{else highlight === 'match'}}const start = args.index;
+  const len = args[0].length;
+  {{else highlight === 'prefix'}}const start = 0;
+  const len = args.index;
+  {{else highlight === 'suffix'}}const start = args.index + args[0].length;
+  const len = text.length - start;
+  {{else}}const backref = parseInt('{{:highlight_backref}}');
+  const start = args.index + args[0].indexOf(args[backref]);
+  const len = args[backref].length;
+  {{/if}}
+  text.colorize(start, start + len, fg, bg);
+}

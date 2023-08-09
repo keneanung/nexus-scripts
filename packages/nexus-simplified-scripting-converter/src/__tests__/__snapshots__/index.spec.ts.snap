@@ -126,6 +126,87 @@ if (nexusclient.current_line){
 }"
 `;
 
+exports[`Should be able to convert highlight actions with type backref 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const backref = parseInt('1');
+  const start = args.index + args[0].indexOf(args[backref]);
+  const len = args[backref].length;
+  
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type line 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = 0;
+  const len = text.length;
+  
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type match 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = args.index;
+  const len = args[0].length;
+  
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type prefix 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = 0;
+  const len = args.index;
+  
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type suffix 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = args.index + args[0].length;
+  const len = text.length - start;
+  
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
 exports[`Should be able to convert notification actions 1`] = `
 "const do_replace = (cmd, args) => {
   const prefix = args.input.substr(0, args.index);

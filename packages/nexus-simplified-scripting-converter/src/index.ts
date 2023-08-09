@@ -10,6 +10,7 @@ import soundTemplate from './templates/sound.jsr';
 import stopTemplate from './templates/stop.jsr';
 import variableTemplate from './templates/variables.jsr';
 import gagTemplate from './templates/gag.jsr';
+import highlightTemplate from './templates/highlight.jsr'
 import jsrender from 'jsrender';
 import { Action, Package, Reflex } from '@keneanung/iron-realms-nexus-typings';
 
@@ -28,6 +29,7 @@ const templates = jsrender.templates({
   stop: stopTemplate,
   variable: variableTemplate,
   gag: gagTemplate,
+  highlight: highlightTemplate,
 });
 
 const convertActions = (
