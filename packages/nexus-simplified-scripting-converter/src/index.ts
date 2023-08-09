@@ -14,8 +14,9 @@ import highlightTemplate from './templates/highlight.jsr';
 import buttonAction from './templates/button.jsr';
 import jsrender from 'jsrender';
 import { Action, Package, Reflex } from '@keneanung/iron-realms-nexus-typings';
+import beautify_js from 'js-beautify';
 
-// missing: WaitAction, WaitForAction, IfAction, RepeatAction, RewriteAction, LinkifyAction, LabelAction, GotoAction, ButtonAction
+// missing: WaitAction, WaitForAction, IfAction, RepeatAction, RewriteAction, LinkifyAction, LabelAction, GotoAction
 
 const templates = jsrender.templates({
   script: scriptTemplate,
@@ -67,7 +68,11 @@ const convertActions = (
     result.push(templates.templates[action.action](action));
   }
 
-  return result.join('\n');
+  const resultingAction = result.join('\n');
+
+  return beautify_js(resultingAction, {
+    indent_size: 2
+  });
 };
 
 const convertReflex = (reflex: Reflex) => {
