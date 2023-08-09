@@ -1,5 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Should be able to convert button actions with action command 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if(button && (buttonId >= 1) && (buttonId <= buttons.count)){
+    buttons.set(buttonId, 'myCommand', button.label, button.target_picker);
+    
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action default 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if(button && (buttonId >= 1) && (buttonId <= buttons.count)){
+    buttons.clear_button(buttonId);
+    
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action highlight 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if(button && (buttonId >= 1) && (buttonId <= buttons.count)){
+    if(!button.highlight){
+      buttons.highlight_button(buttonId, true);
+    }
+    
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action label 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if(button && (buttonId >= 1) && (buttonId <= buttons.count)){
+    buttons.set(buttonId, button.commands, 'myLabel', button.target_picker);
+    
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action unhighlight 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if(button && (buttonId >= 1) && (buttonId <= buttons.count)){
+    if(button.highlight){
+      buttons.highlight_button(buttonId, false);
+    }
+    
+  }
+}"
+`;
+
 exports[`Should be able to convert command actions 1`] = `
 "const do_replace = (cmd, args) => {
   const prefix = args.input.substr(0, args.index);

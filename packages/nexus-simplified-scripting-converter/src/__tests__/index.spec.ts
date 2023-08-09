@@ -548,3 +548,83 @@ test('Should be able to convert highlight actions with type suffix', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('Should be able to convert button actions with action label', () => {
+  const actions: Action[] = [
+    {
+      action: 'button',
+      label: 'myLabel',
+      buttonaction: 'label',
+      buttonid: '1',
+      command: 'myCommand',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert button actions with action command', () => {
+  const actions: Action[] = [
+    {
+      action: 'button',
+      label: 'myLabel',
+      buttonaction: 'command',
+      buttonid: '1',
+      command: 'myCommand',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert button actions with action highlight', () => {
+  const actions: Action[] = [
+    {
+      action: 'button',
+      label: 'myLabel',
+      buttonaction: 'highlight',
+      buttonid: '1',
+      command: 'myCommand',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert button actions with action unhighlight', () => {
+  const actions: Action[] = [
+    {
+      action: 'button',
+      label: 'myLabel',
+      buttonaction: 'unhighlight',
+      buttonid: '1',
+      command: 'myCommand',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
+
+test('Should be able to convert button actions with action default', () => {
+  const actions: Action[] = [
+    {
+      action: 'button',
+      label: 'myLabel',
+      buttonaction: 'default',
+      buttonid: '1',
+      command: 'myCommand',
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
