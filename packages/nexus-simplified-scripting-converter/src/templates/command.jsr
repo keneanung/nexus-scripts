@@ -1,0 +1,16 @@
+{
+  let cmd = "{{:command}}";
+  if(args){
+    
+    cmd = do_replace(cmd, args)
+
+    {{if prefix_suffix}}
+    if(prefix){
+      cmd = prefix + cmd;
+    }
+    if(suffix){
+      cmd = cmd + suffix;
+    }{{/if}}
+  }
+  nexusclient.send_commands(cmd)
+}

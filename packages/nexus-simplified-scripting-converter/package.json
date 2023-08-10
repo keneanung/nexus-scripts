@@ -20,7 +20,7 @@
     "url": "git+https://github.com/keneanung/nexus-scripts.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && esbuild --bundle src/index.ts --outdir=lib/ --platform=node --packages=external --loader:.jsr=text",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
     "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
@@ -32,6 +32,13 @@
     "url": "https://github.com/keneanung/nexus-scripts/issues"
   },
   "devDependencies": {
-    "@keneanung/iron-realms-nexus-typings": "^0.6.0"
+    "@keneanung/iron-realms-nexus-typings": "^0.6.0",
+    "@types/js-beautify": "^1.14.0",
+    "esbuild": "^0.18.11",
+    "jest-text-transformer": "^1.0.4"
+  },
+  "dependencies": {
+    "js-beautify": "^1.14.9",
+    "jsrender": "^1.0.13"
   }
 }

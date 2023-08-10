@@ -1,13 +1,533 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Should be able to convert button actions with action command 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if (button && (buttonId >= 1) && (buttonId <= buttons.count)) {
+    buttons.set(buttonId, 'myCommand', button.label, button.target_picker);
+
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action default 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if (button && (buttonId >= 1) && (buttonId <= buttons.count)) {
+    buttons.clear_button(buttonId);
+
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action highlight 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if (button && (buttonId >= 1) && (buttonId <= buttons.count)) {
+    if (!button.highlight) {
+      buttons.highlight_button(buttonId, true);
+    }
+
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action label 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if (button && (buttonId >= 1) && (buttonId <= buttons.count)) {
+    buttons.set(buttonId, button.commands, 'myLabel', button.target_picker);
+
+  }
+}"
+`;
+
+exports[`Should be able to convert button actions with action unhighlight 1`] = `
+"// button action (index 0)
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = 1;
+  const button = buttons.get(buttonId);
+  if (button && (buttonId >= 1) && (buttonId <= buttons.count)) {
+    if (button.highlight) {
+      buttons.highlight_button(buttonId, false);
+    }
+
+  }
+}"
+`;
+
+exports[`Should be able to convert command actions 1`] = `
+"const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "foo";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+    if (prefix) {
+      cmd = prefix + cmd;
+    }
+    if (suffix) {
+      cmd = cmd + suffix;
+    }
+  }
+  nexusclient.send_commands(cmd)
+}"
+`;
+
+exports[`Should be able to convert command actions without suffix 1`] = `
+"const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "foo";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}"
+`;
+
+exports[`Should be able to convert disable actions 1`] = `
+"// disable action (index 0)
+{
+  const reflex = nexusclient.reflexes().find_by_name("alias", "foo", true, false, current_package);
+  if (!reflex) {
+    nexusclient.display_notice('Disable reflex: unable to find any alias called "foo" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+  } else {
+    nexusclient.reflexes().disable_reflex(reflex);
+  }
+}"
+`;
+
+exports[`Should be able to convert disableme actions 1`] = `
+"// disableme action (index 0)
+{
+  const reflex = nexusclient.reflexes().find_by_name("trigger", "bar", true, false, current_package);
+  if (!reflex) {
+    nexusclient.display_notice('Disable reflex: unable to find any trigger called "bar" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+  } else {
+    nexusclient.reflexes().disable_reflex(reflex);
+  }
+}"
+`;
+
+exports[`Should be able to convert enable actions 1`] = `
+"// enable action (index 0)
+{
+  const reflex = nexusclient.reflexes().find_by_name("alias", "foo", true, false, current_package);
+  if (!reflex) {
+    nexusclient.display_notice('Enable reflex: unable to find any alias called "foo" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+  } else {
+    nexusclient.reflexes().enable_reflex(reflex);
+  }
+}"
+`;
+
 exports[`Should be able to convert function actions 1`] = `
-"nexusclient.reflexes().run_function("foo")
-"
+"// function action (index 0)
+nexusclient.reflexes().run_function("foo")"
+`;
+
+exports[`Should be able to convert gag actions 1`] = `
+"// gag action (index 0)
+if (nexusclient.current_line) {
+  nexusclient.current_line.gag = true;
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type backref 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const backref = parseInt('1');
+  const start = args.index + args[0].indexOf(args[backref]);
+  const len = args[backref].length;
+
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type line 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = 0;
+  const len = text.length;
+
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type match 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = args.index;
+  const len = args[0].length;
+
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type prefix 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = 0;
+  const len = args.index;
+
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert highlight actions with type suffix 1`] = `
+"// highlight action (index 0)
+{
+  const fg = '#000000';
+  let bg = '#ffffff';
+  bg = nexusclient.settings().convert_bgcolor(bg);
+
+  const text = nexusclient.current_line.parsed_line.text();
+
+  const start = args.index + args[0].length;
+  const len = text.length - start;
+
+  text.colorize(start, start + len, fg, bg);
+}"
+`;
+
+exports[`Should be able to convert notification actions 1`] = `
+"const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// notification action (index 0)
+{
+  let title = "Foo"
+  if (args) {
+    title = do_replace(title, args)
+  }
+  let text = "bar"
+  if (args) {
+    text = do_replace(text, args)
+  }
+  nexusclient.ui().notifications().notify(title, text);
+}"
+`;
+
+exports[`Should be able to convert notify actions 1`] = `
+"const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// notify action (index 0)
+{
+  let cmd = "foo";
+  if (args) {
+    cmd = do_replace(cmd, args);
+    // with empty replacement argument to do general variable replacement
+    cmd = nexusclient.variables().expand(cmd);
+  }
+  nexusclient.display_notice(cmd, "black", "green")
+}"
 `;
 
 exports[`Should be able to convert script actions 1`] = `
-"console.log('foo')
-"
+"// script action (index 0)
+{
+  console.log('foo')
+}"
+`;
+
+exports[`Should be able to convert sound actions 1`] = `
+"// sound action (index 0)
+nexusclient.ui().sounds().play_sound("sfx/foo", false, false);"
+`;
+
+exports[`Should be able to convert stop actions 1`] = `
+"// stop action (index 0)
+return;"
+`;
+
+exports[`Should be able to convert variable actions with op add 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+
+  nexusclient.variables().inc(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with op del 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+
+  nexusclient.variables().del(name)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with op div 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+
+  nexusclient.variables().div(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with op mul 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+
+  nexusclient.variables().mul(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with op set 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+
+  nexusclient.variables().set(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with op sub 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+
+  nexusclient.variables().dec(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype capture 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = args[myValue];
+
+  nexusclient.variables().inc(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype target 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = nexusclient.datahandler().current_target();
+
+  nexusclient.variables().inc(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype value 1`] = `
+"// variable action (index 0)
+{
+  const name = 'myVar'
+  const value = 'myValue';
+
+  nexusclient.variables().inc(name, value)
+
+}"
+`;
+
+exports[`Should be able to convert variable actions with valtype variable 1`] = `
+"const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// variable action (index 0)
+{
+  const name = 'myVar'
+  let value = '@myValue';
+  value = do_replace(value, args);
+  // do the replacement with global variables
+  value = nexusclient.variables().expand(value);
+
+  nexusclient.variables().inc(name, value)
+
+}"
+`;
+
+exports[`Should be able to handle aliases 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "// function action (index 0)
+nexusclient.reflexes().run_function("bar")",
+        },
+      ],
+      "case_sensitive": false,
+      "enabled": true,
+      "id": 2,
+      "matching": "regexp",
+      "name": "foo",
+      "prefix_suffix": false,
+      "text": "^Hello World$",
+      "type": "alias",
+      "whole_words": true,
+    },
+  ],
+  "name": "TestPackage",
+  "type": "group",
+}
 `;
 
 exports[`Should be able to handle empty packages 1`] = `
@@ -40,4 +560,62 @@ exports[`Should be able to handle groups 1`] = `
 }
 `;
 
-exports[`Should not convert function actions with empty function name 1`] = `""`;
+exports[`Should be able to handle keybinds 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "// function action (index 0)
+nexusclient.reflexes().run_function("bar")",
+        },
+      ],
+      "enabled": true,
+      "id": 2,
+      "key": 2,
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "foo",
+      "type": "keybind",
+    },
+  ],
+  "name": "TestPackage",
+  "type": "group",
+}
+`;
+
+exports[`Should be able to handle triggers 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "id": 1,
+  "items": [
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "// function action (index 0)
+nexusclient.reflexes().run_function("bar")",
+        },
+      ],
+      "case_sensitive": false,
+      "enabled": true,
+      "id": 2,
+      "matching": "regexp",
+      "name": "foo",
+      "text": "^Hello World$",
+      "type": "trigger",
+      "whole_words": true,
+    },
+  ],
+  "name": "TestPackage",
+  "type": "group",
+}
+`;
+
+exports[`Should not convert function actions with empty function name 1`] = `"// function action (index 0)"`;

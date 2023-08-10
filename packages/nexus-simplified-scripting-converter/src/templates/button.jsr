@@ -1,0 +1,17 @@
+{
+  const buttons = nexusclient.ui().buttons();
+  const buttonId = {{:buttonid}};
+  const button = buttons.get(buttonId);
+  if(button && (buttonId >= 1) && (buttonId <= buttons.count)){
+    {{if buttonaction === 'label'}}buttons.set(buttonId, button.commands, '{{:label}}', button.target_picker);
+    {{else buttonaction === 'command'}}buttons.set(buttonId, '{{:command}}', button.label, button.target_picker);
+    {{else buttonaction === 'highlight'}}if(!button.highlight){
+      buttons.highlight_button(buttonId, true);
+    }
+    {{else buttonaction === 'unhighlight'}}if(button.highlight){
+      buttons.highlight_button(buttonId, false);
+    }
+    {{else buttonaction === 'default'}}buttons.clear_button(buttonId);
+    {{/if}}
+  }
+}

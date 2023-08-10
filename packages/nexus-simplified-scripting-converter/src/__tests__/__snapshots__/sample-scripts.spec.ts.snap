@@ -1,0 +1,635 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Numpad movement 1`] = `
+{
+  "description": "Move around the world with your keyboard's number pad. 8=north, 9=northeast, etc. Use '/' for in, '*' for out, '-' for up and '+' for down. The 5 key will look at the room you're in.",
+  "enabled": true,
+  "items": [
+    {
+      "code": "// Place any code here you'd like to autorun when the package is installed",
+      "enabled": true,
+      "name": "onInstall",
+      "type": "function",
+    },
+    {
+      "code": "// Place any code here you'd like to autorun when the package is uninstalled",
+      "enabled": true,
+      "name": "onUninstall",
+      "type": "function",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "sw";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "97",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "sw",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "s";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "98",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "s",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "se";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "99",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "se",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "w";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "100",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "w",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "look";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "101",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "look",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "e";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "102",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "e",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "nw";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "103",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "nw",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "n";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "104",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "n",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "ne";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "105",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "ne",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "out";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "106",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "out",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "down";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "107",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "down",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "up";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "109",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "up",
+      "type": "keybind",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// command action (index 0)
+{
+  let cmd = "in";
+  if (args) {
+
+    cmd = do_replace(cmd, args)
+
+
+  }
+  nexusclient.send_commands(cmd)
+}",
+        },
+      ],
+      "enabled": true,
+      "key": "111",
+      "key_alt": false,
+      "key_ctrl": false,
+      "key_shift": false,
+      "name": "in",
+      "type": "keybind",
+    },
+  ],
+  "name": "numpad movement",
+  "type": "group",
+}
+`;

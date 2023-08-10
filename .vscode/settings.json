@@ -6,6 +6,7 @@
     "nexus-package-manager",
     "nexus-queue-manager",
     "iron-realms-nexus-typings",
-    "nexus-package-builder"
+    "nexus-package-builder",
+    "nexus-simplified-scripting-converter"
   ]
 }

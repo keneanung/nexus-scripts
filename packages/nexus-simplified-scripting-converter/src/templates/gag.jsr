@@ -1,0 +1,3 @@
+if (nexusclient.current_line){
+  nexusclient.current_line.gag = true;
+}
