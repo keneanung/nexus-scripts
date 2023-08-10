@@ -4,10 +4,23 @@
         <title>Keneanungs Collection of IRE Nexus scripts Blog</title>
         <link>https://keneanung.github.io/nexus-scripts/blog</link>
         <description>Keneanungs Collection of IRE Nexus scripts Blog</description>
-        <lastBuildDate>Mon, 17 Jul 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 10 Aug 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Taking Simplified Scripting to the Next Level]]></title>
+            <link>https://keneanung.github.io/nexus-scripts/blog/2023/08/10/_Simplified_next_level</link>
+            <guid>https://keneanung.github.io/nexus-scripts/blog/2023/08/10/_Simplified_next_level</guid>
+            <pubDate>Thu, 10 Aug 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[There has been a lot of discussion on Simplified Scripting in Nexus 3, especially on the Nexus Discord channel.]]></description>
+            <content:encoded><![CDATA[<p>There has been a lot of discussion on Simplified Scripting in Nexus 3, especially on the Nexus Discord channel.</p><p>On the one hand, simplified scripting is useful for people who are not used to coding. They are not overwhelmed by an empty box and infinite amount of possibilities to do something wrong. Instead, they are presented with a slimmed down list of options that they can use and can fully concentrate on the "what" they want to do and most of the "how" is abstracted away. It gets them in the mindset of algorithmical thinking while not making them think about syntax and formal language.</p><p>But once they want to break outside the box of Simplified Scripting and the limited actions that are supported, some users have already created complex systems. They now need to convert that to traditional JavaScript, which can be a tedious and daunting process. Additionally, they need to learn coding syntax and formal language and look up the Nexus API for the same things they had already made.</p><h2 id="introducing-a-converter">Introducing a Converter</h2><p>Since Simplified Scripting can be understood as an interpreted scripting language of sorts, it can also be converter (or transpiled) into actual JavaScript code.</p><p>While the resulting code is often overly complex (not all information, whether steps like variable expansion are needed, is available at transpilation time), it can serve as a good starting point to learn syntax and explore the Nexus API.</p><p>This release features the first version of a library that can do such conversions. It is not yet feature complete and misses transpilation support for more complex actions that require context (eg Goto, If, Repeat, Label) or rewrite the MUD output. But it is complete enough to convert simpler packages. Additionally, the release unblocks the development of its <a href="https://keneanung.github.io/nssc/">dependent project</a> (see the <a href="https://github.com/keneanung/nssc/">GitHub project</a> as well), a website that allows converting existing packages to a pure script version, compare these versions, and download the results.</p><h2 id="steps-forward">Steps forward</h2><p>I try to bring both the converter library and the NSSC forward in an even pace. However, if you have ideas that can improve either projects, please contact me in the Nexus Discord. I also welcome contributions to all my projects, but especially help in these two of my current focus areas would be greatly appreciated.</p><h2 id="what-else">What else?</h2><p>During the development, I noticed that some of the newer actions were missing from both the typings and the package builder. These projects were extended to include the new possibilities.</p><p>If you like the project, please consider leaving a star on the <a href="https://github.com/keneanung/nexus-scripts">GitHub project</a> and <a href="https://github.com/sponsors/keneanung">sponsoring me</a>.</p>]]></content:encoded>
+            <author>keneanung@gmail.com (keneanung)</author>
+            <category>typings</category>
+            <category>package-builder</category>
+            <category>simplified-scripting-converter</category>
+            <category>release-notes</category>
+        </item>
         <item>
             <title><![CDATA[What's Your Type?]]></title>
             <link>https://keneanung.github.io/nexus-scripts/blog/2023/07/17/_Whats_your_type</link>
