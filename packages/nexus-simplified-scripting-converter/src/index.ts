@@ -71,7 +71,7 @@ const convertActions = (
   const resultingAction = result.join('\n');
 
   return beautify_js(resultingAction, {
-    indent_size: 2
+    indent_size: 2,
   });
 };
 
