@@ -15,10 +15,13 @@ import buttonAction from './templates/button.jsr';
 import jsrender from 'jsrender';
 import { Action, Package, Reflex } from '@keneanung/iron-realms-nexus-typings';
 import beautify_js from 'js-beautify';
+import { isBrowser } from 'browser-or-node';
 
 // missing: WaitAction, WaitForAction, IfAction, RepeatAction, RewriteAction, LinkifyAction, LabelAction, GotoAction
 
-const templates = jsrender.templates({
+const renderer = isBrowser ? jsrender() :jsrender
+
+const templates = renderer.templates({
   script: scriptTemplate,
   function: functionTemplate,
   disable: disableTemplate,
