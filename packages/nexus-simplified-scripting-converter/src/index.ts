@@ -19,7 +19,7 @@ import { isBrowser } from 'browser-or-node';
 
 // missing: WaitAction, WaitForAction, IfAction, RepeatAction, RewriteAction, LinkifyAction, LabelAction, GotoAction
 
-const renderer = isBrowser ? jsrender() :jsrender
+const renderer = isBrowser ? jsrender() : jsrender;
 
 const templates = renderer.templates({
   script: scriptTemplate,

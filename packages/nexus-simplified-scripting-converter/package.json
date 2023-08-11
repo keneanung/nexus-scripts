@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-simplified-scripting-converter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A utility to convert IRE Nexus Simplified Scripting to JavaScript code",
   "author": "keneanung <keneanung@gmail.com>",
   "homepage": "https://keneanung.github.io/nexus-scripts",

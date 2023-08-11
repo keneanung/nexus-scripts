@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/keneanung/nexus-scripts/compare/@keneanung/nexus-simplified-scripting-converter@0.2.0...@keneanung/nexus-simplified-scripting-converter@0.2.1) (2023-08-11)
+
+### Bug Fixes
+
+- **nexus-simplified-scripting-converter:** :bug: allow running jsrender in browser ([6e663db](https://github.com/keneanung/nexus-scripts/commit/6e663dbfab81674516cced1be50ab6ed460c79d0))
+
 # [0.2.0](https://github.com/keneanung/nexus-scripts/compare/@keneanung/nexus-simplified-scripting-converter@0.1.0...@keneanung/nexus-simplified-scripting-converter@0.2.0) (2023-08-10)
 
 ### Bug Fixes
