@@ -16,7 +16,7 @@ if(typeof(Map) !== 'function') {
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-globalThis.EventBus = new EventBus();
+globalThis.eventBus = new EventBus();
 
 export default { EventBus };
 
