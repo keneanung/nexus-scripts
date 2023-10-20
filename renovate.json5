@@ -44,6 +44,10 @@
       "depTypeList": ["devDependencies"],
       "groupName": "Dev Dependencies"
     },
+    {
+      "matchFileNames": ["website/**"],
+      "groupName": "Website Dependencies"
+    },
   ],
   
   // Docusaurus does not work with mdx-js/react version 2
