@@ -628,3 +628,17 @@ test('Should be able to convert button actions with action default', () => {
 
   expect(result).toMatchSnapshot();
 });
+
+test('Should be able to convert wait actions', () => {
+  const actions: Action[] = [
+    {
+      action: 'wait',
+      milliseconds: '56',
+      seconds: '20'
+    },
+  ];
+
+  const result = convertActions(actions, 'bar', 'trigger');
+
+  expect(result).toMatchSnapshot();
+});
