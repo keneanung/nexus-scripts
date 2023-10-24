@@ -12,12 +12,13 @@ import variableTemplate from './templates/variables.jsr';
 import gagTemplate from './templates/gag.jsr';
 import highlightTemplate from './templates/highlight.jsr';
 import buttonAction from './templates/button.jsr';
+import waitAction from './templates/wait.jsr';
 import jsrender from 'jsrender';
 import { Action, Package, Reflex } from '@keneanung/iron-realms-nexus-typings';
 import beautify_js from 'js-beautify';
 import { isBrowser } from 'browser-or-node';
 
-// missing: WaitAction, WaitForAction, IfAction, RepeatAction, RewriteAction, LinkifyAction, LabelAction, GotoAction
+// missing: WaitForAction, IfAction, RepeatAction, RewriteAction, LinkifyAction, LabelAction, GotoAction
 
 const renderer = isBrowser ? jsrender() : jsrender;
 
@@ -36,6 +37,7 @@ const templates = renderer.templates({
   gag: gagTemplate,
   highlight: highlightTemplate,
   button: buttonAction,
+  wait: waitAction,
 });
 
 const convertActions = (
@@ -45,6 +47,7 @@ const convertActions = (
 ) => {
   const result = [];
   let index = 0;
+  const stack = [];
 
   if (
     actions.some(
@@ -69,7 +72,12 @@ const convertActions = (
       };
     }
     result.push(templates.templates[action.action](action));
+    if(action.action === 'wait'){
+      stack.push(`}, ${parseInt(action.seconds) * 1000 + parseInt(action.milliseconds)});`)
+    }
   }
+
+  result.push(stack.reverse());
 
   const resultingAction = result.join('\n');
 

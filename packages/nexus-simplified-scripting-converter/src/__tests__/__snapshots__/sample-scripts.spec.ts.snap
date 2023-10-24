@@ -633,3 +633,76 @@ exports[`Numpad movement 1`] = `
   "type": "group",
 }
 `;
+
+exports[`timeout 1`] = `
+{
+  "description": "",
+  "enabled": true,
+  "items": [
+    {
+      "code": "// Place any code here you'd like to autorun when the package is installed",
+      "enabled": true,
+      "name": "onInstall",
+      "type": "function",
+    },
+    {
+      "code": "// Place any code here you'd like to autorun when the package is uninstalled",
+      "enabled": true,
+      "name": "onUninstall",
+      "type": "function",
+    },
+    {
+      "actions": [
+        {
+          "action": "script",
+          "script": "const do_replace = (cmd, args) => {
+  const prefix = args.input.substr(0, args.index);
+  const posend = args.index + args[0].length;
+  const suffix = args.input.substr(posend);
+  const replace = {};
+  replace["match"] = args[0];
+  replace["line"] = args.input;
+  replace["prefix"] = prefix;
+  replace["suffix"] = suffix;
+  if (args.length > 1) {
+    for (let i = 1; i++; i < args.length) {
+      replace[i] = args[i];
+    }
+  }
+  if (args.groups) {
+    for (const group in args.groups) {
+      replace[group] = args.groups[group];
+    }
+  }
+  cmd = nexusclient.variables().expand(cmd, replace);
+  return cmd
+}
+// wait action (index 0)
+setTimeout(() => {
+  // notify action (index 1)
+  {
+    let cmd = "Timeout Triggered";
+    if (args) {
+      cmd = do_replace(cmd, args);
+      // with empty replacement argument to do general variable replacement
+      cmd = nexusclient.variables().expand(cmd);
+    }
+    nexusclient.display_notice(cmd, "#ff0000", "#000000")
+  }
+}, 2036);",
+        },
+      ],
+      "case_sensitive": true,
+      "enabled": true,
+      "matching": "exact",
+      "name": "",
+      "prefix_suffix": true,
+      "text": "test timeout",
+      "type": "alias",
+      "whole_words": true,
+    },
+  ],
+  "name": "timeouttestpackage",
+  "type": "group",
+}
+`;

@@ -500,6 +500,11 @@ exports[`Should be able to convert variable actions with valtype variable 1`] = 
 }"
 `;
 
+exports[`Should be able to convert wait actions 1`] = `
+"// wait action (index 0)
+setTimeout(() => {}, 20056);"
+`;
+
 exports[`Should be able to handle aliases 1`] = `
 {
   "description": "",
