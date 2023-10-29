@@ -40,6 +40,7 @@
   "dependencies": {
     "browser-or-node": "^2.1.1",
     "js-beautify": "^1.14.9",
-    "jsrender": "^1.0.13"
+    "jsrender": "^1.0.13",
+    "uuid": "^9.0.1"
   }
 }
