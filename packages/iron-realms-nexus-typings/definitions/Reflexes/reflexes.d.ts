@@ -26,7 +26,7 @@ export interface Package {
   /**
    * Unique identifier of this reflex
    */
-  id: number;
+  id?: number;
 
   /**
    * Reflexes in this package
@@ -46,7 +46,7 @@ export interface Group {
   /**
    * Unique identifier of this reflex
    */
-  id: number;
+  id?: number;
 
   /**
    * Internal: used to find type of this reflex
@@ -76,7 +76,7 @@ export interface FunctionReflex {
   /**
    * Unique identifier of this reflex
    */
-  id: number;
+  id?: number;
 
   /**
    * Internal: used to find type of this reflex
@@ -106,7 +106,7 @@ export interface Alias {
   /**
    * Unique identifier of this reflex
    */
-  id: number;
+  id?: number;
 
   /**
    * Internal: used to find type of this reflex
@@ -164,7 +164,7 @@ export interface Keybind {
   /**
    * Unique identifier of this reflex
    */
-  id: number;
+  id?: number;
 
   /**
    * Internal: used to find type of this reflex
@@ -214,7 +214,7 @@ export interface Trigger {
   /**
    * Unique identifier of this reflex
    */
-  id: number;
+  id?: number;
 
   /**
    * Internal: used to find type of this reflex
@@ -268,7 +268,7 @@ export interface Event {
   /**
    * Unique identifier of this reflex
    */
-  id: number;
+  id?: number;
 
   /**
    * Internal: used to find type of this reflex

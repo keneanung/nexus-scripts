@@ -634,11 +634,28 @@ test('Should be able to convert wait actions', () => {
     {
       action: 'wait',
       milliseconds: '56',
-      seconds: '20'
+      seconds: '20',
     },
   ];
 
   const result = convertActions(actions, 'bar', 'trigger');
 
   expect(result).toMatchSnapshot();
+});
+
+test('Should throw an error when converting WaitFor actions as action', () => {
+  const actions: Action[] = [
+    {
+      action: 'waitfor',
+      case_sensitive: false,
+      expire: '10',
+      matching: 'exact',
+      text: 'Foo',
+      whole_words: false,
+    },
+  ];
+
+  const convertingAction = () => convertActions(actions, 'bar', 'trigger');
+
+  expect(convertingAction).toThrow('WaitFor actions are not supported as action');
 });
