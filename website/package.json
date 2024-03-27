@@ -30,7 +30,7 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "2.4.3",
     "@tsconfig/docusaurus": "^1.0.7",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.3"
   },
   "browserslist": {
     "production": [
