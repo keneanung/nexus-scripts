@@ -38,9 +38,9 @@
     "jest-text-transformer": "^1.0.4"
   },
   "dependencies": {
-    "browser-or-node": "^2.1.1",
+    "browser-or-node": "^3.0.0",
     "js-beautify": "^1.14.11",
     "jsrender": "^1.0.13",
-    "uuid": "^9.0.1"
+    "uuid": "^10.0.0"
   }
 }
