@@ -8,6 +8,6 @@
   "private": false,
   "types": "index.d.ts",
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.9.2"
   }
 }
