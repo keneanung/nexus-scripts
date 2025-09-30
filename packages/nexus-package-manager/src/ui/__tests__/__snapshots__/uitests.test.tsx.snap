@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Should have a table with single package data to install if one package was provided and not installed 1`] = `
 .emotion-0:hover {

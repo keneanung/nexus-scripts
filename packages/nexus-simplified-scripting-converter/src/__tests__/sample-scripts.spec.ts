@@ -5,8 +5,11 @@ import timeout from './examples/test_timeout.json';
 import waitfor from './examples/test_waitfor.json';
 import { v4 } from 'uuid';
 
-jest.mock('uuid');
-const mockedV4 = jest.mocked(v4);
+// mock uuidv4 in a typing compatible way
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}));
+const mockedV4 = v4 as jest.MockedFunction<() => string>;
 
 test('Numpad movement', () => {
   const pkg = numpadMovement as Package;
