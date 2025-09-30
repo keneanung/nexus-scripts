@@ -34,7 +34,7 @@
   "devDependencies": {
     "@keneanung/iron-realms-nexus-typings": "^0.7.0",
     "@types/js-beautify": "^1.14.3",
-    "@types/uuid":"^9.0.1",
+    "@types/uuid":"^9.0.8",
     "esbuild": "^0.25.10",
     "jest-text-transformer": "^1.0.4"
   },
