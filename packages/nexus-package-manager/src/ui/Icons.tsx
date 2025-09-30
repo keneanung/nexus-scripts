@@ -1,6 +1,5 @@
 import { SVGProps } from 'react';
 import { getNexusIconInfo } from './getNexusIconInfo';
-import { EmotionJSX } from '@emotion/react/types/jsx-namespace';
 
 /**
  * Returns an Icon for use in the Nexus 3 UI.
