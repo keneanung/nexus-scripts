@@ -6,6 +6,10 @@ const config = {
   transform: {
     "^.+\\.(t|j)sx?$": "ts-jest"
   },
+  // Allow transforming ESM uuid package (v13) which otherwise ships untranspiled ESM
+  transformIgnorePatterns: [
+    "/node_modules/(?!(uuid)/)"
+  ],
   testPathIgnorePatterns:[
       "/node_modules/",
       "/lib/"

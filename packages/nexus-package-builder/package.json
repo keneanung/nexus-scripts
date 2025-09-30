@@ -28,7 +28,7 @@
   "types": "lib/index.d.ts",
   "dependencies": {
     "@jsbits/get-package-version": "^1.0.3",
-    "commander": "^10.0.1",
+    "commander": "^14.0.1",
     "js-yaml": "^4.1.0"
   },
   "bin": "lib/index.js"

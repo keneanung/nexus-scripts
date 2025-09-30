@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Should ask the Nexus client to uninstall and then install a new version of a package with a given name on update of package 1`] = `
 [MockFunction] {

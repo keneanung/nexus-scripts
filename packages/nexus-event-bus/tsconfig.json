@@ -13,7 +13,6 @@
       "../../node_modules/@keneanung"
     ],
     "types": [
-      "uuid",
       "jest",
       "iron-realms-nexus-typings"
     ]
