@@ -35,7 +35,7 @@
     "!lib/webpack/**/*"
   ],
   "dependencies": {
-    "@emotion/jest": "^11.13.0",
+    "@emotion/jest": "^11.14.2",
     "@emotion/react": "^11.14.0",
     "cross-fetch": "^4.1.0",
     "react": "^18.3.1",
