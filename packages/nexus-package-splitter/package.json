@@ -1,0 +1,47 @@
+{
+  "name": "@keneanung/nexus-package-splitter",
+  "version": "0.1.0",
+  "description": "Tool to split an Iron Realms Nexus package file into a builder-compatible YAML definition and individual files",
+  "author": "keneanung <keneanung@gmail.com>",
+  "homepage": "https://keneanung.github.io/nexus-scripts",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib/**/*",
+    "!lib/**/__tests__/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keneanung/nexus-scripts.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
+    "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",
+    "prepublishOnly": "npm test && npm run lint && npm run build",
+    "version": "npm test && npm run lint && npm run format && git add -A src"
+  },
+  "bugs": {
+    "url": "https://github.com/keneanung/nexus-scripts/issues"
+  },
+  "devDependencies": {
+    "@keneanung/iron-realms-nexus-typings": "^0.7.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^20.2.5"
+  },
+  "dependencies": {
+    "@jsbits/get-package-version": "^1.0.3",
+    "commander": "^14.0.1",
+    "js-yaml": "^4.1.0"
+  },
+  "bin": "lib/index.js",
+  "types": "lib/index.d.ts"
+}
