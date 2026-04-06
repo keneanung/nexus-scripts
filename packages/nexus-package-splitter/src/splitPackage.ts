@@ -68,8 +68,7 @@ const convertReflex = (
   const reflexFilePathParts = [...parentFilePathParts, buildReflexDirectoryName(itemIndex, reflex)];
 
   if (reflex.type === 'group') {
-    const { id, items, ...rest } = reflex;
-    void id;
+    const { id: _id, items, ...rest } = reflex;
     return {
       ...rest,
       items: items.map((item, index) => convertReflex(item, reflexFilePathParts, index, outputContext)),
@@ -77,8 +76,7 @@ const convertReflex = (
   }
 
   if (reflex.type === 'function') {
-    const { id, code, ...rest } = reflex;
-    void id;
+    const { id: _id, code, ...rest } = reflex;
     return {
       ...rest,
       ...(code !== undefined
@@ -89,8 +87,7 @@ const convertReflex = (
     };
   }
 
-  const { id, actions, ...rest } = reflex;
-  void id;
+  const { id: _id, actions, ...rest } = reflex;
   return {
     ...rest,
     actions: actions.map((action, index) => convertAction(action, reflexFilePathParts, index, outputContext)),
@@ -107,8 +104,7 @@ export const splitPackageDefinition = (
   packageFile: PackageFile,
   absoluteAssetRootPath: string,
 ): BuilderCompatiblePackage => {
-  const { id, items, ...rest } = packageFile;
-  void id;
+  const { id: _id, items, ...rest } = packageFile;
   const outputContext: OutputContext = {
     absoluteAssetRootPath,
     assetRootName: path.basename(absoluteAssetRootPath),
