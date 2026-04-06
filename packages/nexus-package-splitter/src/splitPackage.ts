@@ -30,6 +30,8 @@ const builderSchemaPath = `./node_modules/${builderPackageDependency.name}/resou
 
 const yamlSchemaComment = `# yaml-language-server: $schema=${builderSchemaPath}`;
 
+const generatedPackageOutputDirectory = 'dist';
+
 const sanitizeFileNamePart = (value: string) => {
   const sanitizedValue = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return sanitizedValue || 'item';
@@ -50,6 +52,9 @@ const createOutputPackageJson = (outputFileNameWithoutExtension: string) =>
     {
       name: sanitizeFileNamePart(outputFileNameWithoutExtension),
       private: true,
+      scripts: {
+        package: `nexus-package-builder ./${outputFileNameWithoutExtension}.yaml ./${generatedPackageOutputDirectory}`,
+      },
       devDependencies: {
         [builderPackageDependency.name]: builderPackageDependency.version,
       },
@@ -182,6 +187,16 @@ export const splitPackage = (packageFile: string, outputDir: string) => {
 
   writePackageDefinition(yamlPackageDefinition, absoluteOutputFile);
   writeSplitFile(outputPackageJson, absolutePackageJsonFile);
+  console.log(
+    [
+      `Split package written to '${absoluteOutputDirPath}'.`,
+      'Next steps:',
+      `  cd ${absoluteOutputDirPath}`,
+      '  npm install',
+      '  npm run package',
+      `This will create ./${generatedPackageOutputDirectory}/${outputFileNameWithoutExtension}.nxs.`,
+    ].join('\n'),
+  );
 
   return true;
 };

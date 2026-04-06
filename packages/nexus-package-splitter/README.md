@@ -24,7 +24,21 @@ npx nexus-package-splitter ./eventbus.nxs ./output
 
 This command will create `./output/eventbus.yaml` and write any extracted `codeFile`/`scriptFile` sources below `./output/eventbus/`.
 
-The generated YAML is compatible with `@keneanung/nexus-package-builder`, so you can rebuild the package with:
+The generated output directory also includes a `package.json` that references `@keneanung/nexus-package-builder`, a `package` script, and the YAML schema comment for editor support.
+
+## Working with the generated project ##
+
+After splitting a package you can move into the output directory, install the builder dependency, edit the YAML and extracted source files, and rebuild the package:
+
+```bash
+cd ./output
+npm install
+npm run package
+```
+
+This will rebuild `eventbus.yaml` into `./dist/eventbus.nxs`.
+
+If you prefer to run the builder manually instead of using the generated script, you can still do so with:
 
 ```bash
 npx nexus-package-builder ./output/eventbus.yaml ./rebuilt

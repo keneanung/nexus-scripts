@@ -23,6 +23,8 @@ describe('splitPackage', () => {
     const workingDirectory = createTempDirectory();
     const inputFile = path.resolve(workingDirectory, 'sample.nxs');
     const outputDirectory = path.resolve(workingDirectory, 'output');
+    const mockedConsole = jest.spyOn(global.console, 'log');
+    mockedConsole.mockImplementation(() => undefined);
     const packageFile = {
       name: 'Sample Package',
       enabled: true,
@@ -171,10 +173,24 @@ describe('splitPackage', () => {
     expect(JSON.parse(fs.readFileSync(path.resolve(outputDirectory, 'package.json'), 'utf-8'))).toEqual({
       name: 'sample',
       private: true,
+      scripts: {
+        package: 'nexus-package-builder ./sample.yaml ./dist',
+      },
       devDependencies: {
         '@keneanung/nexus-package-builder': '^1.4.0',
       },
     });
+    expect(mockedConsole).toHaveBeenCalledWith(
+      [
+        `Split package written to '${outputDirectory}'.`,
+        'Next steps:',
+        `  cd ${outputDirectory}`,
+        '  npm install',
+        '  npm run package',
+        'This will create ./dist/sample.nxs.',
+      ].join('\n'),
+    );
+    mockedConsole.mockRestore();
   });
 
   test('Should return false and print an error for invalid JSON package files', () => {
