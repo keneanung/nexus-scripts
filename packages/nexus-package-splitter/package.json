@@ -24,7 +24,7 @@
     "build": "tsc",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
-    "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
+    "watchTest": "jest --collect-coverage --config jestconfig.js --watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.ts\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
     "version": "npm test && npm run lint && npm run format && git add -A src"
