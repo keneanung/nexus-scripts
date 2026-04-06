@@ -26,7 +26,9 @@ const builderPackageDependency = {
   version: '^1.4.0',
 };
 
-const yamlSchemaComment = `# yaml-language-server: $schema=./node_modules/${builderPackageDependency.name}/resources/nexus-schema.json`;
+const builderSchemaPath = `./node_modules/${builderPackageDependency.name}/resources/nexus-schema.json`;
+
+const yamlSchemaComment = `# yaml-language-server: $schema=${builderSchemaPath}`;
 
 const sanitizeFileNamePart = (value: string) => {
   const sanitizedValue = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
