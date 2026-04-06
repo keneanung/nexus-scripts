@@ -1,6 +1,5 @@
 import { IdGenerator } from '../../utils';
 import { Group } from '../group';
-import * as utils from '../../utils';
 
 test('Should initialize all members', () => {
   const group = new Group({}, new IdGenerator(), '');
@@ -45,11 +44,9 @@ test('Should keep the id property if given', () => {
 });
 
 test('Should add a reflex to items if given', () => {
-  const mockedConvertFunction = jest.spyOn(utils, 'convertNexusReflexArray');
-  const partialGroup = { items: [] };
+  const partialGroup = { items: [{ type: 'function' as const, name: 'child-function' }] };
 
-  new Group(partialGroup, new IdGenerator(), '');
+  const group = new Group(partialGroup, new IdGenerator(), '');
 
-  expect(mockedConvertFunction).toHaveBeenCalledTimes(1);
-  jest.restoreAllMocks();
+  expect(group.items).toMatchObject([{ type: 'function', name: 'child-function' }]);
 });

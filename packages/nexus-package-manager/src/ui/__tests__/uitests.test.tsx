@@ -1,11 +1,14 @@
 import { PackageManager } from '../../lib/PackageManager';
 import { PackageManagerUi } from '../PackageManagerUi';
-import { rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 import { render, fireEvent, waitFor, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { isNexusPackageInstalled, getPackageList } from '../../lib/nexusPackageInterface';
 import { getNexusIconInfo } from '../getNexusIconInfo';
+
+type ServerHandler = Parameters<ReturnType<typeof setupServer>['use']>[0];
+
 jest.mock('../../lib/nexusPackageInterface');
 const isNexusPackageInstalledMock = jest.mocked(isNexusPackageInstalled);
 const getPackageListMock = jest.mocked(getPackageList);
@@ -21,23 +24,21 @@ getNexusIconInfoMock.mockImplementation(() => {
   };
 });
 const server = setupServer(
-  rest.get('https://keneanung.github.io/nexus-package-repository/repository.json', (req, res, ctx) => {
-    return res(
-      ctx.json([
-        {
-          dependencies: [],
-          description: 'foo',
-          name: 'bar',
-          packageName: 'barPackage',
-          url: 'https://mykg.com/bar.json',
-          website: 'https://mypkg.com',
-        },
-      ]),
-    );
-  }),
-  rest.get('https://mykg.com/bar.json', (req, res, ctx) => {
-    return res(ctx.json([]));
-  }),
+  http.get('https://keneanung.github.io/nexus-package-repository/repository.json', () => {
+    return HttpResponse.json([
+      {
+        dependencies: [],
+        description: 'foo',
+        name: 'bar',
+        packageName: 'barPackage',
+        url: 'https://mykg.com/bar.json',
+        website: 'https://mypkg.com',
+      },
+    ]);
+  }) as unknown as ServerHandler,
+  http.get('https://mykg.com/bar.json', () => {
+    return HttpResponse.json([]);
+  }) as unknown as ServerHandler,
 );
 
 // Enable request interception.
@@ -117,20 +118,18 @@ test('Should switch to details view of package after clicking the button', async
   const packageManager = new PackageManager();
   const { container } = render(<PackageManagerUi packageManager={packageManager} />);
   server.use(
-    rest.get('https://keneanung.github.io/nexus-package-repository/repository.json', (_, result, context) => {
-      return result.once(
-        context.json([
-          {
-            dependencies: ['dependency'],
-            description: 'foo',
-            name: 'bar',
-            packageName: 'barPackage',
-            url: 'https://mykg.com/bar.json',
-            website: 'https://mypkg.com',
-          },
-        ]),
-      );
-    }),
+    http.get('https://keneanung.github.io/nexus-package-repository/repository.json', () => {
+      return HttpResponse.json([
+        {
+          dependencies: ['dependency'],
+          description: 'foo',
+          name: 'bar',
+          packageName: 'barPackage',
+          url: 'https://mykg.com/bar.json',
+          website: 'https://mypkg.com',
+        },
+      ]);
+    }) as unknown as ServerHandler,
   );
 
   fireEvent.click(screen.getByText('Update package listing'));
@@ -145,26 +144,24 @@ test('Should switch to details view of dependency package after clicking the dep
   const packageManager = new PackageManager();
   const { container } = render(<PackageManagerUi packageManager={packageManager} />);
   server.use(
-    rest.get('https://keneanung.github.io/nexus-package-repository/repository.json', (_, result, context) => {
-      return result.once(
-        context.json([
-          {
-            dependencies: [],
-            description: 'This is the dependency',
-            name: 'dependency',
-            packageName: 'dependency',
-            url: 'https://mypkg.com/dependency.json',
-          },
-          {
-            dependencies: ['dependency'],
-            description: 'foo',
-            name: 'bar',
-            packageName: 'barPackage',
-            url: 'https://mykg.com/bar.json',
-          },
-        ]),
-      );
-    }),
+    http.get('https://keneanung.github.io/nexus-package-repository/repository.json', () => {
+      return HttpResponse.json([
+        {
+          dependencies: [],
+          description: 'This is the dependency',
+          name: 'dependency',
+          packageName: 'dependency',
+          url: 'https://mypkg.com/dependency.json',
+        },
+        {
+          dependencies: ['dependency'],
+          description: 'foo',
+          name: 'bar',
+          packageName: 'barPackage',
+          url: 'https://mykg.com/bar.json',
+        },
+      ]);
+    }) as unknown as ServerHandler,
   );
 
   fireEvent.click(screen.getByText('Update package listing'));

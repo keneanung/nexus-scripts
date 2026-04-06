@@ -7,10 +7,10 @@
       "webpack/"
     ],
     "typeRoots": [
-      "node_modules/@types",
-      "node_modules/@keneanung",
       "../../node_modules/@types",
-      "../../node_modules/@keneanung"
+      "../../node_modules/@keneanung",
+      "node_modules/@types",
+      "node_modules/@keneanung"
     ],
     "types": [
       "jest",
