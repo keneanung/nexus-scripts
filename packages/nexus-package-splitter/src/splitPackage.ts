@@ -21,6 +21,13 @@ interface OutputContext {
   assetRootName: string;
 }
 
+const builderPackageDependency = {
+  name: '@keneanung/nexus-package-builder',
+  version: '^1.4.0',
+};
+
+const yamlSchemaComment = `# yaml-language-server: $schema=./node_modules/${builderPackageDependency.name}/resources/nexus-schema.json`;
+
 const sanitizeFileNamePart = (value: string) => {
   const sanitizedValue = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   return sanitizedValue || 'item';
@@ -35,6 +42,19 @@ const writeExtractedFile = (content: string, filePathParts: string[], outputCont
 
   return `./${path.posix.join(outputContext.assetRootName, ...filePathParts)}`;
 };
+
+const createOutputPackageJson = (outputFileNameWithoutExtension: string) =>
+  JSON.stringify(
+    {
+      name: sanitizeFileNamePart(outputFileNameWithoutExtension),
+      private: true,
+      devDependencies: {
+        [builderPackageDependency.name]: builderPackageDependency.version,
+      },
+    },
+    null,
+    2,
+  ).concat('\n');
 
 const convertAction = (
   action: client.Action,
@@ -149,13 +169,17 @@ export const splitPackage = (packageFile: string, outputDir: string) => {
   const outputFileNameWithoutExtension = path.basename(absolutePackageFilePath, '.nxs');
   const absoluteOutputFile = path.resolve(absoluteOutputDirPath, `${outputFileNameWithoutExtension}.yaml`);
   const absoluteAssetRootPath = path.resolve(absoluteOutputDirPath, outputFileNameWithoutExtension);
+  const absolutePackageJsonFile = path.resolve(absoluteOutputDirPath, 'package.json');
 
   const builderCompatiblePackage = splitPackageDefinition(packageDefinitionContent, absoluteAssetRootPath);
-  const yamlPackageDefinition = yaml.dump(builderCompatiblePackage, {
+  const yamlPackageDefinition = `${yamlSchemaComment}\n${yaml.dump(builderCompatiblePackage, {
     lineWidth: -1,
     noRefs: true,
-  });
+  })}`;
+  const outputPackageJson = createOutputPackageJson(outputFileNameWithoutExtension);
+
   writePackageDefinition(yamlPackageDefinition, absoluteOutputFile);
+  writeSplitFile(outputPackageJson, absolutePackageJsonFile);
 
   return true;
 };

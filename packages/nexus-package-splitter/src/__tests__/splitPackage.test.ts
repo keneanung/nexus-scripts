@@ -94,7 +94,11 @@ describe('splitPackage', () => {
     expect(result).toBeTruthy();
 
     const yamlFilePath = path.resolve(outputDirectory, 'sample.yaml');
+    const rawYaml = fs.readFileSync(yamlFilePath, 'utf-8');
     const definition = readYaml(yamlFilePath);
+    expect(rawYaml).toContain(
+      '# yaml-language-server: $schema=./node_modules/@keneanung/nexus-package-builder/resources/nexus-schema.json',
+    );
     expect(definition).toEqual({
       name: 'Sample Package',
       enabled: true,
@@ -164,6 +168,13 @@ describe('splitPackage', () => {
         'utf-8',
       ),
     ).toBe('console.log("hi");');
+    expect(JSON.parse(fs.readFileSync(path.resolve(outputDirectory, 'package.json'), 'utf-8'))).toEqual({
+      name: 'sample',
+      private: true,
+      devDependencies: {
+        '@keneanung/nexus-package-builder': '^1.4.0',
+      },
+    });
   });
 
   test('Should return false and print an error for invalid JSON package files', () => {
