@@ -1,6 +1,5 @@
 import { IdGenerator } from '../../utils';
 import { Alias } from '../alias';
-import * as utils from '../../utils';
 import { PartialAlias } from '../../types';
 
 test('Should initialize all members', () => {
@@ -101,11 +100,9 @@ test('Should overwrite the text property if given', () => {
 });
 
 test('Should add an action to items if given', () => {
-  const mockedConvertFunction = jest.spyOn(utils, 'convertNexusActionArray');
-  const partialAlias = { actions: [] };
+  const partialAlias = { actions: [{ action: 'stop' as const }] };
 
-  new Alias(partialAlias, new IdGenerator(), '');
+  const alias = new Alias(partialAlias, new IdGenerator(), '');
 
-  expect(mockedConvertFunction).toHaveBeenCalledTimes(1);
-  jest.restoreAllMocks();
+  expect(alias.actions).toMatchObject([{ action: 'stop' }]);
 });

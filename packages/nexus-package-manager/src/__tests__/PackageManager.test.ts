@@ -6,7 +6,7 @@ import {
   getPackageList,
   setPackageOrder,
 } from '../lib/nexusPackageInterface';
-import { DefaultBodyType, Path, rest } from 'msw';
+import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 jest.mock('../lib/nexusPackageInterface');
 const installNexusPackageMock = jest.mocked(installNexusPackage);
@@ -15,7 +15,10 @@ const uninstallNexusPackageMock = jest.mocked(uninstallNexusPackage);
 const getPackageListMock = jest.mocked(getPackageList);
 const setPackageOrderMock = jest.mocked(setPackageOrder);
 
+type JsonValue = null | boolean | number | string | JsonValue[] | { [key: string]: JsonValue };
+
 const server = setupServer();
+type ServerHandler = Parameters<typeof server.use>[0];
 
 // Enable request interception.
 beforeAll(() =>
@@ -496,21 +499,21 @@ test('Should log an exception about unknown dependencies on updating order', asy
   expect(console.error).toMatchSnapshot();
 });
 
-function setupRepositoryResponses(...responses: DefaultBodyType[]) {
-  for (const response of responses.reverse()) {
-    server.use(
-      rest.get('https://keneanung.github.io/nexus-package-repository/repository.json', (_, result, context) => {
-        return result.once(context.json(response));
-      }),
-    );
-  }
+function setupRepositoryResponses(...responses: JsonValue[]) {
+  const queuedResponses = [...responses];
+
+  server.use(
+    http.get('https://keneanung.github.io/nexus-package-repository/repository.json', () => {
+      return HttpResponse.json(queuedResponses.shift() ?? []);
+    }) as unknown as ServerHandler,
+  );
 }
 
-function setupPackageResponse(url: Path, response: DefaultBodyType) {
+function setupPackageResponse(url: string, response: JsonValue) {
   server.use(
-    rest.get(url, (_, result, context) => {
-      return result.once(context.json(response));
-    }),
+    http.get(url, () => {
+      return HttpResponse.json(response);
+    }) as unknown as ServerHandler,
   );
 }
 
@@ -536,7 +539,6 @@ class ReflexHelper {
   };
 
   apply = () => {
-    // keep eslint happy
-    true;
+    return undefined;
   };
 }

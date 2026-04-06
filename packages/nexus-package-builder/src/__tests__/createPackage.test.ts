@@ -4,10 +4,18 @@ import { createPackage } from '../createPackage';
 import * as PackageClass from '../classes/package';
 
 jest.mock('../functionsInteractingWithFileSystem');
+jest.mock('../classes/package', () => {
+  const actual = jest.requireActual('../classes/package');
+
+  return {
+    ...actual,
+    Package: jest.fn((...args: ConstructorParameters<typeof actual.Package>) => new actual.Package(...args)),
+  };
+});
+
 const mockedFsFunctions = mocked(fsFunctions);
 const mockedConsole = jest.spyOn(global.console, 'log');
-
-const mockedPackageConstructor = jest.spyOn(PackageClass, 'Package');
+const mockedPackageConstructor = mocked(PackageClass.Package);
 
 beforeEach(() => {
   mockedFsFunctions.checkPackageDefinitionFile.mockClear();
@@ -18,7 +26,6 @@ beforeEach(() => {
   mockedFsFunctions.readPackageDefinitionFile.mockReturnValue({});
   mockedFsFunctions.writePackageDefinition.mockClear();
   mockedConsole.mockClear();
-  //eslint-disable-next-line @typescript-eslint/no-empty-function
   mockedConsole.mockImplementation(() => {});
   mockedPackageConstructor.mockClear();
 });
@@ -87,10 +94,19 @@ test('Should write the JSON version of a package definition to disk', () => {
 
   createPackage('doesNotMatter', './output');
 
-  expect(mockedFsFunctions.writePackageDefinition).toHaveBeenCalledWith(
-    '{"name":"some package","enabled":true,"description":"I have a desc too","type":"group","items":[],"version":"","dependencies":[],"website":"","id":1}',
-    expect.anything(),
-  );
+  const [jsonContent] = mockedFsFunctions.writePackageDefinition.mock.calls[0];
+
+  expect(JSON.parse(jsonContent)).toMatchObject({
+    name: 'some package',
+    enabled: true,
+    description: 'I have a desc too',
+    type: 'group',
+    items: [],
+    version: '',
+    dependencies: [],
+    website: '',
+    id: 1,
+  });
 });
 
 test('Should contain given version in the output to disk', () => {

@@ -41,6 +41,13 @@ const templates = renderer.templates({
   wait: waitAction,
 });
 
+/**
+ * Converts a Nexus action list into a single script action.
+ * @param {Action[]} actions The actions to convert.
+ * @param {string} parentReflexName The name of the owning reflex.
+ * @param {'alias' | 'trigger' | 'keybind'} parentReflexType The type of the owning reflex.
+ * @returns {string} The generated Nexus script.
+ */
 const convertActions = (
   actions: Action[],
   parentReflexName: string,
@@ -172,6 +179,11 @@ const convertReflex = (reflex: Reflex): Trigger[] => {
   return extraTriggers;
 };
 
+/**
+ * Converts a complete Nexus package in place.
+ * @param {Package} pkg The package to convert.
+ * @returns {void}
+ */
 const convertPackage = (pkg: Package) => {
   const extraTriggers = [];
   for (const item of pkg.items) {

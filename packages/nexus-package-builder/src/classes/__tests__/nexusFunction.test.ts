@@ -2,6 +2,15 @@ import { IdGenerator } from '../../utils';
 import { NexusFunction } from '../function';
 import * as fsFunctions from '../../functionsInteractingWithFileSystem';
 
+jest.mock('../../functionsInteractingWithFileSystem', () => {
+  const actual = jest.requireActual('../../functionsInteractingWithFileSystem');
+
+  return {
+    ...actual,
+    readScriptFileRelativeToDefintion: jest.fn(actual.readScriptFileRelativeToDefintion),
+  };
+});
+
 test('Should return a valid function object', () => {
   const fun = new NexusFunction({}, new IdGenerator(), '');
 
@@ -62,7 +71,8 @@ test('Should overwrite the code property if given', () => {
 
 test('Should overwrite the code property if given a codeFile', () => {
   const partialFunction = { codeFile: './code.js' };
-  const mockedScriptReader = jest.spyOn(fsFunctions, 'readScriptFileRelativeToDefintion');
+  const mockedScriptReader = jest.mocked(fsFunctions.readScriptFileRelativeToDefintion);
+  mockedScriptReader.mockClear();
   mockedScriptReader.mockReturnValue('This is code from a file');
 
   const fun = new NexusFunction(partialFunction, new IdGenerator(), '');

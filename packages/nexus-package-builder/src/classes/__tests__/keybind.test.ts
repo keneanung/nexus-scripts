@@ -1,6 +1,5 @@
 import { IdGenerator } from '../../utils';
 import { Keybind } from '../keybind';
-import * as utils from '../../utils';
 
 test('Should initialize all members', () => {
   const keybind = new Keybind({}, new IdGenerator(), '');
@@ -89,11 +88,9 @@ test('Should overwrite the key_alt property if given', () => {
 });
 
 test('Should add a reflex to items if given', () => {
-  const mockedConvertFunction = jest.spyOn(utils, 'convertNexusActionArray');
-  const partialKeybind = { actions: [] };
+  const partialKeybind = { actions: [{ action: 'stop' as const }] };
 
-  new Keybind(partialKeybind, new IdGenerator(), '');
+  const keybind = new Keybind(partialKeybind, new IdGenerator(), '');
 
-  expect(mockedConvertFunction).toHaveBeenCalledTimes(1);
-  jest.restoreAllMocks();
+  expect(keybind.actions).toMatchObject([{ action: 'stop' }]);
 });

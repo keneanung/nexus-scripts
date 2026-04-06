@@ -1,6 +1,5 @@
 import { IdGenerator } from '../../utils';
 import { Event } from '../event';
-import * as utils from '../../utils';
 import { PartialEvent } from '../../types';
 
 test('Should initialize all members', () => {
@@ -58,11 +57,9 @@ test('Should overwrite the evsubtype property if given', () => {
 });
 
 test('Should add a reflex to items if given', () => {
-  const mockedConvertFunction = jest.spyOn(utils, 'convertNexusActionArray');
-  const partialEvent = { actions: [] };
+  const partialEvent = { actions: [{ action: 'stop' as const }] };
 
-  new Event(partialEvent, new IdGenerator(), '');
+  const event = new Event(partialEvent, new IdGenerator(), '');
 
-  expect(mockedConvertFunction).toHaveBeenCalledTimes(1);
-  jest.restoreAllMocks();
+  expect(event.actions).toMatchObject([{ action: 'stop' }]);
 });

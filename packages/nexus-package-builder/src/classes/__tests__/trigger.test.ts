@@ -1,6 +1,5 @@
 import { IdGenerator } from '../../utils';
 import { Trigger } from '../trigger';
-import * as utils from '../../utils';
 import { PartialTrigger } from '../../types';
 
 test('Should initialize all members', () => {
@@ -90,11 +89,9 @@ test('Should keep the id property if given', () => {
 });
 
 test('Should add a action to actions if given', () => {
-  const mockedConvertFunction = jest.spyOn(utils, 'convertNexusActionArray');
-  const partialTrigger = { actions: [] };
+  const partialTrigger = { actions: [{ action: 'stop' as const }] };
 
-  new Trigger(partialTrigger, new IdGenerator(), '');
+  const trigger = new Trigger(partialTrigger, new IdGenerator(), '');
 
-  expect(mockedConvertFunction).toHaveBeenCalledTimes(1);
-  jest.restoreAllMocks();
+  expect(trigger.actions).toMatchObject([{ action: 'stop' }]);
 });

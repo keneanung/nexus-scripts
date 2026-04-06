@@ -1,5 +1,4 @@
 import { Package } from '../package';
-import * as utils from '../../utils';
 
 test('Should return a valid package object', () => {
   const pkg = new Package({}, '');
@@ -114,11 +113,9 @@ test('Should keep the id property if given', () => {
 });
 
 test('Should add a reflex to items if given', () => {
-  const mockedConvertFunction = jest.spyOn(utils, 'convertNexusReflexArray');
-  const partialPackage = { items: [] };
+  const partialPackage = { items: [{ type: 'function' as const, name: 'child-function' }] };
 
-  new Package(partialPackage, '');
+  const pkg = new Package(partialPackage, '');
 
-  expect(mockedConvertFunction).toHaveBeenCalledTimes(1);
-  jest.restoreAllMocks();
+  expect(pkg.items).toMatchObject([{ type: 'function', name: 'child-function' }]);
 });

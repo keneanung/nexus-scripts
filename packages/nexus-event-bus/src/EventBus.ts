@@ -82,7 +82,6 @@ export class EventBus implements IEventBus {
         eventCallbacks = subscriptions;
       } else {
         // We already check for existence of the event name in the map, so we are sure it exists.
-        // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         eventCallbacks = this.subscriptions.get(eventName)!;
       }
     }
@@ -135,7 +134,6 @@ export class EventBus implements IEventBus {
         return;
       }
       // there is an early return above in case the event name does not exist
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       subscriptions = this.subscriptions.get(eventName)!;
     }
     this.unsubscribeFromEvent(subscriptions, callback);
