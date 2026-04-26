@@ -41,6 +41,6 @@
     "browser-or-node": "^3.0.0",
     "js-beautify": "^1.15.4",
     "jsrender": "^1.0.16",
-    "uuid": "^13.0.0"
+    "uuid": "^14.0.0"
   }
 }
