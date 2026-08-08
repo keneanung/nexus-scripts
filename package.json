@@ -48,6 +48,8 @@
     "metro-react-native-babel-preset": "^0.77.0",
     "msw": "^2.12.14",
     "prettier": "^3.8.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "regenerator-runtime": "^0.14.1",
     "undici": "^7.24.6",
     "ts-loader": "^9.5.4",
