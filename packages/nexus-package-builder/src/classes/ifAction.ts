@@ -4,9 +4,9 @@ import * as client from '@keneanung/iron-realms-nexus-typings';
  */
 export class IfAction implements client.IfAction {
   action = 'if' as const;
-  'cond-type1': 'variable' | 'target' | 'value' = 'variable';
+  'cond-type1': 'variable' | 'target' | 'value' | 'capture' = 'variable';
   'cond-val1' = '';
-  'cond-type2': 'variable' | 'target' | 'value' = 'variable';
+  'cond-type2': 'variable' | 'target' | 'value' | 'capture' = 'variable';
   'cond-val2' = '';
   'cond-op': 'eq' | 'greater' | 'smaller' | 'starts' | 'ends' = 'eq';
   'cond-mod': '' | 'not' = '';

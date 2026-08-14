@@ -547,7 +547,8 @@
           "enum": [
             "variable",
             "target",
-            "value"
+            "value",
+            "capture"
           ]
         },
         "value": {
@@ -583,7 +584,8 @@
           "enum": [
             "variable",
             "target",
-            "value"
+            "value",
+            "capture"
           ]
         },
         "cond-val1": {
@@ -594,7 +596,8 @@
           "enum": [
             "variable",
             "target",
-            "value"
+            "value",
+            "capture"
           ]
         },
         "cond-val2": {
@@ -661,7 +664,8 @@
           "enum": [
             "variable",
             "target",
-            "value"
+            "value",
+            "capture"
           ]
         },
         "cond-val1": {
@@ -672,7 +676,8 @@
           "enum": [
             "variable",
             "target",
-            "value"
+            "value",
+            "capture"
           ]
         },
         "cond-val2": {
@@ -707,6 +712,18 @@
             "count",
             "while"
           ]
+        },
+        "counttype": {
+          "type": "string",
+          "enum": [
+            "variable",
+            "target",
+            "value",
+            "capture"
+          ]
+        },
+        "count": {
+          "type": "string"
         }
       },
       "required": [

@@ -15,6 +15,8 @@ test('Should initialize all members', () => {
     'cond-cs': false,
     label: '',
     mode: 'count',
+    counttype: 'value',
+    count: '',
   });
 });
 
@@ -105,5 +107,14 @@ test('Should overwrite the mode property if given', () => {
 
   expect(repeat).toMatchObject({
     mode: 'while',
+  });
+});
+
+test('Should overwrite the count properties if given', () => {
+  const repeat = new RepeatAction({ counttype: 'capture', count: '2' });
+
+  expect(repeat).toMatchObject({
+    counttype: 'capture',
+    count: '2',
   });
 });

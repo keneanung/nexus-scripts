@@ -4,15 +4,17 @@ import * as client from '@keneanung/iron-realms-nexus-typings';
  */
 export class RepeatAction implements client.RepeatAction {
   action = 'repeat' as const;
-  'cond-type1': 'variable' | 'target' | 'value' = 'variable';
+  'cond-type1': 'variable' | 'target' | 'value' | 'capture' = 'variable';
   'cond-val1' = '';
-  'cond-type2': 'variable' | 'target' | 'value' = 'variable';
+  'cond-type2': 'variable' | 'target' | 'value' | 'capture' = 'variable';
   'cond-val2' = '';
   'cond-op': 'eq' | 'greater' | 'smaller' | 'starts' | 'ends' = 'eq';
   'cond-mod': '' | 'not' = '';
   'cond-cs' = false;
   label = '';
   mode: 'count' | 'while' = 'count';
+  counttype: 'variable' | 'target' | 'value' | 'capture' = 'value';
+  count = '';
 
   /**
    * Constructs a new complete repeat action from a partial one.
@@ -53,6 +55,14 @@ export class RepeatAction implements client.RepeatAction {
 
     if (partialRepeatAction.mode !== undefined) {
       this.mode = partialRepeatAction.mode;
+    }
+
+    if (partialRepeatAction.counttype !== undefined) {
+      this.counttype = partialRepeatAction.counttype;
+    }
+
+    if (partialRepeatAction.count !== undefined) {
+      this.count = partialRepeatAction.count;
     }
   }
 }
