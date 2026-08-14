@@ -10,6 +10,7 @@
     "lib": "lib"
   },
   "files": [
+    "bin/**/*",
     "lib/**/*",
     "!lib/**/__tests__/*"
   ],
@@ -43,7 +44,7 @@
     "js-yaml": "^5.2.3"
   },
   "bin": {
-    "nexus-package-splitter": "lib/index.js"
+    "nexus-package-splitter": "bin/nexus-package-splitter.js"
   },
   "types": "lib/index.d.ts"
 }

@@ -77,7 +77,7 @@
     "verify:packages": "node scripts/verify-packages.mjs",
     "verify:website": "npm --prefix website ci && npm --prefix website run typecheck && npm --prefix website run build",
     "verify:code": "npm test && npm run lint && npm run build",
-    "verify:artifacts": "npm run webpackProd && npm run nxsProd && npm run verify:packages && npm run verify:website",
+    "verify:artifacts": "npm run build && npm run webpackProd && npm run nxsProd && npm run verify:packages && npm run verify:website",
     "verify": "npm run verify:code && npm run verify:artifacts",
     "release:publish": "lerna publish from-package --yes --ignore-scripts",
     "commit": "git diff --cached --quiet && echo 'No staged files to commit.' || git-cz"
