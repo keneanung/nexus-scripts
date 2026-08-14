@@ -1,0 +1,10 @@
+{
+  "packages/iron-realms-nexus-typings": "0.7.1",
+  "packages/nexus-bashing-priorities": "0.0.8",
+  "packages/nexus-event-bus": "0.5.12",
+  "packages/nexus-package-builder": "1.4.2",
+  "packages/nexus-package-manager": "0.3.4",
+  "packages/nexus-package-splitter": "0.2.1",
+  "packages/nexus-queue-manager": "0.1.4",
+  "packages/nexus-simplified-scripting-converter": "0.3.0"
+}

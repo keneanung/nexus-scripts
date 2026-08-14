@@ -1,40 +1,49 @@
-# This is a basic workflow to help you get started with Actions
+name: Publish website
 
-name: Publish new website version
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the development branch
-  push:
-    tags: "**"
+  workflow_run:
+    workflows: [Verify]
+    types: [completed]
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+permissions:
+  contents: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
 jobs:
   publish-website:
-      runs-on: ubuntu-latest
-
-      steps:
-        - uses: actions/checkout@v6
-        - uses: actions/setup-node@v6
-        - name: create Nexus assets
-          # second npm ci is to install the package builder properly
-          run: |
-            npm ci
-            npm run build
-            npm ci
-            npm run nxsProd
-        - name: copy assets to website
-          run: |
-            find  -type f -name "*.nxs" -exec cp "{}" website/static/ \;
-            cp README.md website/src/pages/index.md
-        - name: build website
-          run: |
-            cd website
-            npm ci
-            npm run build
-        - name: Deploy to GitHub Pages
-          uses: JamesIves/github-pages-deploy-action@v4.8.0
-          with:
-            branch: gh-pages
-            folder: website/build
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            website/package-lock.json
+      - name: Use the pinned npm version
+        run: npm install --global "$(node --print "require('./package.json').packageManager")"
+      - run: npm ci
+      - name: Create Nexus packages
+        run: npm run build && npm run nxsProd
+      - name: Copy assets to the website
+        run: |
+          find packages -type f -name "*.nxs" -exec cp "{}" website/static/ \;
+          cp README.md website/src/pages/index.md
+      - name: Build the website
+        run: npm --prefix website ci && npm --prefix website run build
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.8.0
+        with:
+          branch: gh-pages
+          folder: website/build
