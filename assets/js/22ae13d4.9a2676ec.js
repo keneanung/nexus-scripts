@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkwebsite||=[]).push([[1701],{230(e){e.exports=JSON.parse('{"metadata":{"permalink":"/nexus-scripts/blog/page/2","page":2,"postsPerPage":10,"totalPages":2,"totalCount":11,"previousPage":"/nexus-scripts/blog","blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
