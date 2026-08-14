@@ -18,7 +18,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/keneanung/nexus-scripts.git"
+    "url": "git+https://github.com/keneanung/nexus-scripts.git",
+    "directory": "packages/nexus-package-splitter"
   },
   "scripts": {
     "build": "node ../../node_modules/@typescript/native/bin/tsc",
@@ -42,6 +43,8 @@
     "commander": "^15.0.0",
     "js-yaml": "^5.2.3"
   },
-  "bin": "lib/index.js",
+  "bin": {
+    "nexus-package-splitter": "lib/index.js"
+  },
   "types": "lib/index.d.ts"
 }

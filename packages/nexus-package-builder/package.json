@@ -4,7 +4,11 @@
   "description": "Tool to create an Iron Realms Nexus native package from individual files",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
-  "repository": "git://github.com/keneanung/nexus-package-builder.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keneanung/nexus-scripts.git",
+    "directory": "packages/nexus-package-builder"
+  },
   "main": "lib/index.js",
   "devDependencies": {
     "@keneanung/iron-realms-nexus-typings": "^0.7.1",
@@ -31,5 +35,7 @@
     "commander": "^14.0.3",
     "js-yaml": "^5.2.3"
   },
-  "bin": "lib/index.js"
+  "bin": {
+    "nexus-package-builder": "lib/index.js"
+  }
 }
