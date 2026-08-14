@@ -14,20 +14,21 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
+              assumptions: {
+                privateFieldsAsProperties: true,
+                setPublicClassFields: true,
+              },
               presets: [
-                [
-                  '@babel/preset-env',
-                  {
-                    useBuiltIns: 'usage',
-                    corejs: 3,
-                  },
-                ],
-                ['module:metro-react-native-babel-preset'],
+                '@babel/preset-env',
               ],
               plugins: [
+                [
+                  'babel-plugin-polyfill-corejs3',
+                  { method: 'usage-global', version: require('core-js/package.json').version },
+                ],
                 '@babel/plugin-transform-modules-commonjs',
-                ['@babel/plugin-transform-private-property-in-object', { loose: true }],
-                ['@babel/plugin-transform-private-methods', { loose: true }],
+                '@babel/plugin-transform-private-property-in-object',
+                '@babel/plugin-transform-private-methods',
               ],
             },
           },
