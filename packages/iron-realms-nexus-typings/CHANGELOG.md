@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/keneanung/nexus-scripts/compare/iron-realms-nexus-typings@0.7.1...iron-realms-nexus-typings@1.0.0) (2026-08-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* **iron-realms-nexus-typings:** Typings for classes must now be imported as usual
+
+### Features
+
+* :sparkles: extend Nexus typings ([928eccb](https://github.com/keneanung/nexus-scripts/commit/928eccba2cafd417c6e01fbc4766352090612565))
+* **iron-realms-nexus-typings:** :label: add capture variable type ([5a9cfe6](https://github.com/keneanung/nexus-scripts/commit/5a9cfe6611daeb603b36c17f5fdcdb37011c1958))
+* **iron-realms-nexus-typings:** :label: add types for Gag, Rewrite, Highlight, and Linkify actions ([1a129d2](https://github.com/keneanung/nexus-scripts/commit/1a129d26b779d88f554492eb9ea6c8a636aa786e))
+* **iron-realms-nexus-typings:** update complex action types ([977084d](https://github.com/keneanung/nexus-scripts/commit/977084d80c07a5ae46ae4377d2114afc8dad2d3a))
+
+
+### Bug Fixes
+
+* **iron-realms-nexus-typings:** :bug: make id of reflexes optional ([cf96e37](https://github.com/keneanung/nexus-scripts/commit/cf96e375b20d9d04b801f6042e1ba893a5d4e757))
+* **iron-realms-nexus-typings:** :label: fix typings usage by external projects ([0276523](https://github.com/keneanung/nexus-scripts/commit/02765237a31cf41c9977397a2a3b3b28f0eb1a75))
+* **iron-realms-nexus-typings:** :ladybug: allow default value usage of nexusclient.send_commands.no_expansion ([7faaba2](https://github.com/keneanung/nexus-scripts/commit/7faaba2a59f522223a18c94c3eb725e480af12b4))
+* **iron-realms-nexus-typings:** :pencil2: fix typo in string constant enumeration ([dde0cc0](https://github.com/keneanung/nexus-scripts/commit/dde0cc0ed48f01045e24ee3266aef49d3b44edc6))
+* **iron-realms-nexus-typings:** fix ambient declaration of client and nexusclient namespaces ([ad733e3](https://github.com/keneanung/nexus-scripts/commit/ad733e31a64ce6f9e323cb2bc4e50eaa69feafbc))
+
 ## [0.7.1](https://github.com/keneanung/nexus-scripts/compare/%40keneanung%2Firon-realms-nexus-typings%400.7.0...%40keneanung%2Firon-realms-nexus-typings%400.7.1) (2026-08-14)
 
 ### Bug Fixes

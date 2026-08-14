@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-package-splitter",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Tool to split an Iron Realms Nexus package file into a builder-compatible YAML definition and individual files",
   "author": "keneanung <keneanung@gmail.com>",
   "homepage": "https://keneanung.github.io/nexus-scripts",
@@ -34,7 +34,7 @@
     "url": "https://github.com/keneanung/nexus-scripts/issues"
   },
   "devDependencies": {
-    "@keneanung/iron-realms-nexus-typings": "^0.7.1",
+    "@keneanung/iron-realms-nexus-typings": "^1.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.13.3"
   },

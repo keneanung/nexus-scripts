@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/iron-realms-nexus-typings",
-  "version": "0.7.1",
+  "version": "1.0.0",
   "description": "Typings for the IRE MUD client Nexus.",
   "repository": {
     "type": "git",

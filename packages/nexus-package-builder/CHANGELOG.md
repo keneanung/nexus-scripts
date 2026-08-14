@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.0](https://github.com/keneanung/nexus-scripts/compare/nexus-package-builder@1.4.2...nexus-package-builder@1.5.0) (2026-08-14)
+
+
+### Features
+
+* **nexus-package-builder:** :label: add new capture valtype for variable actions ([3836cad](https://github.com/keneanung/nexus-scripts/commit/3836cad8dc269733dfb6b51af6af5b72db3f16d5))
+* **nexus-package-builder:** :sparkles: add 2 new actions to package schema ([5db81bb](https://github.com/keneanung/nexus-scripts/commit/5db81bb127b91d697d8abade76c9deb8f07ed239))
+* **nexus-package-builder:** :sparkles: add porcessing of rewrite actions ([c12b5d8](https://github.com/keneanung/nexus-scripts/commit/c12b5d823fce3788b999f930f159c8ca40498613))
+* **nexus-package-builder:** :sparkles: add processing of linkify actions ([74e55ba](https://github.com/keneanung/nexus-scripts/commit/74e55ba53a5872ae58dad10495b838ef2886a1c7))
+* **nexus-package-builder:** :sparkles: add processing of new gag action ([8e4065d](https://github.com/keneanung/nexus-scripts/commit/8e4065dde844345c3a6a326b77ef1a3911c54f61))
+* **nexus-package-builder:** :sparkles: add processing of new highlight action ([9a1bd93](https://github.com/keneanung/nexus-scripts/commit/9a1bd93f34e3a2a79260a4a7ca8cee8922d3b814))
+* **nexus-package-builder:** support complex action fields ([be4a424](https://github.com/keneanung/nexus-scripts/commit/be4a4247b35826eb45d863cb8f52b4ddb5c4e6f2))
+
+
+### Bug Fixes
+
+* make clean artifact builds reliable ([cb75a85](https://github.com/keneanung/nexus-scripts/commit/cb75a85d1128feea640376e2c01c05d5b409bb79))
+* **nexus-package-builder:** :arrow_up: use latest version of nexus typings ([8e233ab](https://github.com/keneanung/nexus-scripts/commit/8e233abdf02e4390602b272519b654db220a41b5))
+* normalize npm package metadata ([8191cc2](https://github.com/keneanung/nexus-scripts/commit/8191cc25e1091a78b86fa35f8680b83ebad72725))
+* resolve CLI package versions ([42a63ff](https://github.com/keneanung/nexus-scripts/commit/42a63ffdf9479bfc1aedaa8163eefc2d720a1ea5))
+* update dependencies ([2ab88b8](https://github.com/keneanung/nexus-scripts/commit/2ab88b884db5c14612749142a717926d23ed60a4))
+* update dependencies ([7aed5c8](https://github.com/keneanung/nexus-scripts/commit/7aed5c8f96cb899f8a79e9397ccc3c15770c4536))
+* update dependencies ([2abcef5](https://github.com/keneanung/nexus-scripts/commit/2abcef58388c23e7288612cb37b8f41ea8ea1df4))
+* update dependencies ([7bd17cf](https://github.com/keneanung/nexus-scripts/commit/7bd17cf9adb128095917b1475c83cc004ef60c03))
+* update dependencies ([cfbedfa](https://github.com/keneanung/nexus-scripts/commit/cfbedfa8056eb83093b80ed749dc3b32b25187c1))
+* update dependencies (major) ([c2d28fb](https://github.com/keneanung/nexus-scripts/commit/c2d28fb0324ad3c986ea261a4ca43419fe164daa))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @keneanung/iron-realms-nexus-typings bumped from ^0.7.1 to ^1.0.0
+
 ## [1.4.2](https://github.com/keneanung/nexus-scripts/compare/%40keneanung%2Fnexus-package-builder%401.4.1...%40keneanung%2Fnexus-package-builder%401.4.2) (2026-08-14)
 
 ### Bug Fixes
