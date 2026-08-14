@@ -15,7 +15,7 @@
   },
   "scripts": {
     "serve": "webpack serve --mode development",
-    "build": "tsc",
+    "build": "node ../../node_modules/@typescript/native/bin/tsc",
     "webpack": "npm test && webpack build --mode development --devtool eval-source-map",
     "webpackProd": "npm test && webpack build --mode production",
     "lint": "eslint . --ext .ts,.tsx",

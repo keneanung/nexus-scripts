@@ -21,7 +21,7 @@
     "url": "git+https://github.com/keneanung/nexus-scripts.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "node ../../node_modules/@typescript/native/bin/tsc",
     "lint": "eslint . --ext .ts,.tsx",
     "test": "jest --testLocationInResults --collect-coverage --config jestconfig.js",
     "watchTest": "jest --collect-coverage --config jestconfig.js --watch",

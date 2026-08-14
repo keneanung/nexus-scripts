@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
-    "module": "commonjs",
+    "module": "nodenext",
     "target": "esNext",
     "jsx": "react-jsx",
     "declaration": true,
     "strict": true,
     "alwaysStrict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "noEmitOnError": true,

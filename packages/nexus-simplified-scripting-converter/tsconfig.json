@@ -1,11 +1,9 @@
 {
   "extends": "../../tsconfig",
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2015",
     "outDir": "lib/",
-    "rootDirs": [
-      "src/"
-    ],
+    "rootDir": "src/",
     "typeRoots": [
       "node_modules/@types",
       "node_modules/@keneanung",
