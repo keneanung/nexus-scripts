@@ -1,36 +1,46 @@
-name: Test, Lint and Build
+name: Verify
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
+  # Keep these job IDs stable because they are existing required status checks.
   test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v6
-
-    - name: Use Node.js
-      uses: actions/setup-node@v6
-
-    - name: test
-      run: |
-        npm ci
-        npm run test
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Use the pinned npm version
+        run: npm install --global "$(node --print "require('./package.json').packageManager")"
+      - run: npm ci
+      - run: npm run verify:code
 
   build-webpack:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v6
-
-    - name: Use Node.js
-      uses: actions/setup-node@v6
-
-    - name: Build
-      run: |
-        npm ci
-        npm run webpack
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            website/package-lock.json
+      - name: Use the pinned npm version
+        run: npm install --global "$(node --print "require('./package.json').packageManager")"
+      - run: npm ci
+      - run: npm run verify:artifacts
