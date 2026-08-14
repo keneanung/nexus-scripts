@@ -1,7 +1,6 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const WebpackAutoInject = require('webpack-auto-inject-version-next');
-const nexusExternals = require('../../webpack.nexus-externals');
 
 module.exports = {
   entry: './webpack/webpack.ts',
@@ -41,7 +40,6 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-  externals: nexusExternals,
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'nxs'),

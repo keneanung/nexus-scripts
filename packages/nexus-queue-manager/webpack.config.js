@@ -1,7 +1,6 @@
 const path = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const WebpackAutoInject = require('webpack-auto-inject-version-next');
-const nexusExternals = require('../../webpack.nexus-externals');
 
 module.exports = {
   entry: {
@@ -62,5 +61,4 @@ module.exports = {
       },
     }),
   ],
-  externals: nexusExternals,
 };
