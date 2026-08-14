@@ -62,9 +62,9 @@ export interface VariableAction {
 
 export interface IfAction {
   action: 'if';
-  'cond-type1': 'variable' | 'target' | 'value';
+  'cond-type1': 'variable' | 'target' | 'value' | 'capture';
   'cond-val1': string;
-  'cond-type2': 'variable' | 'target' | 'value';
+  'cond-type2': 'variable' | 'target' | 'value' | 'capture';
   'cond-val2': string;
   'cond-op': 'eq' | 'greater' | 'smaller' | 'starts' | 'ends';
   'cond-mod': '' | 'not';
@@ -77,15 +77,17 @@ export interface IfAction {
 
 export interface RepeatAction {
   action: 'repeat';
-  'cond-type1': 'variable' | 'target' | 'value';
+  'cond-type1': 'variable' | 'target' | 'value' | 'capture';
   'cond-val1': string;
-  'cond-type2': 'variable' | 'target' | 'value';
+  'cond-type2': 'variable' | 'target' | 'value' | 'capture';
   'cond-val2': string;
   'cond-op': 'eq' | 'greater' | 'smaller' | 'starts' | 'ends';
   'cond-mod': '' | 'not';
   'cond-cs': boolean;
   label: string;
   mode: 'count' | 'while';
+  counttype: 'variable' | 'target' | 'value' | 'capture';
+  count: string;
 }
 
 export interface LabelAction {
