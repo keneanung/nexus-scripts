@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.2](https://github.com/keneanung/nexus-scripts/compare/%40keneanung%2Fnexus-package-builder%401.4.1...%40keneanung%2Fnexus-package-builder%401.4.2) (2026-08-14)
+
+### Bug Fixes
+
+- resolve CLI package versions ([42a63ff](https://github.com/keneanung/nexus-scripts/commit/42a63ff))
+
 ## [1.4.1](https://github.com/keneanung/nexus-package-builder/compare/%40keneanung%2Fnexus-package-builder%401.4.0...%40keneanung%2Fnexus-package-builder%401.4.1) (2026-08-14)
 
 ### Bug Fixes

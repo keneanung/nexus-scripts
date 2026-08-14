@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-package-splitter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Tool to split an Iron Realms Nexus package file into a builder-compatible YAML definition and individual files",
   "author": "keneanung <keneanung@gmail.com>",
   "homepage": "https://keneanung.github.io/nexus-scripts",
