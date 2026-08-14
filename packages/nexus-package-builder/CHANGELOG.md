@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/keneanung/nexus-package-builder/compare/%40keneanung%2Fnexus-package-builder%401.4.0...%40keneanung%2Fnexus-package-builder%401.4.1) (2026-08-14)
+
+### Bug Fixes
+
+* update dependencies ([2ab88b8](https://github.com/keneanung/nexus-package-builder/commit/2ab88b884db5c14612749142a717926d23ed60a4))
+* update dependencies ([7aed5c8](https://github.com/keneanung/nexus-package-builder/commit/7aed5c8f96cb899f8a79e9397ccc3c15770c4536))
+* update dependencies ([7bd17cf](https://github.com/keneanung/nexus-package-builder/commit/7bd17cf9adb128095917b1475c83cc004ef60c03))
+* update dependencies ([cfbedfa](https://github.com/keneanung/nexus-package-builder/commit/cfbedfa8056eb83093b80ed749dc3b32b25187c1))
+
+
 # [1.4.0](https://github.com/keneanung/nexus-package-builder/compare/@keneanung/nexus-package-builder@1.3.7...@keneanung/nexus-package-builder@1.4.0) (2023-08-10)
 
 ### Features

@@ -204,7 +204,7 @@ describe('splitPackage', () => {
     const result = splitPackage(inputFile, outputDirectory);
 
     expect(result).toBeFalsy();
-    expect(mockedConsole).toHaveBeenCalledWith(expect.stringContaining("could not be parsed"));
+    expect(mockedConsole).toHaveBeenCalledWith(expect.stringContaining('could not be parsed'));
 
     mockedConsole.mockRestore();
   });

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/keneanung/nexus-scripts/compare/%40keneanung%2Fnexus-simplified-scripting-converter%400.2.1...%40keneanung%2Fnexus-simplified-scripting-converter%400.3.0) (2026-08-14)
+
+### Bug Fixes
+
+* add @types/uuid to nssc package ([8c92a50](https://github.com/keneanung/nexus-scripts/commit/8c92a50b237d8d7d769d52fcedcb9665d0956ef0))
+* update dependencies ([2ab88b8](https://github.com/keneanung/nexus-scripts/commit/2ab88b884db5c14612749142a717926d23ed60a4))
+* update dependencies ([7aed5c8](https://github.com/keneanung/nexus-scripts/commit/7aed5c8f96cb899f8a79e9397ccc3c15770c4536))
+* update dependencies ([cfbedfa](https://github.com/keneanung/nexus-scripts/commit/cfbedfa8056eb83093b80ed749dc3b32b25187c1))
+* update dependencies ([b1174c3](https://github.com/keneanung/nexus-scripts/commit/b1174c36931d251b28753d6409542b4fcd2f02f9))
+* update dependency js-beautify to ^1.14.11 ([6de1f4a](https://github.com/keneanung/nexus-scripts/commit/6de1f4a679894efe65108280921161021f70d075))
+
+### Features
+
+* **nexus-simplified-scripting-converter:** :sparkles: add wait action to the list of supported actions ([1f728ad](https://github.com/keneanung/nexus-scripts/commit/1f728adc766b1d3ec1242547a6d34d2635f08102))
+* **nexus-simplified-scripting-converter:** :sparkles: support WaitFor actions ([455a243](https://github.com/keneanung/nexus-scripts/commit/455a24389f7f3d2e281025766e3ea98477010574))
+
+
 ## [0.2.1](https://github.com/keneanung/nexus-scripts/compare/@keneanung/nexus-simplified-scripting-converter@0.2.0...@keneanung/nexus-simplified-scripting-converter@0.2.1) (2023-08-11)
 
 ### Bug Fixes

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/keneanung/nexus-scripts/compare/%40keneanung%2Firon-realms-nexus-typings%400.7.0...%40keneanung%2Firon-realms-nexus-typings%400.7.1) (2026-08-14)
+
+### Bug Fixes
+
+* **iron-realms-nexus-typings:** :bug: make id of reflexes optional ([cf96e37](https://github.com/keneanung/nexus-scripts/commit/cf96e375b20d9d04b801f6042e1ba893a5d4e757))
+
+
 # [0.7.0](https://github.com/keneanung/nexus-scripts/compare/@keneanung/iron-realms-nexus-typings@0.6.0...@keneanung/iron-realms-nexus-typings@0.7.0) (2023-08-10)
 
 ### Bug Fixes

@@ -7,12 +7,7 @@ export type PartialPackage = Omit<Partial<client.Package>, 'items'> & { items?: 
 };
 
 export type PartialReflex =
-  | PartialAlias
-  | PartialTrigger
-  | PartialEvent
-  | PartialFunction
-  | PartialKeybind
-  | PartialGroup;
+  PartialAlias | PartialTrigger | PartialEvent | PartialFunction | PartialKeybind | PartialGroup;
 
 export type PartialFunction = Partial<client.FunctionReflex> & { codeFile?: string };
 export type PartialGroup = Omit<Partial<client.Group>, 'items'> & { items?: PartialReflex[] };

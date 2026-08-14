@@ -33,7 +33,10 @@ const yamlSchemaComment = `# yaml-language-server: $schema=${builderSchemaPath}`
 const generatedPackageOutputDirectory = 'dist';
 
 const sanitizeFileNamePart = (value: string) => {
-  const sanitizedValue = value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const sanitizedValue = value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
   return sanitizedValue || 'item';
 };
 

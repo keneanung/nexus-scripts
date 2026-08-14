@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-package-manager",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Package Manager for the Iron Realms Nexus 3 client",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
@@ -10,8 +10,8 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.13.5",
     "@emotion/eslint-plugin": "^11.12.0",
-    "@keneanung/iron-realms-nexus-typings": "^0.7.0",
-    "@keneanung/nexus-package-builder": "^1.4.0"
+    "@keneanung/iron-realms-nexus-typings": "^0.7.1",
+    "@keneanung/nexus-package-builder": "^1.4.1"
   },
   "scripts": {
     "serve": "webpack serve --mode development",

@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-event-bus",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "description": "Event bus/broker for the IRE Nexus client",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
@@ -8,8 +8,8 @@
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
   "devDependencies": {
-    "@keneanung/iron-realms-nexus-typings": "^0.7.0",
-    "@keneanung/nexus-package-builder": "^1.4.0",
+    "@keneanung/iron-realms-nexus-typings": "^0.7.1",
+    "@keneanung/nexus-package-builder": "^1.4.1",
     "acorn": "^8.18.0"
   },
   "dependencies": {

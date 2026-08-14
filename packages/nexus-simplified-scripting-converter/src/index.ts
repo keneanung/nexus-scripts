@@ -129,7 +129,12 @@ function setUpNewTriggerActions(i: number, actions: Action[]) {
   return newActions;
 }
 
-function endReflexAndEnableFollowUpWithTimeout(actions: Action[], i: number, newTriggerName: string, action: WaitForAction) {
+function endReflexAndEnableFollowUpWithTimeout(
+  actions: Action[],
+  i: number,
+  newTriggerName: string,
+  action: WaitForAction,
+) {
   actions.splice(i, actions.length);
   actions.push(
     // enable the new trigger
@@ -140,7 +145,7 @@ function endReflexAndEnableFollowUpWithTimeout(actions: Action[], i: number, new
     },
     {
       action: 'script',
-      script: '//The following two actions emulate the expire option of WaitFor'
+      script: '//The following two actions emulate the expire option of WaitFor',
     },
     {
       action: 'wait',
@@ -151,7 +156,7 @@ function endReflexAndEnableFollowUpWithTimeout(actions: Action[], i: number, new
       action: 'disable',
       type: 'trigger',
       name: newTriggerName,
-    }
+    },
   );
 }
 
@@ -208,4 +213,3 @@ const convertPackage = (pkg: Package) => {
 };
 
 export { convertPackage, convertActions };
-
