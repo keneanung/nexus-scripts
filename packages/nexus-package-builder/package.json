@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-package-builder",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "Tool to create an Iron Realms Nexus native package from individual files",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
@@ -11,7 +11,7 @@
   },
   "main": "lib/index.js",
   "devDependencies": {
-    "@keneanung/iron-realms-nexus-typings": "^0.7.1",
+    "@keneanung/iron-realms-nexus-typings": "^1.0.0",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^20.19.43"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@keneanung/nexus-bashing-priorities",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Bashing priority module for Iron Realms Nexus 3",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
@@ -12,8 +12,8 @@
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
   "devDependencies": {
-    "@keneanung/iron-realms-nexus-typings": "^0.7.1",
-    "@keneanung/nexus-package-builder": "^1.4.1"
+    "@keneanung/iron-realms-nexus-typings": "^1.0.0",
+    "@keneanung/nexus-package-builder": "^1.5.0"
   },
   "scripts": {
     "serve": "webpack serve --mode development",
