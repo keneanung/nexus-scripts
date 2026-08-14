@@ -54,7 +54,7 @@ const config = {
     '^.+\\.(m?jsx?)$': swcJavaScriptTransform,
   },
   transformIgnorePatterns: [
-    '/node_modules/(?!(uuid|msw|@mswjs|until-async|headers-polyfill|is-node-process|outvariant|strict-event-emitter|graphql|graphql-tag|cookie|set-cookie-parser|rettime)/)',
+    '/node_modules/(?!(uuid|msw|@mswjs|@open-draft|until-async|headers-polyfill|is-node-process|outvariant|strict-event-emitter|graphql|graphql-tag|cookie|set-cookie-parser|rettime)/)',
   ],
   testPathIgnorePatterns:[
       "/node_modules/",
