@@ -9,7 +9,7 @@
   "devDependencies": {
     "@keneanung/iron-realms-nexus-typings": "^0.7.1",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^20.19.43"
+    "@types/node": "^24.13.3"
   },
   "scripts": {
     "build": "node ../../node_modules/@typescript/native/bin/tsc",
