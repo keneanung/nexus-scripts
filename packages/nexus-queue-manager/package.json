@@ -4,7 +4,11 @@
   "description": "A queue manager for Iron Realms Nexus 3",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
-  "repository": "git://github.com/keneanung/nexus-scripts.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keneanung/nexus-scripts.git",
+    "directory": "packages/nexus-queue-manager"
+  },
   "main": "lib/src/index.js",
   "typings": "lib/src/index.d.ts",
   "devDependencies": {
@@ -21,7 +25,6 @@
     "watchTest": "jest --collect-coverage --config jestconfig.js --watch",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"src/**/*.{ts,tsx}\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
-    "version": "npm test && npm run lint && npm run format && git add -A src",
     "nxs": "npm run webpack && nexus-package-builder -v $(jq -r '.version' package.json) nxs/queueManager.yaml nxs/",
     "nxsProd": "npm run webpackProd && nexus-package-builder -v $(jq -r '.version' package.json) nxs/queueManager.yaml nxs/"
   },
@@ -29,5 +32,8 @@
     "lib/**/*",
     "!lib/**/__tests__/*",
     "!lib/webpack/**/*"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

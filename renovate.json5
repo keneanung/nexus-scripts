@@ -1,58 +1,69 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  /***** General settings *****/
-
-  // Use recommended defaults
-  "extends": [
-    "config:base",
-    ":semanticCommits",
-    ":semanticCommitScopeDisabled"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
+    ':dependencyDashboard',
+    ':semanticCommits',
+    ':semanticCommitScopeDisabled',
+    'group:monorepos',
   ],
-
-  // Run on a monthly schedule to keep interruptions to a minimum,
-  //  but always open vulnerability-fixing pull requests immediately
-  "schedule": "before 9am on the first day of the week",
-  "timezone": "America/Detroit",
-  "vulnerabilityAlerts": {
-    "labels": ["security"],
-    "schedule": "at any time"
+  schedule: ['before 9am on Monday'],
+  timezone: 'Europe/Berlin',
+  minimumReleaseAge: '7 days',
+  internalChecksFilter: 'strict',
+  rangeStrategy: 'bump',
+  vulnerabilityAlerts: {
+    labels: ['security'],
+    schedule: ['at any time'],
   },
-
-  // Avoid updating to unstable versions
-  "ignoreUnstable": true,
-  "stabilityDays": 7,
-
-  /***** Node.js settings *****/
-
-  // When updating, bump version ranges (e.g. ^0.1.3 -> ^0.1.4)
-  "rangeStrategy": "bump",
-
-  // Keep package-lock.json updated, similar to `npm audit fix`
-  "lockFileMaintenance": {
-    "enabled": true
+  lockFileMaintenance: {
+    enabled: true,
+    schedule: ['before 9am on the first day of the month'],
   },
-
-  "packageRules": [
-
-    // Group updates into "dependencies" and "dev dependencies" rather
-    //  than having a separate pull request per updated package
+  packageRules: [
     {
-      "depTypeList": ["dependencies"],
-      "groupName": "Dependencies"
+      description: 'Release runtime dependency updates as fixes',
+      matchManagers: ['npm'],
+      matchDepTypes: ['dependencies'],
+      semanticCommitType: 'fix',
+      semanticCommitScope: 'deps',
     },
     {
-      "depTypeList": ["devDependencies"],
-      "groupName": "Dev Dependencies"
+      description: 'Group non-major runtime dependency updates',
+      matchManagers: ['npm'],
+      matchDepTypes: ['dependencies'],
+      matchUpdateTypes: ['minor', 'patch', 'digest'],
+      groupName: 'runtime dependencies (non-major)',
     },
     {
-      "matchFileNames": ["website/**"],
-      "groupName": "Website Dependencies"
+      description: 'Group and automerge safe non-major development updates',
+      matchManagers: ['npm'],
+      matchDepTypes: ['devDependencies'],
+      matchPackageNames: ['!typescript', '!@typescript/native', '!react', '!react-dom'],
+      matchUpdateTypes: ['minor', 'patch', 'digest'],
+      groupName: 'development dependencies (non-major)',
+      automerge: true,
+      automergeType: 'pr',
+    },
+    {
+      description: 'Keep the side-by-side TypeScript compilers together',
+      matchManagers: ['npm'],
+      matchPackageNames: ['typescript', '@typescript/native'],
+      groupName: 'TypeScript compilers',
+    },
+    {
+      description: 'Keep the website dependency updates together',
+      matchManagers: ['npm'],
+      matchFileNames: ['website/**'],
+      matchUpdateTypes: ['minor', 'patch', 'digest'],
+      groupName: 'website dependencies (non-major)',
+    },
+    {
+      description: 'Match the React runtime supplied by Nexus',
+      matchManagers: ['npm'],
+      matchPackageNames: ['react', 'react-dom'],
+      allowedVersions: '19.2.4',
     },
   ],
-  
-  // Docusaurus does not work with mdx-js/react version 2
-  "ignoreDeps": ["@mdx-js/react"],
-  "constraints": {
-    "npm": "^12.0.2"
-  }
+  ignoreDeps: ['@mdx-js/react'],
 }

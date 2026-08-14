@@ -4,7 +4,11 @@
   "description": "Package Manager for the Iron Realms Nexus 3 client",
   "author": "keneanung <keneanung@gmail.com>",
   "license": "MIT",
-  "repository": "git://github.com/keneanung/nexus-package-manager.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keneanung/nexus-scripts.git",
+    "directory": "packages/nexus-package-manager"
+  },
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
   "devDependencies": {
@@ -23,7 +27,6 @@
     "watchTest": "jest --collect-coverage --config jestconfig.json --watch",
     "format": "prettier --write \"src/**/*.{ts,tsx}\" \"src/**/*.{ts,tsx}\"",
     "prepublishOnly": "npm test && npm run lint && npm run build",
-    "version": "npm test && npm run lint && npm run format && git add -A src",
     "nxs": "npm run webpack && nexus-package-builder -v $(jq -r '.version' package.json) nxs/nexusPackageManager.yaml nxs/",
     "nxsProd": "npm run webpackProd && nexus-package-builder -v $(jq -r '.version' package.json) nxs/nexusPackageManager.yaml nxs/"
   },
@@ -40,5 +43,8 @@
   "peerDependencies": {
     "react": "19.2.4",
     "react-dom": "19.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
