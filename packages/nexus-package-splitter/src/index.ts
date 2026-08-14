@@ -2,11 +2,11 @@
 import { Command } from 'commander';
 import { splitPackage } from './splitPackage';
 import { exit } from 'process';
-import getPackageVersion from '@jsbits/get-package-version';
+import { getCurrentPackageVersion } from './getCurrentPackageVersion';
 
 const program = new Command();
 program
-  .version(getPackageVersion())
+  .version(getCurrentPackageVersion())
   .argument('<package-file>', 'NXS package file.')
   .argument('<output-dir>', 'Output directory');
 

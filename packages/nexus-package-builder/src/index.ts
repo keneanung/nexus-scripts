@@ -2,11 +2,11 @@
 import { Command } from 'commander';
 import { createPackage } from './createPackage';
 import { exit } from 'process';
-import getPackageVersion from '@jsbits/get-package-version';
+import { getCurrentPackageVersion } from './getCurrentPackageVersion';
 
 const program = new Command();
 program
-  .version(getPackageVersion())
+  .version(getCurrentPackageVersion())
   .option('-v, --packageVersion <version>', 'override the package version from the package definition file')
   .argument('<package-definition>', 'YAML file with the package definition.')
   .argument('<output-dir>', 'Output directory');
