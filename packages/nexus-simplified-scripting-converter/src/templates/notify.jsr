@@ -1,9 +1,9 @@
 {
-  let cmd = "{{:notice}}";
+  let cmd = {{:~json(notice)}};
   if(args){
     cmd = do_replace(cmd, args);
     // with empty replacement argument to do general variable replacement
     cmd = nexusclient.variables().expand(cmd);
   }
-  nexusclient.display_notice(cmd, "{{:notice_fg}}", "{{:notice_bg}}")
+  nexusclient.display_notice(cmd, {{:~json(notice_fg)}}, {{:~json(notice_bg)}})
 }

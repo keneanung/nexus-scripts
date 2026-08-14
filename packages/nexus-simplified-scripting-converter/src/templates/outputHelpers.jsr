@@ -1,0 +1,46 @@
+const _nsscOutputMatch = {
+  line: args && args.input ? args.input : '',
+  index: args && typeof args.index === 'number' ? args.index : 0,
+  match: args && args[0] ? args[0] : '',
+  captures: args || []
+};
+
+const _nsscOutputRange = (kind, backref) => {
+  if (kind === 'line') return { start: 0, length: _nsscOutputMatch.line.length };
+  if (kind === 'match') return { start: _nsscOutputMatch.index, length: _nsscOutputMatch.match.length };
+  if (kind === 'prefix') return { start: 0, length: _nsscOutputMatch.index };
+  if (kind === 'suffix') {
+    const start = _nsscOutputMatch.index + _nsscOutputMatch.match.length;
+    return { start, length: _nsscOutputMatch.line.length - start };
+  }
+  const capture = _nsscOutputMatch.captures[parseInt(backref)];
+  if (capture == null) return null;
+  const offset = _nsscOutputMatch.match.indexOf(capture);
+  if (offset < 0) return null;
+  return { start: _nsscOutputMatch.index + offset, length: capture.length };
+};
+
+const _nsscUpdateOutputMatch = (range, replacement, kind) => {
+  _nsscOutputMatch.line =
+    _nsscOutputMatch.line.substring(0, range.start) +
+    replacement +
+    _nsscOutputMatch.line.substring(range.start + range.length);
+  if (kind === 'prefix') {
+    _nsscOutputMatch.index = replacement.length;
+  } else if (kind === 'suffix') {
+    // The suffix does not affect the match position.
+  } else if (kind === 'match') {
+    _nsscOutputMatch.match = replacement;
+    _nsscOutputMatch.captures[0] = replacement;
+  }
+};
+
+const _nsscOutputValue = (type, value) => {
+  if (!type || type === 'value') return value;
+  if (type === 'variable') {
+    const name = value.startsWith('@') ? value.slice(1) : value;
+    return nexusclient.variables().get(name);
+  }
+  if (type === 'target') return nexusclient.datahandler().current_target();
+  if (type === 'capture') return args ? args[parseInt(value)] : undefined;
+};

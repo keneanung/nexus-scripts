@@ -1,10 +1,10 @@
 {
   const buttons = nexusclient.ui().buttons();
-  const buttonId = {{:buttonid}};
+  const buttonId = parseInt({{:~json(buttonid)}});
   const button = buttons.get(buttonId);
   if(button && (buttonId >= 1) && (buttonId <= buttons.count)){
-    {{if buttonaction === 'label'}}buttons.set(buttonId, button.commands, '{{:label}}', button.target_picker);
-    {{else buttonaction === 'command'}}buttons.set(buttonId, '{{:command}}', button.label, button.target_picker);
+    {{if buttonaction === 'label'}}buttons.set(buttonId, button.commands, {{:~json(label)}}, button.target_picker);
+    {{else buttonaction === 'command'}}buttons.set(buttonId, {{:~json(command)}}, button.label, button.target_picker);
     {{else buttonaction === 'highlight'}}if(!button.highlight){
       buttons.highlight_button(buttonId, true);
     }

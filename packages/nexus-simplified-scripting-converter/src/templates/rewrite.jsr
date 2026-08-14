@@ -1,0 +1,14 @@
+if (nexusclient.current_line) {
+  const range = _nsscOutputRange({{:~json(rewrite)}}, {{:~json(rewrite_backref)}});
+  const replacement = _nsscOutputValue({{:~json(rewrite_text_type)}}, {{:~json(rewrite_text)}});
+  if (range && replacement != null) {
+    const text = nexusclient.current_line.parsed_line.text();
+    {{if rewrite_colors}}
+    const background = nexusclient.settings().convert_bgcolor({{:~json(rewrite_bg)}});
+    text.replace(range.start, range.start + range.length, replacement, {{:~json(rewrite_fg)}}, background);
+    {{else}}
+    text.replace(range.start, range.start + range.length, replacement);
+    {{/if}}
+    _nsscUpdateOutputMatch(range, replacement.toString(), {{:~json(rewrite)}});
+  }
+}

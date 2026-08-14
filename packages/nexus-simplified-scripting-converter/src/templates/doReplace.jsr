@@ -8,7 +8,7 @@ const do_replace = (cmd, args) => {
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if(args.length > 1){
-    for(let i = 1; i++; i < args.length){
+    for(let i = 1; i < args.length; i++){
       replace[i] = args[i];
     }
   }

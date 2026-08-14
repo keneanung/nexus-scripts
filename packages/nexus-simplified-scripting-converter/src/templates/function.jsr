@@ -1,1 +1,1 @@
-{{if fn && fn.length > 0}}nexusclient.reflexes().run_function("{{:fn}}"){{/if}}
+{{if fn && fn.length > 0}}nexusclient.reflexes().run_function({{:~json(fn)}}){{/if}}

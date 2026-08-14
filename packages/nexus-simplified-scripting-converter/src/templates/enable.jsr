@@ -1,7 +1,7 @@
 {
-  const reflex = nexusclient.reflexes().find_by_name("{{:type}}", "{{:name}}", true, false, current_package);
+  const reflex = nexusclient.reflexes().find_by_name({{:~json(type)}}, {{:~json(name)}}, true, false, current_package);
   if(!reflex){
-    nexusclient.display_notice('Enable reflex: unable to find any {{:type}} called "{{:name}}" in ' + (current_package?current_package:'global reflexes'), 'red');
+    nexusclient.display_notice('Enable reflex: unable to find ' + {{:~json(type)}} + ' ' + {{:~json(name)}} + ' in ' + (current_package?current_package:'global reflexes'), 'red');
   }else{
     nexusclient.reflexes().enable_reflex(reflex);
   }

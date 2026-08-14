@@ -1,12 +1,12 @@
 {
-  const name = '{{:varname}}'
-  {{if valtype === 'value'}}const value = '{{:value}}';
-  {{else valtype === 'variable'}}let value = '{{if !value.startsWith('@')}}@{{/if}}{{:value}}';
+  const name = {{:~json(varname)}}
+  {{if valtype === 'value'}}const value = {{:~json(value)}};
+  {{else valtype === 'variable'}}let value = {{if !value.startsWith('@')}}'@' + {{/if}}{{:~json(value)}};
   value = do_replace(value, args);
   // do the replacement with global variables
   value = nexusclient.variables().expand(value);
   {{else valtype === 'target'}}const value = nexusclient.datahandler().current_target();
-  {{else valtype === 'capture'}}const value = args[{{:value}}];
+  {{else valtype === 'capture'}}const value = args[parseInt({{:~json(value)}})];
   {{/if}}
   {{if op === 'add'}}nexusclient.variables().inc(name, value)
   {{else op === 'sub'}}nexusclient.variables().dec(name, value)

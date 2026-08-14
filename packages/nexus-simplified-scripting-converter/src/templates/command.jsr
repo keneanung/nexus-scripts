@@ -1,5 +1,5 @@
 {
-  let cmd = "{{:command}}";
+  let cmd = {{:~json(command)}};
   if(args){
     
     cmd = do_replace(cmd, args)

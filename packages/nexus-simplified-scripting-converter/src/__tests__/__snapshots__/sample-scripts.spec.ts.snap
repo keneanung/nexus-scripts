@@ -31,7 +31,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -43,6 +43,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "sw";
@@ -78,7 +79,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -90,6 +91,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "s";
@@ -125,7 +127,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -137,6 +139,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "se";
@@ -172,7 +175,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -184,6 +187,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "w";
@@ -219,7 +223,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -231,6 +235,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "look";
@@ -266,7 +271,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -278,6 +283,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "e";
@@ -313,7 +319,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -325,6 +331,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "nw";
@@ -360,7 +367,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -372,6 +379,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "n";
@@ -407,7 +415,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -419,6 +427,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "ne";
@@ -454,7 +463,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -466,6 +475,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "out";
@@ -501,7 +511,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -513,6 +523,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "down";
@@ -548,7 +559,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -560,6 +571,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "up";
@@ -595,7 +607,7 @@ exports[`Numpad movement 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -607,6 +619,7 @@ exports[`Numpad movement 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // command action (index 0)
 {
   let cmd = "in";
@@ -665,7 +678,7 @@ exports[`timeout 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -677,6 +690,7 @@ exports[`timeout 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // wait action (index 0)
 setTimeout(() => {
   // notify action (index 1)
@@ -689,6 +703,7 @@ setTimeout(() => {
     }
     nexusclient.display_notice(cmd, "#ff0000", "#000000")
   }
+
 }, 2036);",
         },
       ],
@@ -726,7 +741,7 @@ exports[`waitfor 1`] = `
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -738,6 +753,7 @@ exports[`waitfor 1`] = `
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // notify action (index 0)
 {
   let cmd = "Before WaitFor";
@@ -748,16 +764,17 @@ exports[`waitfor 1`] = `
   }
   nexusclient.display_notice(cmd, "#ff0000", "#000000")
 }
+
 // enable action (index 1)
 {
   const reflex = nexusclient.reflexes().find_by_name("trigger", "Wait For 'hi' f59a967a-3472-443c-af38-f4709b01915c", true, false, current_package);
   if (!reflex) {
-    nexusclient.display_notice('Enable reflex: unable to find any trigger called "Wait For '
-      hi ' f59a967a-3472-443c-af38-f4709b01915c" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+    nexusclient.display_notice('Enable reflex: unable to find ' + "trigger" + ' ' + "Wait For 'hi' f59a967a-3472-443c-af38-f4709b01915c" + ' in ' + (current_package ? current_package : 'global reflexes'), 'red');
   } else {
     nexusclient.reflexes().enable_reflex(reflex);
   }
 }
+
 // script action (index 2)
 {
   //The following two actions emulate the expire option of WaitFor
@@ -768,12 +785,12 @@ setTimeout(() => {
   {
     const reflex = nexusclient.reflexes().find_by_name("trigger", "Wait For 'hi' f59a967a-3472-443c-af38-f4709b01915c", true, false, current_package);
     if (!reflex) {
-      nexusclient.display_notice('Disable reflex: unable to find any trigger called "Wait For '
-        hi ' f59a967a-3472-443c-af38-f4709b01915c" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+      nexusclient.display_notice('Disable reflex: unable to find ' + "trigger" + ' ' + "Wait For 'hi' f59a967a-3472-443c-af38-f4709b01915c" + ' in ' + (current_package ? current_package : 'global reflexes'), 'red');
     } else {
       nexusclient.reflexes().disable_reflex(reflex);
     }
   }
+
 }, 5000);",
         },
       ],
@@ -803,7 +820,7 @@ setTimeout(() => {
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -815,16 +832,17 @@ setTimeout(() => {
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // disableme action (index 0)
 {
   const reflex = nexusclient.reflexes().find_by_name("trigger", "Wait For 'hi' f59a967a-3472-443c-af38-f4709b01915c", true, false, current_package);
   if (!reflex) {
-    nexusclient.display_notice('Disable reflex: unable to find any trigger called "Wait For '
-      hi ' f59a967a-3472-443c-af38-f4709b01915c" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+    nexusclient.display_notice('Disable reflex: unable to find ' + "trigger" + ' ' + "Wait For 'hi' f59a967a-3472-443c-af38-f4709b01915c" + ' in ' + (current_package ? current_package : 'global reflexes'), 'red');
   } else {
     nexusclient.reflexes().disable_reflex(reflex);
   }
 }
+
 // notify action (index 1)
 {
   let cmd = "After WaitFor";
@@ -835,16 +853,17 @@ setTimeout(() => {
   }
   nexusclient.display_notice(cmd, "#ff0000", "#000000")
 }
+
 // enable action (index 2)
 {
   const reflex = nexusclient.reflexes().find_by_name("trigger", "Wait For 'foo' 801a3a41-c5d2-4f39-bf5e-c17d94280a25", true, false, current_package);
   if (!reflex) {
-    nexusclient.display_notice('Enable reflex: unable to find any trigger called "Wait For '
-      foo ' 801a3a41-c5d2-4f39-bf5e-c17d94280a25" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+    nexusclient.display_notice('Enable reflex: unable to find ' + "trigger" + ' ' + "Wait For 'foo' 801a3a41-c5d2-4f39-bf5e-c17d94280a25" + ' in ' + (current_package ? current_package : 'global reflexes'), 'red');
   } else {
     nexusclient.reflexes().enable_reflex(reflex);
   }
 }
+
 // script action (index 3)
 {
   //The following two actions emulate the expire option of WaitFor
@@ -855,12 +874,12 @@ setTimeout(() => {
   {
     const reflex = nexusclient.reflexes().find_by_name("trigger", "Wait For 'foo' 801a3a41-c5d2-4f39-bf5e-c17d94280a25", true, false, current_package);
     if (!reflex) {
-      nexusclient.display_notice('Disable reflex: unable to find any trigger called "Wait For '
-        foo ' 801a3a41-c5d2-4f39-bf5e-c17d94280a25" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+      nexusclient.display_notice('Disable reflex: unable to find ' + "trigger" + ' ' + "Wait For 'foo' 801a3a41-c5d2-4f39-bf5e-c17d94280a25" + ' in ' + (current_package ? current_package : 'global reflexes'), 'red');
     } else {
       nexusclient.reflexes().disable_reflex(reflex);
     }
   }
+
 }, 10000);",
             },
           ],
@@ -886,7 +905,7 @@ setTimeout(() => {
   replace["prefix"] = prefix;
   replace["suffix"] = suffix;
   if (args.length > 1) {
-    for (let i = 1; i++; i < args.length) {
+    for (let i = 1; i < args.length; i++) {
       replace[i] = args[i];
     }
   }
@@ -898,16 +917,17 @@ setTimeout(() => {
   cmd = nexusclient.variables().expand(cmd, replace);
   return cmd
 }
+
 // disableme action (index 0)
 {
   const reflex = nexusclient.reflexes().find_by_name("trigger", "Wait For 'foo' 801a3a41-c5d2-4f39-bf5e-c17d94280a25", true, false, current_package);
   if (!reflex) {
-    nexusclient.display_notice('Disable reflex: unable to find any trigger called "Wait For '
-      foo ' 801a3a41-c5d2-4f39-bf5e-c17d94280a25" in ' + (current_package ? current_package : 'global reflexes'), 'red');
+    nexusclient.display_notice('Disable reflex: unable to find ' + "trigger" + ' ' + "Wait For 'foo' 801a3a41-c5d2-4f39-bf5e-c17d94280a25" + ' in ' + (current_package ? current_package : 'global reflexes'), 'red');
   } else {
     nexusclient.reflexes().disable_reflex(reflex);
   }
 }
+
 // notify action (index 1)
 {
   let cmd = "after second WaitFor";

@@ -1,9 +1,9 @@
 {
-  let title = "{{:heading}}"
+  let title = {{:~json(heading)}}
   if(args){
     title = do_replace(title, args)
   }
-  let text = "{{:text}}"
+  let text = {{:~json(text)}}
   if(args){
     text = do_replace(text, args)
   }

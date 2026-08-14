@@ -1,0 +1,20 @@
+if (nexusclient.current_line) {
+  const range = _nsscOutputRange({{:~json(linkify)}}, {{:~json(linkify_backref)}});
+  const linkText = _nsscOutputValue({{:~json(linkify_text_type)}}, {{:~json(linkify_text)}});
+  const command = _nsscOutputValue({{:~json(linkify_command_type)}}, {{:~json(linkify_command)}});
+  if (range) {
+    const text = nexusclient.current_line.parsed_line.text();
+    text.linkify(
+      range.start,
+      range.start + range.length,
+      {{:~json(linkify_color)}},
+      command,
+      linkText,
+      nexusclient.settings().reverted
+    );
+    const replacement = linkText || command;
+    if (replacement) {
+      _nsscUpdateOutputMatch(range, replacement.toString(), {{:~json(linkify)}});
+    }
+  }
+}
