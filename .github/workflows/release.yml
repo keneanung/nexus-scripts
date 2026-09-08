@@ -22,7 +22,7 @@ jobs:
       - name: Create or update the release pull request
         if: github.event_name == 'push'
         id: release
-        uses: googleapis/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           token: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
 
