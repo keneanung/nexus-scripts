@@ -17,7 +17,7 @@
     "acorn": "^8.18.0"
   },
   "dependencies": {
-    "uuid": "^13.0.2"
+    "uuid": "^14.0.2"
   },
   "scripts": {
     "serve": "webpack serve --mode development",
