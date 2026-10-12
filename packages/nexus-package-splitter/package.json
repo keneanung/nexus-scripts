@@ -36,7 +36,7 @@
   "devDependencies": {
     "@keneanung/iron-realms-nexus-typings": "^1.0.0",
     "@types/js-yaml": "^4.0.9",
-    "@types/node": "^24.13.3"
+    "@types/node": "^24.19.1"
   },
   "dependencies": {
     "@jsbits/get-package-version": "^1.0.3",
